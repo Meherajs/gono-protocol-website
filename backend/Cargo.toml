@@ -1,8 +1,9 @@
 [package]
 name = "numbers_backend"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
-description = "Numbers Protocol Backend API"
+description = "Numbers Protocol Backend API - Provenance infrastructure for humans and AI"
+authors = ["Numbers Protocol"]
 
 [dependencies]
 actix-web = "4"
@@ -11,3 +12,9 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1", features = ["full"] }
 chrono = { version = "0.4", features = ["serde"] }
+env_logger = "0.11"
+log = "0.4"
+
+[profile.release]
+opt-level = 3
+lto = true

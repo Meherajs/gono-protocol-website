@@ -1,15 +1,54 @@
+import { api, Stats } from "@/lib/api";
+import { StatSkeleton } from "./Skeleton";
+
+async function HeroStats() {
+    const stats = await api.getStats();
+
+    if (!stats) {
+        return (
+            <div className="flex items-center gap-8">
+                <StatSkeleton />
+                <div className="w-px h-10 bg-white/[0.08]" />
+                <StatSkeleton />
+                <div className="w-px h-10 bg-white/[0.08]" />
+                <StatSkeleton />
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex flex-wrap items-center gap-8">
+            <div className="flex flex-col">
+                <span className="text-2xl font-bold font-mono gradient-text-primary">
+                    {stats.assets_registered}
+                </span>
+                <span className="text-sm text-zinc-500">Assets Registered</span>
+            </div>
+            <div className="w-px h-10 bg-white/[0.08] hidden sm:block" />
+            <div className="flex flex-col">
+                <span className="text-2xl font-bold font-mono gradient-text-primary">
+                    {stats.active_users}
+                </span>
+                <span className="text-sm text-zinc-500">Active Users</span>
+            </div>
+            <div className="w-px h-10 bg-white/[0.08] hidden sm:block" />
+            <div className="flex flex-col">
+                <span className="text-2xl font-bold font-mono gradient-text-primary">
+                    {stats.partners}+
+                </span>
+                <span className="text-sm text-zinc-500">Partners</span>
+            </div>
+        </div>
+    );
+}
+
 export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 pointer-events-none">
-                {/* Gradient Glow */}
                 <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[150%] h-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] opacity-60" />
-
-                {/* Grid */}
                 <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_at_center,black_0%,transparent_70%)]" />
-
-                {/* Floating Glow */}
                 <div className="absolute top-[20%] right-[10%] w-96 h-96 bg-[radial-gradient(circle,rgba(34,211,238,0.1)_0%,transparent_60%)] rounded-full blur-3xl animate-float" />
             </div>
 
@@ -17,7 +56,7 @@ export default function Hero() {
                 {/* Content */}
                 <div className="animate-fade-in-up">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-zinc-400 mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-zinc-400 mb-6 group hover:border-indigo-500/50 transition-colors">
                         <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-glow" />
                         <span>Decentralized Provenance Standard</span>
                     </div>
@@ -31,7 +70,7 @@ export default function Hero() {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-lg text-zinc-400 max-w-lg mb-8">
+                    <p className="text-lg text-zinc-400 max-w-lg mb-8 leading-relaxed">
                         Secure digital media authenticity through blockchain technology.
                         Create immutable records of attribution and ownership for every piece of content.
                     </p>
@@ -40,57 +79,33 @@ export default function Hero() {
                     <div className="flex flex-wrap gap-4 mb-12">
                         <a
                             href="#"
-                            className="gradient-primary px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:scale-105 transition-transform glow-sm"
+                            className="gradient-primary px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25 transition-all glow-sm group"
                         >
                             Start Building
-                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M5 12h14M12 5l7 7-7 7"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
+                            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </a>
                         <a
                             href="#"
-                            className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all"
+                            className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all hover:scale-105"
                         >
                             View Documentation
                         </a>
                     </div>
 
                     {/* Stats */}
-                    <div className="flex items-center gap-8">
-                        <div className="flex flex-col">
-                            <span className="text-2xl font-bold font-mono gradient-text-primary">10M+</span>
-                            <span className="text-sm text-zinc-500">Assets Registered</span>
-                        </div>
-                        <div className="w-px h-10 bg-white/[0.08]" />
-                        <div className="flex flex-col">
-                            <span className="text-2xl font-bold font-mono gradient-text-primary">100K+</span>
-                            <span className="text-sm text-zinc-500">Active Users</span>
-                        </div>
-                        <div className="w-px h-10 bg-white/[0.08]" />
-                        <div className="flex flex-col">
-                            <span className="text-2xl font-bold font-mono gradient-text-primary">50+</span>
-                            <span className="text-sm text-zinc-500">Partners</span>
-                        </div>
-                    </div>
+                    <HeroStats />
                 </div>
 
                 {/* Visual Card */}
                 <div className="hidden md:flex justify-center animate-fade-in-up delay-200">
-                    <div className="w-full max-w-md glass rounded-2xl overflow-hidden shadow-2xl">
-                        {/* Card Header */}
+                    <div className="w-full max-w-md glass rounded-2xl overflow-hidden shadow-2xl hover:shadow-indigo-500/10 transition-shadow">
                         <div className="flex gap-1.5 p-4 border-b border-white/[0.08]">
                             <span className="w-3 h-3 rounded-full bg-emerald-400" />
                             <span className="w-3 h-3 rounded-full bg-yellow-400" />
                             <span className="w-3 h-3 rounded-full bg-red-400" />
                         </div>
-
-                        {/* Provenance Chain */}
                         <div className="p-6 space-y-4">
                             {[
                                 { icon: "📷", label: "Capture", detail: "2024-01-15 09:42:33" },
@@ -98,8 +113,8 @@ export default function Hero() {
                                 { icon: "✓", label: "Verified", detail: "Authentic", highlight: true },
                             ].map((node, i) => (
                                 <div key={i}>
-                                    <div className="flex items-center gap-4 p-4 glass rounded-lg glass-hover transition-all cursor-pointer">
-                                        <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a1a] rounded-lg text-xl">
+                                    <div className="flex items-center gap-4 p-4 glass rounded-lg glass-hover transition-all cursor-pointer group hover:scale-[1.02]">
+                                        <div className="w-10 h-10 flex items-center justify-center bg-[#1a1a1a] rounded-lg text-xl group-hover:scale-110 transition-transform">
                                             {node.icon}
                                         </div>
                                         <div className="flex flex-col">
