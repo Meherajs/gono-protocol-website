@@ -2,8 +2,6 @@
 
 > **Provenance infrastructure for humans and AI**
 
-A full-stack recreation of the [Numbers Protocol](https://numbersprotocol.io) website featuring a modern dark theme, blockchain provenance visualization, and a complete REST API.
-
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js" alt="Next.js"/>
   <img src="https://img.shields.io/badge/Tailwind-4.0-38bdf8?style=for-the-badge&logo=tailwindcss" alt="Tailwind"/>
