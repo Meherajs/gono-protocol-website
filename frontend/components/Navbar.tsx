@@ -66,6 +66,7 @@ export default function Navbar() {
                                     className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide"
                                 >
                                     {item.name}
+                                    {item.name === "CAREERS" && <span className="ml-2 text-xs text-amber-500">(Coming Soon)</span>}
                                 </Link>
                             </li>
                         ))}
@@ -100,14 +101,20 @@ export default function Navbar() {
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setGonoDropdownOpen(false)}
                                     >
-                                        DOCS
+                                        <span className="flex items-center justify-between">
+                                            DOCS
+                                            <span className="text-xs text-amber-500 ml-3">Coming Soon</span>
+                                        </span>
                                     </Link>
                                     <Link
                                         href="#"
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setGonoDropdownOpen(false)}
                                     >
-                                        STAKING
+                                        <span className="flex items-center justify-between">
+                                            STAKING
+                                            <span className="text-xs text-amber-500 ml-3">Coming Soon</span>
+                                        </span>
                                     </Link>
                                 </div>
                             )}

@@ -72,7 +72,7 @@ export default function WhitepaperPage() {
                                 Whitepaper
                             </div>
                             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
-                                Gono - Provenance Creates True Values
+                                Gono Protocol
                             </h1>
                             <p className="text-xl text-gray-300 font-medium">
                                 Provenance infrastructure for humans & AI. Once on-chain, it remains forever.
