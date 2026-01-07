@@ -251,20 +251,20 @@ export default function WhitepaperPage() {
                                 <span className="text-amber-500">05.</span> Case Studies
                             </h2>
                             <div className="space-y-6">
-                                <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-l-4 border-purple-500 rounded-r-xl p-6 hover:shadow-lg hover:shadow-purple-500/20 transition-all">
-                                    <h4 className="text-xl font-bold text-purple-300 mb-3 flex items-center gap-2">
+                                <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
+                                    <h4 className="text-xl font-bold text-amber-400 mb-3 flex items-center gap-2">
                                         <span className="text-2xl">📰</span> High-Stakes Journalism
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed">Reporters use the Privacy Pallet to capture geo-tagged evidence anonymously, with funds released upon milestone attestations.</p>
                                 </div>
-                                <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 border-l-4 border-cyan-500 rounded-r-xl p-6 hover:shadow-lg hover:shadow-cyan-500/20 transition-all">
-                                    <h4 className="text-xl font-bold text-cyan-300 mb-3 flex items-center gap-2">
+                                <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
+                                    <h4 className="text-xl font-bold text-amber-400 mb-3 flex items-center gap-2">
                                         <span className="text-2xl">🤖</span> AI Data Marketplaces
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed">AI agents use x402 micropayments to license data, receiving a verifiable usage certificate instantly.</p>
                                 </div>
-                                <div className="bg-gradient-to-br from-emerald-900/20 to-green-900/20 border-l-4 border-emerald-500 rounded-r-xl p-6 hover:shadow-lg hover:shadow-emerald-500/20 transition-all">
-                                    <h4 className="text-xl font-bold text-emerald-300 mb-3 flex items-center gap-2">
+                                <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
+                                    <h4 className="text-xl font-bold text-amber-400 mb-3 flex items-center gap-2">
                                         <span className="text-2xl">🏢</span> Real Estate Pilot
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed">Digital twins of physical property record every booking and payout on-chain, replacing manual audits with real-time transparency.</p>
