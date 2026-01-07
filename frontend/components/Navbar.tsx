@@ -124,7 +124,7 @@ export default function Navbar() {
                     {/* Actions */}
                     <div className="hidden md:flex items-center gap-4">
                         <Link
-                            href="https://github.com/gono-protocol"
+                            href="https://github.com/Meherajs/gono-protocol-website"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-zinc-400 hover:text-white transition-colors"
