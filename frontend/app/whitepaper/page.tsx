@@ -66,24 +66,24 @@ export default function WhitepaperPage() {
 
                     {/* Main Content */}
                     <div className="flex-grow max-w-4xl">
-                    {/* Header */}
-                    <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
-                            Whitepaper
+                        {/* Header */}
+                        <div className="text-center mb-16">
+                            <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                                Whitepaper
+                            </div>
+                            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
+                                Gono - Provenance Creates True Values
+                            </h1>
+                            <p className="text-xl text-gray-300 font-medium">
+                                Provenance infrastructure for humans & AI. Once on-chain, it remains forever.
+                            </p>
+                            <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
+                                Capture, certify, and check digital and real-world assets with verifiable proof at every step.
+                            </p>
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200 bg-clip-text text-transparent">
-                            Gono - Provenance Creates True Values
-                        </h1>
-                        <p className="text-xl text-gray-300 font-medium">
-                            Provenance infrastructure for humans & AI. Once on-chain, it remains forever.
-                        </p>
-                        <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-                            Capture, certify, and check digital and real-world assets with verifiable proof at every step.
-                        </p>
-                    </div>
 
-                    {/* Content Sections */}
-                    <div className="prose prose-invert prose-lg max-w-none">
+                        {/* Content Sections */}
+                        <div className="prose prose-invert prose-lg max-w-none">
                         {/* Section 01: Why Now */}
                         <section className="mb-16">
                             <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3 border-b border-gray-800 pb-4">
@@ -207,6 +207,8 @@ export default function WhitepaperPage() {
                                     </div>
                                 </div>
                             </div>
+                        </section>
+
                         {/* Section 04: Role of the GONO Token */}
                         <section className="mb-16">
                             <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3 border-b border-gray-800 pb-4">
@@ -318,8 +320,9 @@ export default function WhitepaperPage() {
                         </div>
                     </div>
                 </div>
+            </div>
             </main>
-            <Footer />
+            <Footer/>
         </>
-    );
+     );
 }
