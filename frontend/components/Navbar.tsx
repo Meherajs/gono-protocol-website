@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [gonoDropdownOpen, setGonoDropdownOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -68,6 +69,49 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
+                        
+                        {/* GONO Dropdown */}
+                        <li className="relative">
+                            <button
+                                onClick={() => setGonoDropdownOpen(!gonoDropdownOpen)}
+                                onMouseEnter={() => setGonoDropdownOpen(true)}
+                                className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide flex items-center gap-1"
+                            >
+                                GONO
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            
+                            {gonoDropdownOpen && (
+                                <div 
+                                    onMouseLeave={() => setGonoDropdownOpen(false)}
+                                    className="absolute top-full right-0 mt-2 w-48 bg-[#0a0a0a] border border-gray-800 rounded-lg shadow-xl overflow-hidden"
+                                >
+                                    <Link
+                                        href="/whitepaper"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setGonoDropdownOpen(false)}
+                                    >
+                                        WHITEPAPER
+                                    </Link>
+                                    <Link
+                                        href="#"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setGonoDropdownOpen(false)}
+                                    >
+                                        DOCS
+                                    </Link>
+                                    <Link
+                                        href="#"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setGonoDropdownOpen(false)}
+                                    >
+                                        STAKING
+                                    </Link>
+                                </div>
+                            )}
+                        </li>
                     </ul>
 
                     {/* Actions */}
