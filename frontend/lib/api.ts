@@ -1,6 +1,9 @@
 // API configuration
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
 
+// Fallback mode for when backend is not available (e.g., during Vercel build)
+const USE_FALLBACK = process.env.NEXT_PUBLIC_USE_FALLBACK === 'true';
+
 export interface ApiResponse<T> {
     success: boolean;
     data: T;
@@ -77,6 +80,12 @@ export interface UseCase {
 }
 
 async function fetchApi<T>(endpoint: string): Promise<T | null> {
+    // Skip API calls during build if backend is not available
+    if (USE_FALLBACK || typeof window === 'undefined') {
+        console.warn(`API call skipped: ${endpoint} (using fallback data)`);
+        return null;
+    }
+    
     try {
         const response = await fetch(`${API_BASE_URL}${endpoint}`, {
             cache: 'no-store',
