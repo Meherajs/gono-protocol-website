@@ -93,7 +93,10 @@ export default function Navbar() {
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setToolsDropdownOpen(false)}
                                     >
-                                        MAINNET
+                                        <div className="flex items-center justify-between">
+                                            <span>MAINNET</span>
+                                            <span className="text-xs text-orange-500">Coming Soon</span>
+                                        </div>
                                     </Link>
                                     <Link
                                         href="/tools/trustlens"
@@ -114,7 +117,10 @@ export default function Navbar() {
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setToolsDropdownOpen(false)}
                                     >
-                                        CAPTURE
+                                        <div className="flex items-center justify-between">
+                                            <span>RECORD</span>
+                                            <span className="text-xs text-orange-500">Coming Soon</span>
+                                        </div>
                                     </Link>
                                 </div>
                             )}
@@ -236,7 +242,10 @@ export default function Navbar() {
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Mainnet
+                                        <div className="flex items-center justify-between">
+                                            <span>Mainnet</span>
+                                            <span className="text-xs text-orange-500">Coming Soon</span>
+                                        </div>
                                     </Link>
                                     <Link
                                         href="/tools/trustlens"
@@ -257,7 +266,10 @@ export default function Navbar() {
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Capture
+                                        <div className="flex items-center justify-between">
+                                            <span>Record</span>
+                                            <span className="text-xs text-orange-500">Coming Soon</span>
+                                        </div>
                                     </Link>
                                 </div>
                             </li>
@@ -270,7 +282,10 @@ export default function Navbar() {
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Mainnet
+                                        <div className="flex items-center justify-between">
+                                            <span>Mainnet</span>
+                                            <span className="text-xs text-orange-500">Coming Soon</span>
+                                        </div>
                                     </Link>
                                     <Link
                                         href="/tools/trustlens"
@@ -291,7 +306,10 @@ export default function Navbar() {
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Capture
+                                        <div className="flex items-center justify-between">
+                                            <span>Record</span>
+                                            <span className="text-xs text-orange-500">Coming Soon</span>
+                                        </div>
                                     </Link>
                                 </div>
                             </li>
