@@ -7,6 +7,8 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [gonoDropdownOpen, setGonoDropdownOpen] = useState(false);
+    const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
+    const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -69,6 +71,56 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
+                        
+                        {/* TOOLS Dropdown */}
+                        <li className="relative">
+                            <button
+                                onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
+                                onMouseEnter={() => setToolsDropdownOpen(true)}
+                                className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide flex items-center gap-1"
+                            >
+                                TOOLS
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            
+                            {toolsDropdownOpen && (
+                                <div 
+                                    onMouseLeave={() => setToolsDropdownOpen(false)}
+                                    className="absolute top-full right-0 mt-2 w-56 bg-[#0a0a0a] border border-gray-800 rounded-lg shadow-xl overflow-hidden"
+                                >
+                                    <Link
+                                        href="/tools/mainnet"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setToolsDropdownOpen(false)}
+                                    >
+                                        MAINNET
+                                    </Link>
+                                    <Link
+                                        href="/tools/proofsnap"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setToolsDropdownOpen(false)}
+                                    >
+                                        PROOFSNAP
+                                    </Link>
+                                    <Link
+                                        href="/tools/verify-engine"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setToolsDropdownOpen(false)}
+                                    >
+                                        VERIFY ENGINE
+                                    </Link>
+                                    <Link
+                                        href="/tools/capture"
+                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+                                        onClick={() => setToolsDropdownOpen(false)}
+                                    >
+                                        CAPTURE
+                                    </Link>
+                                </div>
+                            )}
+                        </li>
                         
                         {/* GONO Dropdown */}
                         <li className="relative">
@@ -178,6 +230,74 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             ))}
+                                                        {/* TOOLS Section */}
+                            <li className="pt-2 border-t border-white/[0.08]">
+                                <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">TOOLS</span>
+                                <div className="mt-3 flex flex-col gap-3 pl-2">
+                                    <Link
+                                        href="/tools/mainnet"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Mainnet
+                                    </Link>
+                                    <Link
+                                        href="/tools/proofsnap"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        ProofSnap
+                                    </Link>
+                                    <Link
+                                        href="/tools/verify-engine"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Verify Engine
+                                    </Link>
+                                    <Link
+                                        href="/tools/capture"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Capture
+                                    </Link>
+                                </div>
+                            </li>
+                                                        {/* TOOLS Section */}
+                            <li className="pt-2 border-t border-white/[0.08]">
+                                <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">TOOLS</span>
+                                <div className="mt-3 flex flex-col gap-3 pl-2">
+                                    <Link
+                                        href="/tools/mainnet"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Mainnet
+                                    </Link>
+                                    <Link
+                                        href="/tools/proofsnap"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        ProofSnap
+                                    </Link>
+                                    <Link
+                                        href="/tools/verify-engine"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Verify Engine
+                                    </Link>
+                                    <Link
+                                        href="/tools/capture"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Capture
+                                    </Link>
+                                </div>
+                            </li>
                             
                             {/* GONO Section */}
                             <li className="pt-2 border-t border-white/[0.08]">
