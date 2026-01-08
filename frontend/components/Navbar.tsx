@@ -17,6 +17,18 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Prevent background scrolling when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [mobileMenuOpen]);
+
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
@@ -233,47 +245,8 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             ))}
-                                                        {/* TOOLS Section */}
-                            <li className="pt-2 border-t border-white/[0.08]">
-                                <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">TOOLS</span>
-                                <div className="mt-3 flex flex-col gap-3 pl-2">
-                                    <Link
-                                        href="/tools/mainnet"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <span>Mainnet</span>
-                                            <span className="text-xs text-orange-500">Coming Soon</span>
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        href="/tools/trustlens"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        TrustLens
-                                    </Link>
-                                    <Link
-                                        href="/tools/verify-engine"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        Verify Engine
-                                    </Link>
-                                    <Link
-                                        href="/tools/capture"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <span>Record</span>
-                                            <span className="text-xs text-orange-500">Coming Soon</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </li>
-                                                        {/* TOOLS Section */}
+                            
+                            {/* TOOLS Section */}
                             <li className="pt-2 border-t border-white/[0.08]">
                                 <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">TOOLS</span>
                                 <div className="mt-3 flex flex-col gap-3 pl-2">
