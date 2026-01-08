@@ -302,46 +302,46 @@ export default function WhitepaperPage() {
                             <div className="space-y-4 sm:space-y-6">
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">📰</span> Gono Moncho: Decentralized Journalism
+                                        <span className="text-xl sm:text-2xl">🎨</span> Creator Monetization
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed text-sm sm:text-base mb-3">
-                                        A complete censorship-resistant news publishing ecosystem built for countries with restricted press freedom. Journalists anonymously publish content using Zero-Knowledge Proofs (zk-SNARKs) to verify identity without exposure. News articles are stored permanently on Arweave, making deletion impossible even under government pressure.
+                                        Artists register original content with C2PA credentials on-chain via ERC-7053. When AI agents license work through x402 micropayments, they receive verifiable on-chain usage certificates. Fans pre-fund projects by purchasing NFT passes, automatically receiving delivery receipts when promised content is released.
                                     </p>
                                     <p className="text-gray-300 leading-relaxed text-sm">
-                                        <strong className="text-amber-300">Key Features:</strong> Multi-layer verification through AI Oracles and Community Verifiers using SANUB reputation scoring. Dual-token economy with NEWS governance tokens and CRED soulbound reputation tokens. NewsDAO governance ensures decentralized editorial control. All content changes are versioned on-chain via ERC-7053, creating an immutable audit trail.
+                                        <strong className="text-amber-300">Verification Flow:</strong> Anyone can audit the complete history by inspecting C2PA metadata, cross-checking on-chain records to verify the original creator and timestamp, and confirming that promised deliverables were provided to supporters. This provenance trail enhances creator credibility and protects fans from broken promises.
                                     </p>
                                 </div>
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">🎭</span> Deepfake Protection & Content Authenticity
+                                        <span className="text-xl sm:text-2xl">🏠</span> Real Estate Rental
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed text-sm sm:text-base mb-3">
-                                        Celebrities and public figures create an immutable registry of authentic content to combat deepfakes. Content is captured with C2PA-enabled devices embedding cryptographic signatures, GPS coordinates, timestamps, and device metadata at the moment of creation. Original files are permanently stored on Arweave with content hashes anchored on-chain.
+                                        Properties linked to digital-twin NFTs with verifiable condition photos captured via C2PA. GONO-staked witness nodes verify identity and property condition at check-in, uploading signed attestations with C2PA-tagged photos. Revenue splits execute automatically according to the trust schedule, providing investors real-time auditable booking and payout history.
                                     </p>
                                     <p className="text-gray-300 leading-relaxed text-sm">
-                                        <strong className="text-amber-300">Verification Flow:</strong> Anyone can submit suspicious content to the Gono Verification Portal. The system computes the hash and checks against the on-chain registry, instantly returning VERIFIED (matches creator's authentic registry) or UNVERIFIED (potential deepfake). Social media platforms can integrate the verification API for automatic content flagging, shifting the burden from victims to the content itself.
+                                        <strong className="text-amber-300">Key Features:</strong> Renters have provable deposit and refund records backed by witness attestations. Complete rental history (occupancy, incidents, income) is instantly available for refinancing or sale. Every booking, payment, and payout is recorded on the Gono Protocol timeline for full transparency.
                                     </p>
                                 </div>
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">⚡</span> Government & Utility Services
+                                        <span className="text-xl sm:text-2xl">💻</span> DePIN GPU Computing
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed text-sm sm:text-base mb-3">
-                                        Bangladesh's NEIR (National Equipment Identity Register) enhanced with blockchain provenance. Mobile device IMEIs are registered on-chain with C2PA-style signatures linking devices to importers. Each SIM insertion and de-registration creates an immutable provenance record, providing cryptographic proof of ownership transfer and creating tamper-proof blacklists for lost/stolen devices.
+                                        Decentralized GPU facilities represented as NFTs encoding investor rights to revenue portions. Clients pay in stablecoins for compute tasks, receiving usage certificate NFTs upon completion. Payments route automatically into on-chain revenue-split contracts, with witness nodes attesting that computing service was delivered and logging GPU utilization verification.
                                     </p>
                                     <p className="text-gray-300 leading-relaxed text-sm">
-                                        <strong className="text-amber-300">Electricity Providers:</strong> Smart meters equipped with secure signing chips cryptographically sign each reading before transmission. Readings anchored on-chain via ERC-7053 create dispute-proof billing history and enable transparent subsidy tracking. Utility bills become verifiable credentials (non-transferable NFTs) for KYC and address verification, eliminating PDF forgery.
+                                        <strong className="text-amber-300">Transparency Benefits:</strong> Investors can verify GPU performance including tasks run, revenue earned, and correct payouts received. Cumulative on-chain data becomes an auditable financial statement. New potential backers can check history for due diligence, making physical hardware a trust-minimized, revenue-generating on-chain asset.
                                     </p>
                                 </div>
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">🔍</span> isItTrue? Cross-Source News Verification
+                                        <span className="text-xl sm:text-2xl">📰</span> Field Journalism
                                     </h4>
                                     <p className="text-gray-200 leading-relaxed text-sm sm:text-base mb-3">
-                                        AI-powered system monitoring 500+ global news outlets in real-time. Event clustering engine uses NLP to group articles covering the same story, synthesizing comprehensive summaries from all sources. Consensus scoring module calculates credibility (1-100) based on outlet count, weighted credibility via SANUB algorithm, fact alignment, and evidence availability.
+                                        Journalists create Assignment Anchors capturing story proposals, budgets, timelines, and milestones, registered on-chain via ERC-7053 and C2PA. Sponsors receive non-transferable NFT tokens and funds are held in smart contract escrow. When milestones are reached, witness nodes attest with on-chain signatures, triggering payment releases. Geo-tagged C2PA photos prove field work authenticity.
                                     </p>
                                     <p className="text-gray-300 leading-relaxed text-sm">
-                                        <strong className="text-amber-300">Blockchain Integration:</strong> Event summaries anchored on-chain via ERC-7053 create permanent &quot;Event Receipts&quot; with all source links. AI summaries and evidence permanently stored on Arweave. x402 micropayments enable pay-per-query access for AI agents. Result: 50 outlets reporting the same facts = strong signal of truth; 1 outlet contradicting 49 = clear outlier to investigate.
+                                        <strong className="text-amber-300">Monetization & Transparency:</strong> Readers access published content via x402 micropayments, with each access logging a receipt. Sponsors can query Gono Protocol to see the full chronology from funding to publication, verifying funds were used as intended. Non-transferable sponsor tokens with no profit rights avoid securities classification.
                                     </p>
                                 </div>
                             </div>
