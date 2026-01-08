@@ -23,7 +23,7 @@ export default function Navbar() {
                     : "bg-transparent"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
@@ -166,7 +166,7 @@ export default function Navbar() {
                                 { name: "BLOG", href: "#archive" },
                                 { name: "ECOSYSTEM", href: "#ecosystem" },
                                 { name: "ABOUT", href: "#faq" },
-                                { name: "CAREERS", href: "#" },
+                                { name: "CAREERS", href: "/careers" },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
@@ -178,11 +178,40 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             ))}
+                            
+                            {/* GONO Section */}
+                            <li className="pt-2 border-t border-white/[0.08]">
+                                <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">GONO</span>
+                                <div className="mt-3 flex flex-col gap-3 pl-2">
+                                    <Link
+                                        href="/whitepaper"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Whitepaper
+                                    </Link>
+                                    <Link
+                                        href="/docs"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Docs
+                                    </Link>
+                                    <Link
+                                        href="/staking"
+                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Staking
+                                    </Link>
+                                </div>
+                            </li>
                         </ul>
-                        <div className="mt-4 pt-4 border-t border-white/[0.08]">
+                        <div className="mt-6 pt-4 border-t border-white/[0.08]">
                             <Link
                                 href="#products"
-                                className="w-full px-6 py-2.5 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors tracking-wide text-center block"
+                                className="w-full px-6 py-3 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors tracking-wide text-center block"
+                                onClick={() => setMobileMenuOpen(false)}
                             >
                                 BUILD ON GONO
                             </Link>

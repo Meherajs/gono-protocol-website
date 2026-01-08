@@ -1,6 +1,6 @@
 export default function CTA() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-16 sm:py-24 relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] opacity-50" />
 

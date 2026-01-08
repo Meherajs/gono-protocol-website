@@ -7,8 +7,8 @@ const tokenFeatures = [
 
 export default function Ecosystem() {
     return (
-        <section id="ecosystem" className="py-24 bg-[#111111]">
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+        <section id="ecosystem" className="py-16 sm:py-24 bg-[#111111]">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
                 {/* Content */}
                 <div>
                     <span className="inline-block px-3 py-1 text-sm font-medium text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-4">
