@@ -42,13 +42,13 @@ export default function Ecosystem() {
                     {/* CTAs */}
                     <div className="flex gap-4">
                         <a
-                            href="#"
+                            href="/coming-soon"
                             className="gradient-primary px-6 py-3 rounded-lg font-medium hover:scale-105 transition-transform glow-sm"
                         >
                             Get GONO Token
                         </a>
                         <a
-                            href="#"
+                            href="/coming-soon"
                             className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all"
                         >
                             View Tokenomics

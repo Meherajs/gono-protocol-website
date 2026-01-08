@@ -80,7 +80,7 @@ export default function Hero() {
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
                         <a
-                            href="#"
+                            href="/coming-soon"
                             className="gradient-primary px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25 transition-all glow-sm group"
                         >
                             Start Building
@@ -89,7 +89,7 @@ export default function Hero() {
                             </svg>
                         </a>
                         <a
-                            href="#"
+                            href="/docs"
                             className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all hover:scale-105 text-center"
                         >
                             View Documentation

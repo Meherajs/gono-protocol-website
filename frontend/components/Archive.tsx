@@ -137,7 +137,7 @@ export default function Archive() {
                 {/* Link */}
                 <div className="text-center">
                     <a
-                        href="#"
+                        href="/archive"
                         className="inline-flex items-center gap-2 text-indigo-400 font-medium hover:text-indigo-300 transition-colors group"
                     >
                         Explore Full Archive

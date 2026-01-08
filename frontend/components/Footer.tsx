@@ -5,9 +5,9 @@ const footerLinks = {
     Developers: ["Documentation", "SDK", "GitHub", "Status"],
     Company: [
         { label: "About", href: "/about" },
-        { label: "Blog", href: "#" },
+        { label: "Blog", href: "/archive" },
         { label: "Careers", href: "/careers" },
-        { label: "Press", href: "#" }
+        { label: "Press", href: "/coming-soon" }
     ],
     Legal: ["Privacy", "Terms", "Cookies"],
 };
@@ -42,7 +42,7 @@ export default function Footer() {
                         {/* Social */}
                         <div className="flex gap-2">
                             <a
-                                href="#"
+                                href="/coming-soon"
                                 className="w-10 h-10 glass rounded-lg flex items-center justify-center text-zinc-400 hover:text-indigo-400 hover:border-indigo-500 transition-all"
                                 aria-label="X (Twitter)"
                             >
@@ -51,7 +51,7 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a
-                                href="#"
+                                href="/coming-soon"
                                 className="w-10 h-10 glass rounded-lg flex items-center justify-center text-zinc-400 hover:text-indigo-400 hover:border-indigo-500 transition-all"
                                 aria-label="Discord"
                             >
@@ -71,7 +71,7 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a
-                                href="#"
+                                href="/coming-soon"
                                 className="w-10 h-10 glass rounded-lg flex items-center justify-center text-zinc-400 hover:text-indigo-400 hover:border-indigo-500 transition-all"
                                 aria-label="Telegram"
                             >

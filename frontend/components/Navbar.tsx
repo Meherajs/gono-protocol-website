@@ -54,10 +54,9 @@ export default function Navbar() {
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex items-center gap-8">
                         {[
-                            { name: "BUILD", href: "#products" },
                             { name: "USE CASES", href: "/use-cases" },
-                            { name: "BLOG", href: "#archive" },
-                            { name: "ECOSYSTEM", href: "#ecosystem" },
+                            { name: "BLOG", href: "/archive" },
+                            { name: "ECOSYSTEM", href: "/#ecosystem" },
                             { name: "ABOUT", href: "/about" },
                             { name: "CAREERS", href: "/careers" },
                         ].map((item) => (
@@ -212,10 +211,9 @@ export default function Navbar() {
                     <div className="md:hidden mt-4 py-4 border-t border-white/[0.08]">
                         <ul className="flex flex-col gap-4">
                             {[
-                                { name: "BUILD", href: "#products" },
                                 { name: "USE CASES", href: "/use-cases" },
-                                { name: "BLOG", href: "#archive" },
-                                { name: "ECOSYSTEM", href: "#ecosystem" },
+                                { name: "BLOG", href: "/archive" },
+                                { name: "ECOSYSTEM", href: "/#ecosystem" },
                                 { name: "ABOUT", href: "/about" },
                                 { name: "CAREERS", href: "/careers" },
                             ].map((item) => (

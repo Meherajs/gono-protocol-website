@@ -126,7 +126,7 @@ export default function Products() {
                                 </div>
 
                                 <a
-                                    href="#"
+                                    href="/coming-soon"
                                     className="inline-flex items-center gap-2 text-indigo-400 font-medium hover:text-indigo-300 transition-colors"
                                 >
                                     {product.link}

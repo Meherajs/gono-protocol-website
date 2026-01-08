@@ -13,7 +13,7 @@ export default function CTA() {
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <a
-                        href="#"
+                        href="/coming-soon"
                         className="gradient-primary px-8 py-4 rounded-lg font-medium flex items-center justify-center gap-2 hover:scale-105 transition-transform glow-sm"
                     >
                         Get Started Free
@@ -28,7 +28,7 @@ export default function CTA() {
                         </svg>
                     </a>
                     <a
-                        href="#"
+                        href="/coming-soon"
                         className="px-8 py-4 rounded-lg font-medium glass glass-hover transition-all"
                     >
                         Contact Sales
