@@ -54,10 +54,10 @@ export default function Navbar() {
                     <ul className="hidden md:flex items-center gap-8">
                         {[
                             { name: "BUILD", href: "#products" },
-                            { name: "USE CASES", href: "#use-cases" },
+                            { name: "USE CASES", href: "/use-cases" },
                             { name: "BLOG", href: "#archive" },
                             { name: "ECOSYSTEM", href: "#ecosystem" },
-                            { name: "ABOUT", href: "#faq" },
+                            { name: "ABOUT", href: "/about" },
                             { name: "CAREERS", href: "/careers" },
                         ].map((item) => (
                             <li key={item.name}>
@@ -162,10 +162,10 @@ export default function Navbar() {
                         <ul className="flex flex-col gap-4">
                             {[
                                 { name: "BUILD", href: "#products" },
-                                { name: "USE CASES", href: "#use-cases" },
+                                { name: "USE CASES", href: "/use-cases" },
                                 { name: "BLOG", href: "#archive" },
                                 { name: "ECOSYSTEM", href: "#ecosystem" },
-                                { name: "ABOUT", href: "#faq" },
+                                { name: "ABOUT", href: "/about" },
                                 { name: "CAREERS", href: "/careers" },
                             ].map((item) => (
                                 <li key={item.name}>
