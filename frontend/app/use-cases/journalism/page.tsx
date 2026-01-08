@@ -81,7 +81,7 @@ export default function JournalismPage() {
                                         <li>• Funds from sponsors are held in smart contract escrow (in stablecoins)</li>
                                         <li>• When reporter reaches a milestone, a witness node (e.g., editor) attests with on-chain signature</li>
                                         <li>• Smart contract releases payment upon attestation</li>
-                                        <li>• Reporter uses ProofSnap-like tools to capture geo-tagged photos as evidence with C2PA credentials</li>
+                                        <li>• Reporter uses TrustLens-like tools to capture geo-tagged photos as evidence with C2PA credentials</li>
                                         <li>• When article is published, readers can:
                                             <ul className="ml-6 mt-2 space-y-1">
                                                 <li>- Buy one-time access token</li>

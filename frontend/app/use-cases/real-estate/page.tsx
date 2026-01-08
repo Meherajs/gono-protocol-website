@@ -64,7 +64,7 @@ export default function RealEstatePage() {
                                     <h3 className="text-xl font-bold text-amber-500 mb-3">Capture</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• A property is linked to a digital-twin NFT referencing the legal trust's cap table</li>
-                                        <li>• Property manager uses ProofSnap-like tools to capture verifiable condition photos with C2PA credentials</li>
+                                        <li>• Property manager uses TrustLens-like tools to capture verifiable condition photos with C2PA credentials</li>
                                         <li>• Photos are anchored on-chain via ERC-7053 as part of the asset's provenance profile</li>
                                     </ul>
                                 </div>

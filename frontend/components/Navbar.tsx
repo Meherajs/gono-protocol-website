@@ -97,11 +97,11 @@ export default function Navbar() {
                                         MAINNET
                                     </Link>
                                     <Link
-                                        href="/tools/proofsnap"
+                                        href="/tools/trustlens"
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setToolsDropdownOpen(false)}
                                     >
-                                        PROOFSNAP
+                                        TRUSTLENS
                                     </Link>
                                     <Link
                                         href="/tools/verify-engine"
@@ -241,11 +241,11 @@ export default function Navbar() {
                                         Mainnet
                                     </Link>
                                     <Link
-                                        href="/tools/proofsnap"
+                                        href="/tools/trustlens"
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        ProofSnap
+                                        TrustLens
                                     </Link>
                                     <Link
                                         href="/tools/verify-engine"
@@ -275,11 +275,11 @@ export default function Navbar() {
                                         Mainnet
                                     </Link>
                                     <Link
-                                        href="/tools/proofsnap"
+                                        href="/tools/trustlens"
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        ProofSnap
+                                        TrustLens
                                     </Link>
                                     <Link
                                         href="/tools/verify-engine"

@@ -1,7 +1,7 @@
 import { Navbar, Footer } from "@/components";
 import Link from "next/link";
 
-export default function ProofSnapPage() {
+export default function TrustLensPage() {
     return (
         <>
             <Navbar />
@@ -14,7 +14,7 @@ export default function ProofSnapPage() {
                         <div className="text-center mb-12">
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
                                 <span className="text-2xl">📸</span>
-                                <span className="text-sm font-medium text-amber-400">ProofSnap</span>
+                                <span className="text-sm font-medium text-amber-400">TrustLens</span>
                             </div>
                             
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-300 via-orange-300 to-amber-300 bg-clip-text text-transparent">
@@ -27,7 +27,7 @@ export default function ProofSnapPage() {
                             
                             <p className="text-base sm:text-lg text-zinc-500 max-w-3xl mx-auto">
                                 Capture authentic moments and secure them on the blockchain with cryptographic proof. 
-                                ProofSnap ensures your images are verifiable and tamper-proof.
+                                TrustLens ensures your images are verifiable and tamper-proof.
                             </p>
                         </div>
 
@@ -124,7 +124,7 @@ export default function ProofSnapPage() {
                                 </div>
                                 
                                 <p className="text-zinc-400 mb-6 text-base sm:text-lg leading-relaxed">
-                                    Verify any image you encounter online with a single click. The ProofSnap browser extension 
+                                    Verify any image you encounter online with a single click. The TrustLens browser extension 
                                     checks images against the blockchain registry to confirm authenticity and reveal the 
                                     complete provenance chain.
                                 </p>
@@ -186,14 +186,14 @@ export default function ProofSnapPage() {
                     </div>
                 </section>
 
-                {/* Why ProofSnap Section */}
+                {/* Why TrustLens Section */}
                 <section className="py-16 sm:py-20 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-950/10 to-transparent pointer-events-none"></div>
                     
                     <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">
-                                Why ProofSnap?
+                                Why TrustLens?
                             </h2>
                             <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
                                 In an era of AI-generated content and sophisticated deepfakes, authenticity matters more than ever.
@@ -247,7 +247,7 @@ export default function ProofSnapPage() {
                                 </div>
                                 <h3 className="text-lg font-bold text-white mb-2">Capture</h3>
                                 <p className="text-sm text-zinc-400">
-                                    Take a photo with ProofSnap mobile app or upload to extension
+                                    Take a photo with TrustLens mobile app or upload to extension
                                 </p>
                             </div>
 
@@ -293,7 +293,7 @@ export default function ProofSnapPage() {
                             Be the First to Know
                         </h2>
                         <p className="text-lg sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-                            ProofSnap is coming soon. Join our waitlist to get early access and stay updated on our launch.
+                            TrustLens is coming soon. Join our waitlist to get early access and stay updated on our launch.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
