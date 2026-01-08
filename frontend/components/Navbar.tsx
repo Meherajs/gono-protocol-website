@@ -8,7 +8,6 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [gonoDropdownOpen, setGonoDropdownOpen] = useState(false);
     const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
-    const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
