@@ -35,6 +35,14 @@ const useCases = [
         date: "12.12.2025",
         image: "/images/use-cases/news-verification.jpg", // Placeholder - will be replaced
     },
+    {
+        id: "intellectual-property",
+        title: "Intellectual Property Protection & Licensing",
+        category: "IP Protection",
+        overview: "Creating immutable proof of original creation and automating IP licensing through blockchain provenance. Protect your creativity with cryptographic timestamps and smart contract enforcement.",
+        date: "01.09.2026",
+        image: "/images/use-cases/ip.jpg", // Placeholder - will be replaced
+    },
 ];
 
 export default function UseCasesPage() {
