@@ -6,19 +6,7 @@ export default function Roadmap() {
             period: "Q3-Q4 2025",
             status: "completed",
             progress: 100,
-            description: "Study blockchain provenance solutions and identify real-world problems to solve.",
-            goals: [
-                "Study blockchain provenance solutions",
-                "Research Substrate/Polkadot ecosystem",
-                "Identify real-world problems to solve",
-                "Form founding team"
-            ],
-            deliverables: [
-                { text: "Problem identification", done: true },
-                { text: "Technology stack research", done: true },
-                { text: "Competitive analysis", done: true },
-                { text: "Team formation (2 co-founders from MBSTU)", done: true }
-            ]
+            description: "Study blockchain provenance solutions and identify real-world problems to solve."
         },
         {
             number: 2,
@@ -26,20 +14,7 @@ export default function Roadmap() {
             period: "Q4 2025 - Q1 2026",
             status: "current",
             progress: 70,
-            description: "Draft technical whitepaper, design protocol architecture, and create initial branding.",
-            goals: [
-                "Draft technical whitepaper",
-                "Design protocol architecture",
-                "Create initial branding & website",
-                "Define token economics"
-            ],
-            deliverables: [
-                { text: "Draft whitepaper (in progress)", done: true },
-                { text: "Website v1.0", done: true },
-                { text: "Architecture design (4-layer system)", done: false },
-                { text: "Token economics model", done: false },
-                { text: "Logo and brand identity", done: false }
-            ]
+            description: "Draft technical whitepaper, design protocol architecture, and create initial branding."
         },
         {
             number: 3,
@@ -47,20 +22,7 @@ export default function Roadmap() {
             period: "Q2-Q3 2026",
             status: "upcoming",
             progress: 0,
-            description: "Finalize whitepaper and build proof-of-concept with basic prototype.",
-            goals: [
-                "Finalize whitepaper",
-                "Build proof-of-concept",
-                "Set up development environment",
-                "Create basic prototype"
-            ],
-            deliverables: [
-                { text: "Whitepaper v1.0 (final)", done: false },
-                { text: "GitHub repository setup", done: false },
-                { text: "Basic Substrate node running", done: false },
-                { text: "Simple Capture SDK demo", done: false },
-                { text: "Technical documentation started", done: false }
-            ]
+            description: "Finalize whitepaper and build proof-of-concept with basic prototype."
         },
         {
             number: 4,
@@ -68,20 +30,7 @@ export default function Roadmap() {
             period: "Q4 2026 - Q1 2027",
             status: "planned",
             progress: 0,
-            description: "Build core protocol components and deploy to testnet.",
-            goals: [
-                "Build core protocol components",
-                "Develop key pallets (Capture, Certify, Check)",
-                "Create developer tools",
-                "Deploy to testnet"
-            ],
-            deliverables: [
-                { text: "Gono Protocol v0.1 (testnet)", done: false },
-                { text: "Capture SDK with C2PA support", done: false },
-                { text: "Basic API documentation", done: false },
-                { text: "Test deployment on Kusama/Rococo", done: false },
-                { text: "Developer onboarding guide", done: false }
-            ]
+            description: "Build core protocol components and deploy to testnet."
         },
         {
             number: 5,
@@ -89,20 +38,7 @@ export default function Roadmap() {
             period: "Q2-Q3 2027",
             status: "planned",
             progress: 0,
-            description: "Run internal testing, recruit pilot users, and build initial partnerships.",
-            goals: [
-                "Run internal testing",
-                "Recruit pilot users",
-                "Build initial partnerships",
-                "Gather feedback"
-            ],
-            deliverables: [
-                { text: "5-10 pilot partnerships", done: false },
-                { text: "Bug fixes and improvements", done: false },
-                { text: "Enhanced documentation", done: false },
-                { text: "Community Discord/Telegram", done: false },
-                { text: "First use case implementations", done: false }
-            ]
+            description: "Run internal testing, recruit pilot users, and build initial partnerships."
         },
         {
             number: 6,
@@ -110,20 +46,7 @@ export default function Roadmap() {
             period: "Q4 2027",
             status: "planned",
             progress: 0,
-            description: "Public testnet launch and open to developers with security audits.",
-            goals: [
-                "Public testnet launch",
-                "Open to developers",
-                "Security audits",
-                "Community building"
-            ],
-            deliverables: [
-                { text: "Public testnet with GONO tokens", done: false },
-                { text: "Developer grants program", done: false },
-                { text: "Security audit (1st round)", done: false },
-                { text: "100+ registered assets", done: false },
-                { text: "50+ active developers", done: false }
-            ]
+            description: "Public testnet launch and open to developers with security audits."
         },
         {
             number: 7,
@@ -131,20 +54,7 @@ export default function Roadmap() {
             period: "2028+",
             status: "vision",
             progress: 0,
-            description: "Mainnet launch, parachain slot acquisition, and global ecosystem growth.",
-            goals: [
-                "Mainnet launch",
-                "Parachain slot acquisition",
-                "Ecosystem growth",
-                "Become provenance standard"
-            ],
-            deliverables: [
-                { text: "10,000+ registered assets", done: false },
-                { text: "1,000+ developers", done: false },
-                { text: "Major platform integrations", done: false },
-                { text: "Industry partnerships", done: false },
-                { text: "Global adoption", done: false }
-            ]
+            description: "Mainnet launch, parachain slot acquisition, and global ecosystem growth."
         }
     ];
 
@@ -269,11 +179,11 @@ export default function Roadmap() {
                                     </div>
 
                                     {/* Description */}
-                                    <p className="text-sm sm:text-base text-zinc-300 mb-6">{phase.description}</p>
+                                    <p className="text-sm sm:text-base text-zinc-300 mb-4">{phase.description}</p>
 
                                     {/* Progress bar for current phase */}
                                     {phase.status === 'current' && (
-                                        <div className="mb-6">
+                                        <div className="mb-4">
                                             <div className="flex items-center justify-between mb-2">
                                                 <span className="text-sm text-zinc-400">Progress</span>
                                                 <span className="text-sm font-semibold text-amber-400">{phase.progress}%</span>
@@ -283,39 +193,6 @@ export default function Roadmap() {
                                             </div>
                                         </div>
                                     )}
-
-                                    {/* Goals and Deliverables */}
-                                    <div className="grid sm:grid-cols-2 gap-6">
-                                        {/* Goals */}
-                                        <div>
-                                            <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-3">Goals</h4>
-                                            <ul className="space-y-2">
-                                                {phase.goals.map((goal, i) => (
-                                                    <li key={i} className="flex items-start gap-2 text-sm text-zinc-300">
-                                                        <span className="text-amber-400 mt-0.5">→</span>
-                                                        <span>{goal}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                        {/* Deliverables */}
-                                        <div>
-                                            <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-3">Deliverables</h4>
-                                            <ul className="space-y-2">
-                                                {phase.deliverables.map((item, i) => (
-                                                    <li key={i} className="flex items-start gap-2 text-sm">
-                                                        <span className={item.done ? 'text-emerald-400' : 'text-zinc-500'}>
-                                                            {item.done ? '✓' : '○'}
-                                                        </span>
-                                                        <span className={item.done ? 'text-zinc-300' : 'text-zinc-500'}>
-                                                            {item.text}
-                                                        </span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 {/* Connector to next phase */}
