@@ -4,36 +4,36 @@ import Image from "next/image";
 
 const useCases = [
     {
-        id: "creator-monetization",
-        title: "Creator Monetization & Intellectual Property",
-        category: "Content Creation",
-        overview: "Explore how Gono Protocol helps media teams and organizations amplify event impact while maintaining authenticity and transparency through blockchain-powered provenance.",
-        date: "12.23.2024",
-        image: "/images/use-cases/creator.jpg", // Placeholder - will be replaced
-    },
-    {
-        id: "real-estate",
-        title: "Real Estate Rental & Asset Verification",
-        category: "Real Estate",
-        overview: "Transform property management with verifiable condition records, transparent revenue distribution, and immutable rental history through blockchain provenance.",
-        date: "10.31.2024",
-        image: "/images/use-cases/real-estate.jpg", // Placeholder - will be replaced
-    },
-    {
-        id: "depin-computing",
-        title: "Decentralized GPU Computing Infrastructure",
-        category: "DePIN",
-        overview: "Enable trust-minimized physical infrastructure with proof of service delivery, transparent revenue distribution, and auditable compute resource utilization.",
-        date: "04.24.2024",
-        image: "/images/use-cases/depin.jpg", // Placeholder - will be replaced
-    },
-    {
         id: "journalism",
         title: "Field Reporting & Transparent Journalism",
-        category: "Media & Journalism",
-        overview: "Revolutionize investigative journalism with transparent funding, milestone verification, and verifiable content authenticity from the field.",
-        date: "08.15.2024",
+        category: "Gono Moncho",
+        overview: "A complete decentralized ecosystem for verifiable journalism, built on the Gono Protocol blockchain. Empowering censorship-resistant publishing with privacy-preserving Zero-Knowledge Proofs.",
+        date: "12.15.2025",
         image: "/images/use-cases/journalism.jpg", // Placeholder - will be replaced
+    },
+    {
+        id: "deepfake-protection",
+        title: "Deepfake Protection & Content Authenticity",
+        category: "Content Verification",
+        overview: "Creating an immutable registry of authentic content to combat the deepfake crisis. Prove what's REAL at the source with cryptographic verification.",
+        date: "12.22.2025",
+        image: "/images/use-cases/deepfake.jpg", // Placeholder - will be replaced
+    },
+    {
+        id: "utilities",
+        title: "Government & Utility Services",
+        category: "Public Infrastructure",
+        overview: "How BTRC, NEIR, and Electricity Providers can supercharge their services using blockchain provenance. Transparent, verifiable infrastructure for citizens.",
+        date: "01.05.2026",
+        image: "/images/use-cases/utilities.jpg", // Placeholder - will be replaced
+    },
+    {
+        id: "news-verification",
+        title: "Cross-Source News Verification",
+        category: "isItTrue?",
+        overview: "Harnessing the collective intelligence of global journalism through AI-powered aggregation, cross-source consensus scoring, and immutable blockchain provenance.",
+        date: "12.12.2025",
+        image: "/images/use-cases/news-verification.jpg", // Placeholder - will be replaced
     },
 ];
 
