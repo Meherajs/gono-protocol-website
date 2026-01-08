@@ -26,8 +26,11 @@ export default function CreatorMonetizationPage() {
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                             Creator Monetization & Intellectual Property
                         </h1>
-                        <p className="text-xl text-gray-300">
+                        <p className="text-xl text-gray-300 mb-4">
                             Empowering content creators with proof of originality, transparent licensing, and direct payments
+                        </p>
+                        <p className="text-sm text-gray-500 italic">
+                            Author: Jonayet Hossain
                         </p>
                     </div>
 

@@ -26,8 +26,11 @@ export default function DePINComputingPage() {
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                             Decentralized GPU Computing Infrastructure
                         </h1>
-                        <p className="text-xl text-gray-300">
+                        <p className="text-xl text-gray-300 mb-4">
                             Trust-minimized physical infrastructure with proof of service delivery and transparent revenue distribution
+                        </p>
+                        <p className="text-sm text-gray-500 italic">
+                            Author: Jonayet Hossain
                         </p>
                     </div>
 
