@@ -66,7 +66,7 @@ export default function Ecosystem() {
 
                         {/* Center */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 gradient-primary rounded-full flex items-center justify-center font-bold font-mono text-lg glow">
-                            NUM
+                            GONO
                         </div>
 
                         {/* Orbit Nodes */}

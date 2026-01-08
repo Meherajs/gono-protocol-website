@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const footerLinks = {
-    Products: ["Capture App", "Numbers Search", "Dashboard", "API"],
+    Products: ["Capture App", "Gono Search", "Dashboard", "API"],
     Developers: ["Documentation", "SDK", "GitHub", "Status"],
     Company: [
         { label: "About", href: "/about" },

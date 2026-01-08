@@ -24,7 +24,7 @@ const products = [
         ),
     },
     {
-        title: "Numbers Search",
+        title: "Gono Search",
         description: "Search engine for digital media provenance. Find origin, ownership, and history of any registered content.",
         features: ["🔍 Reverse Image Search", "🤖 AI-Powered", "🌐 Multi-Network"],
         link: "Try Search",
@@ -37,7 +37,7 @@ const products = [
                         <span className="w-2 h-2 bg-zinc-600 rounded-full" />
                     </div>
                     <div className="flex-1 text-[10px] text-zinc-500 font-mono bg-[#0a0a0a] px-2 py-1 rounded">
-                        search.numbersprotocol.io
+                        search.gonoprotocol.io
                     </div>
                 </div>
                 <div className="p-3 space-y-3">
