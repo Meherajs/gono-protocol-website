@@ -3,7 +3,12 @@ import Link from "next/link";
 const footerLinks = {
     Products: ["Capture App", "Numbers Search", "Dashboard", "API"],
     Developers: ["Documentation", "SDK", "GitHub", "Status"],
-    Company: ["About", "Blog", "Careers", "Press"],
+    Company: [
+        { label: "About", href: "/about" },
+        { label: "Blog", href: "#" },
+        { label: "Careers", href: "/careers" },
+        { label: "Press", href: "#" }
+    ],
     Legal: ["Privacy", "Terms", "Cookies"],
 };
 
@@ -57,16 +62,22 @@ export default function Footer() {
                                     {title}
                                 </h4>
                                 <ul className="space-y-2">
-                                    {links.map((link) => (
-                                        <li key={link}>
-                                            <a
-                                                href="#"
-                                                className="text-sm text-zinc-400 hover:text-white transition-colors"
-                                            >
-                                                {link}
-                                            </a>
-                                        </li>
-                                    ))}
+                                    {links.map((link) => {
+                                        const isObject = typeof link === 'object';
+                                        const label = isObject ? link.label : link;
+                                        const href = isObject ? link.href : "#";
+                                        
+                                        return (
+                                            <li key={label}>
+                                                <Link
+                                                    href={href}
+                                                    className="text-sm text-zinc-400 hover:text-white transition-colors"
+                                                >
+                                                    {label}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             </div>
                         ))}
