@@ -117,14 +117,6 @@ export default function Footer() {
                     <p className="text-sm text-zinc-500">
                         © 2026 Gono Protocol. All rights reserved.
                     </p>
-                    <div className="flex gap-2">
-                        <span className="text-xs px-2 py-1 glass rounded text-zinc-500">
-                            C2PA Member
-                        </span>
-                        <span className="text-xs px-2 py-1 glass rounded text-zinc-500">
-                            IPTC Partner
-                        </span>
-                    </div>
                 </div>
             </div>
         </footer>

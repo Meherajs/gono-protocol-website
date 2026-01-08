@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: "About Us | Gono Protocol - Building Trust in the Digital Age",
@@ -8,6 +9,18 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
         <main className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+            {/* Back Button */}
+            <div className="fixed top-24 left-4 sm:left-6 z-50">
+                <Link
+                    href="/"
+                    className="flex items-center gap-2 px-4 py-2 glass rounded-lg text-zinc-400 hover:text-white hover:border-amber-500/50 transition-all group"
+                >
+                    <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span className="text-sm font-medium">Back</span>
+                </Link>
+            </div>
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
                 {/* Background Effects */}
