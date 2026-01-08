@@ -63,7 +63,7 @@ export default function WhitepaperPage() {
                                     Glossary
                                 </h3>
                                 
-                                <div className="space-y-6 text-sm">
+                                <div className="space-y-6 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto pr-2">
                                     <div>
                                         <h4 className="font-bold text-amber-600 mb-1">x402</h4>
                                         <p className="text-gray-400 leading-relaxed">HTTP-402 crypto micropayments for AI-to-AI commerce (USDC/stablecoin)</p>
