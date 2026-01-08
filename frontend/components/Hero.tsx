@@ -17,26 +17,26 @@ async function HeroStats() {
     }
 
     return (
-        <div className="grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8 w-full">
-            <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold font-mono gradient-text-primary">
+        <div className="grid grid-cols-3 gap-3 sm:flex sm:items-center sm:gap-8 w-full justify-center md:justify-start">
+            <div className="flex flex-col items-center md:items-start">
+                <span className="text-lg sm:text-2xl font-bold font-mono gradient-text-primary">
                     {stats.assets_registered}
                 </span>
-                <span className="text-xs sm:text-sm text-zinc-500">Assets Registered</span>
+                <span className="text-[10px] sm:text-sm text-zinc-500 text-center md:text-left">Assets<br className="sm:hidden" /> Registered</span>
             </div>
             <div className="w-px h-10 bg-white/[0.08] hidden sm:block" />
-            <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold font-mono gradient-text-primary">
+            <div className="flex flex-col items-center md:items-start">
+                <span className="text-lg sm:text-2xl font-bold font-mono gradient-text-primary">
                     {stats.active_users}
                 </span>
-                <span className="text-xs sm:text-sm text-zinc-500">Active Users</span>
+                <span className="text-[10px] sm:text-sm text-zinc-500 text-center md:text-left">Active<br className="sm:hidden" /> Users</span>
             </div>
             <div className="w-px h-10 bg-white/[0.08] hidden sm:block" />
-            <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold font-mono gradient-text-primary">
+            <div className="flex flex-col items-center md:items-start">
+                <span className="text-lg sm:text-2xl font-bold font-mono gradient-text-primary">
                     {stats.partners}+
                 </span>
-                <span className="text-xs sm:text-sm text-zinc-500">Partners</span>
+                <span className="text-[10px] sm:text-sm text-zinc-500">Partners</span>
             </div>
         </div>
     );
@@ -44,21 +44,23 @@ async function HeroStats() {
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-x-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[150%] h-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] opacity-60" />
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-full max-w-[200vw] h-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] opacity-60" />
                 <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_at_center,black_0%,transparent_70%)]" />
                 <div className="absolute top-[20%] right-[10%] w-96 h-96 bg-[radial-gradient(circle,rgba(34,211,238,0.1)_0%,transparent_60%)] rounded-full blur-3xl animate-float" />
             </div>
 
             <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 {/* Content */}
-                <div className="animate-fade-in-up w-full">
+                <div className="animate-fade-in-up w-full text-center md:text-left">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 glass rounded-full text-xs sm:text-sm text-zinc-400 mb-4 sm:mb-6 group hover:border-indigo-500/50 transition-colors">
-                        <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-glow" />
-                        <span>Decentralized Provenance Standard</span>
+                    <div className="flex justify-center md:justify-start mb-4 sm:mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 glass rounded-full text-xs sm:text-sm text-zinc-400 group hover:border-indigo-500/50 transition-colors">
+                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-glow" />
+                            <span>Decentralized Provenance Standard</span>
+                        </div>
                     </div>
 
                     {/* Title */}

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased bg-[#0a0a0a] text-white`}
+        className={`${inter.variable} ${robotoMono.variable} antialiased bg-[#0a0a0a] text-white overflow-x-hidden`}
       >
         {children}
       </body>

@@ -14,8 +14,8 @@ export default async function Partners() {
     ];
 
     return (
-        <section className="py-16 border-y border-white/[0.08] bg-[#111111]">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="py-12 sm:py-16 border-y border-white/[0.08] bg-[#111111] overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
                 <p className="text-center text-sm text-zinc-500 uppercase tracking-wider mb-10">
                     Built with industry-leading partners
                 </p>

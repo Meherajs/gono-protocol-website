@@ -85,7 +85,7 @@ const products = [
 
 export default function Products() {
     return (
-        <section id="products" className="py-16 sm:py-24 bg-[#111111]">
+        <section id="products" className="py-16 sm:py-24 bg-[#111111] overflow-hidden">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
                 {/* Header */}
                 <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">

@@ -7,7 +7,7 @@ const tokenFeatures = [
 
 export default function Ecosystem() {
     return (
-        <section id="ecosystem" className="py-16 sm:py-24 bg-[#111111]">
+        <section id="ecosystem" className="py-16 sm:py-24 bg-[#111111] overflow-hidden">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
                 {/* Content */}
                 <div>
