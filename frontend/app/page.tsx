@@ -10,6 +10,7 @@ import {
   UseCases,
   Archive,
   Ecosystem,
+  Roadmap,
   FAQ,
   CTA,
   Footer,
@@ -30,6 +31,7 @@ export default function Home() {
         <UseCases />
         <Archive />
         <Ecosystem />
+        <Roadmap />
         <FAQ />
         <CTA />
       </main>
