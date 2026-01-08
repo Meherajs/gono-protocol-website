@@ -27,9 +27,15 @@ export default function DeepfakeProtectionPage() {
                         <p className="text-xl text-gray-300 mb-4">
                             Creating an immutable registry of authentic content to combat the deepfake crisis
                         </p>
-                        <p className="text-sm text-gray-500 italic">
-                            Author: Jonayet Hossain
-                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                            <p className="italic">
+                                Author: Jonayet Hossain
+                            </p>
+                            <span className="text-gray-700">•</span>
+                            <p className="italic">
+                                December 22, 2025
+                            </p>
+                        </div>
                     </div>
 
                     <div className="prose prose-invert prose-amber max-w-none">

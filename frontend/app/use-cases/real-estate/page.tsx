@@ -29,9 +29,15 @@ export default function RealEstatePage() {
                         <p className="text-xl text-gray-300 mb-4">
                             Transforming property management with verifiable records and transparent revenue distribution
                         </p>
-                        <p className="text-sm text-gray-500 italic">
-                            Author: Jonayet Hossain
-                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                            <p className="italic">
+                                Author: Jonayet Hossain
+                            </p>
+                            <span className="text-gray-700">•</span>
+                            <p className="italic">
+                                December 28, 2025
+                            </p>
+                        </div>
                     </div>
 
                     {/* Content */}

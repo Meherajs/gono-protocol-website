@@ -27,9 +27,15 @@ export default function UtilitiesPage() {
                         <p className="text-xl text-gray-300 mb-4">
                             How BTRC, NEIR, and Electricity Providers can supercharge their services using blockchain provenance
                         </p>
-                        <p className="text-sm text-gray-500 italic">
-                            Author: Jonayet Hossain
-                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                            <p className="italic">
+                                Author: Jonayet Hossain
+                            </p>
+                            <span className="text-gray-700">•</span>
+                            <p className="italic">
+                                January 5, 2026
+                            </p>
+                        </div>
                     </div>
 
                     <div className="prose prose-invert prose-amber max-w-none">

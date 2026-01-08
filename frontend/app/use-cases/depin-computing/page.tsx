@@ -29,9 +29,15 @@ export default function DePINComputingPage() {
                         <p className="text-xl text-gray-300 mb-4">
                             Trust-minimized physical infrastructure with proof of service delivery and transparent revenue distribution
                         </p>
-                        <p className="text-sm text-gray-500 italic">
-                            Author: Jonayet Hossain
-                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                            <p className="italic">
+                                Author: Jonayet Hossain
+                            </p>
+                            <span className="text-gray-700">•</span>
+                            <p className="italic">
+                                January 3, 2026
+                            </p>
+                        </div>
                     </div>
 
                     {/* Content */}
