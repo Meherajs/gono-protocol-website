@@ -302,21 +302,35 @@ export default function WhitepaperPage() {
                             <div className="space-y-4 sm:space-y-6">
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">📰</span> High-Stakes Journalism
+                                        <span className="text-xl sm:text-2xl">🎨</span> Creator Monetization
                                     </h4>
-                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Reporters use the Privacy Pallet to capture geo-tagged evidence anonymously, with funds released upon milestone attestations.</p>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
+                                        Artists register original content with C2PA credentials on-chain. AI agents license work via x402 micropayments, receiving verifiable usage certificates. Fans pre-fund projects with NFT passes, getting automatic delivery receipts when content is released.
+                                    </p>
                                 </div>
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">🤖</span> AI Data Marketplaces
+                                        <span className="text-xl sm:text-2xl">🏠</span> Real Estate Rental
                                     </h4>
-                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">AI agents use x402 micropayments to license data, receiving a verifiable usage certificate instantly.</p>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
+                                        Properties linked to digital-twin NFTs with verifiable condition photos captured via C2PA. Witness nodes attest check-in/check-out states. Revenue splits execute automatically, providing investors real-time auditable booking and payout history.
+                                    </p>
                                 </div>
                                 <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
                                     <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
-                                        <span className="text-xl sm:text-2xl">🏢</span> Real Estate Pilot
+                                        <span className="text-xl sm:text-2xl">💻</span> DePIN GPU Computing
                                     </h4>
-                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Digital twins of physical property record every booking and payout on-chain, replacing manual audits with real-time transparency.</p>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
+                                        Decentralized GPU facilities represented as NFTs encoding investor rights. Clients pay in stablecoins for compute tasks, receiving usage certificate NFTs. Revenue automatically splits per on-chain contract, creating auditable financial statements for due diligence.
+                                    </p>
+                                </div>
+                                <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-amber-500/20 transition-all">
+                                    <h4 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3 flex items-center gap-2">
+                                        <span className="text-xl sm:text-2xl">📰</span> Field Journalism
+                                    </h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
+                                        Journalists create assignment anchors with milestones and budgets. Sponsors fund via smart contract escrow. Witness nodes attest milestone completion, releasing payments. Geo-tagged C2PA photos prove field work authenticity. Readers access via x402 micropayments.
+                                    </p>
                                 </div>
                             </div>
                         </section>
