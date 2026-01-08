@@ -354,16 +354,44 @@ export default function WhitepaperPage() {
                             </h2>
                             <div className="space-y-3 sm:space-y-4">
                                 <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
-                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">What is Gono Platform?</h4>
-                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">A unified provenance rail for digital and physical assets utilizing a Capture → Store → Verify → Certify → Check pipeline.</p>
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">What is Gono Protocol?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Gono Protocol is a modular blockchain infrastructure built on Substrate as a Polkadot Parachain. It provides a universal, content-addressable rail for verifiable media, digital assets, and autonomous AI commerce. Using a &quot;Pluggable Module&quot; approach, developers can build high-security journalism platforms, lightweight asset trackers, or automated AI data marketplaces using the same core infrastructure.</p>
                                 </div>
                                 <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
-                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">How does it handle payments?</h4>
-                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Settlements occur in stablecoins via x402 micropayments, while GONO covers protocol fees.</p>
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">How does the modular architecture work?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Gono is structured into 4 layers: Layer 1 (Polkadot Relay Chain) provides shared security, Layer 2 (Gono Execution Rail) handles mandatory ERC-7053 indexing, Layer 3 (Modular Service Pallets) offers optional extensions like Store, Verify, Privacy, and x402 pallets, and Layer 4 (Application Layer) consists of user-facing applications. Developers can opt-in to specific pallets based on their application needs.</p>
                                 </div>
                                 <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
-                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">What are witness nodes?</h4>
-                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">GONO-staked third parties authorized to attest to real-world outcomes, anchoring off-chain truth to the blockchain.</p>
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">What is ERC-7053 and why is it important?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">ERC-7053 is the Ethereum standard for &quot;Media Receipts&quot; - immutable blockchain records of digital asset provenance. Every asset registered on Gono receives an ERC-7053 compliant receipt, creating a global ledger of media authenticity. This ensures that any digital content has a verifiable chain of custody that cannot be altered or erased.</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">How do x402 micropayments work?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">The x402 protocol revives HTTP status code 402 &quot;Payment Required&quot; for machine-to-machine commerce. When an AI agent requests data, it receives a 402 response with payment details. The agent pays in stablecoins (USDC/DAI) plus a small GONO protocol fee, then receives the data with a provenance receipt. This enables autonomous AI data marketplaces without human intervention.</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">What is the GONO token used for?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">GONO is the native utility token with four primary uses: Network Gas (paying for ERC-7053 indexing and transactions), Storage Endowment (subsidizing permanent Arweave storage), Validator Staking (securing the Polkadot Parachain and earning rewards), and Governance Rights (voting on protocol upgrades, pallet activations, and treasury allocation).</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">How does privacy work with zk-SNARKs?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">The Privacy Pallet uses zero-knowledge proofs (zk-SNARKs) to enable anonymous content registration. Journalists and whistleblowers can prove the authenticity of their content without revealing their identity. The cryptographic proof confirms the asset exists and meets certain criteria, while keeping the creator anonymous - perfect for high-stakes investigative journalism.</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">What are witness nodes and SANUB?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Witness nodes are community validators in the Verify Pallet who attest to the authenticity of digital assets. SANUB (Stake-Aligned Neutral Unbiased Blockchain) is the reputation algorithm that weights attestations based on validator stake and historical accuracy. This creates a decentralized trust layer where AI oracles and human experts can collaborate on verification.</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Is storage on Arweave mandatory?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">No, the Store Pallet is completely optional. Developers can choose to use Arweave for permanent decentralized storage, use their own storage solutions, or skip storage entirely if they only need provenance indexing. The modular design means you only use (and pay for) what your application requires.</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">How is Gono different from traditional NFT platforms?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">Unlike NFT platforms focused on collectibles and art markets, Gono is designed for provenance and verification across any digital asset. It supports modular privacy (zk-SNARKs), institutional-grade security (Polkadot), standardized receipts (ERC-7053), and autonomous AI commerce (x402). You can build journalism platforms, real estate trackers, or AI marketplaces - not just NFT galleries.</p>
+                                </div>
+                                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-amber-500/50 transition-all">
+                                    <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Can I build on Gono today?</h4>
+                                    <p className="text-gray-200 leading-relaxed text-sm sm:text-base">The core infrastructure is under active development. Developers can start experimenting with the Capture SDK for asset registration and explore the x402 protocol specification. The parachain testnet will launch in Q2 2026, with mainnet targeted for Q4 2026. Join our developer community to get early access and shape the protocol.</p>
                                 </div>
                             </div>
                         </section>
