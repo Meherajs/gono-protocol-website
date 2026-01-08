@@ -210,9 +210,6 @@ export default function Roadmap() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-300 via-orange-300 to-amber-300 bg-clip-text text-transparent">
                         Our Roadmap
                     </h2>
-                    <p className="text-base sm:text-lg text-zinc-400 max-w-3xl mx-auto">
-                        From students with an idea to building the future of digital provenance—our journey to decentralized trust.
-                    </p>
                 </div>
 
                 {/* Current Status Card */}
@@ -327,17 +324,8 @@ export default function Roadmap() {
                                 )}
                             </div>
                         ))}
+                        ))}
                     </div>
-                </div>
-
-                {/* Bottom message */}
-                <div className="mt-12 sm:mt-16 text-center">
-                    <p className="text-base sm:text-lg text-zinc-400 mb-4">
-                        This roadmap represents our current vision and may evolve as we learn and grow.
-                    </p>
-                    <p className="text-sm text-zinc-500">
-                        Last updated: January 9, 2026
-                    </p>
                 </div>
             </div>
         </section>
