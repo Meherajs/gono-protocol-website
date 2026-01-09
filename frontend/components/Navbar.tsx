@@ -40,24 +40,11 @@ export default function Navbar() {
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <svg
-                            className="w-8 h-8 text-indigo-500"
-                            viewBox="0 0 40 40"
-                            fill="none"
-                        >
-                            <circle
-                                cx="20"
-                                cy="20"
-                                r="18"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                            />
-                            <circle cx="20" cy="20" r="8" fill="currentColor" />
-                            <circle cx="20" cy="8" r="3" fill="currentColor" />
-                            <circle cx="20" cy="32" r="3" fill="currentColor" />
-                            <circle cx="8" cy="20" r="3" fill="currentColor" />
-                            <circle cx="32" cy="20" r="3" fill="currentColor" />
-                        </svg>
+                        <img
+                            src="/logo.png"
+                            alt="Gono Protocol"
+                            className="w-10 h-10"
+                        />
                         <span className="font-semibold text-lg tracking-tight">
                             Gono Protocol
                         </span>
