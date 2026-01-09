@@ -41,3 +41,4 @@ Thumbs.db
 backend/target/
 **/*.rs.bk
 Cargo.lock
+*.bak

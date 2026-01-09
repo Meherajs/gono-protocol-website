@@ -28,6 +28,8 @@ Gono Protocol is a modular blockchain infrastructure built on Substrate as a Pol
 - ⚡ **Server Components** - Fast rendering with Next.js App Router
 - 🔄 **Multi-Page Architecture** - 10+ routes including use cases, tools, and documentation
 - 💫 **Smooth Animations** - Hover effects, loading skeletons, micro-interactions
+- 🔮 **Visual Provenance Flow** - Intuitive stepper diagrams for complex processes
+- 🖼️ **Modern Iconography** - Professional Lucide React icons throughout
 - 🎯 **TypeScript** - Full type safety across the codebase
 - 🚀 **Vercel Deployment** - Production-ready deployment configuration
 
