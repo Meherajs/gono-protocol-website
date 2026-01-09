@@ -7,7 +7,6 @@ import {
   Products,
   X402Micropayment,
   UseCases,
-  Archive,
   Ecosystem,
   Roadmap,
   FAQ,
@@ -27,7 +26,6 @@ export default function Home() {
         <Products />
         <X402Micropayment />
         <UseCases />
-        <Archive />
         <Ecosystem />
         <Roadmap />
         <FAQ />

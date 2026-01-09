@@ -55,7 +55,7 @@ export default function Navbar() {
                         {[
                             { name: "USE CASES", href: "/use-cases" },
                             { name: "BLOG", href: "/archive" },
-                            { name: "ECOSYSTEM", href: "/#ecosystem" },
+                            { name: "ECOSYSTEM", href: "/coming-soon" },
                             { name: "ABOUT", href: "/about" },
                             { name: "CAREERS", href: "/careers" },
                         ].map((item) => (
@@ -218,7 +218,7 @@ export default function Navbar() {
                             {[
                                 { name: "USE CASES", href: "/use-cases" },
                                 { name: "BLOG", href: "/archive" },
-                                { name: "ECOSYSTEM", href: "/#ecosystem" },
+                                { name: "ECOSYSTEM", href: "/coming-soon" },
                                 { name: "ABOUT", href: "/about" },
                                 { name: "CAREERS", href: "/careers" },
                             ].map((item) => (

@@ -110,7 +110,7 @@ export default function Hero() {
                         </div>
                         <div className="p-6 space-y-4">
                             {[
-                                { icon: "📷", label: "Capture", detail: "2024-01-15 09:42:33" },
+                                { icon: "📷", label: "Capture", detail: "2026-01-09 17:30:00" },
                                 { icon: "🔗", label: "Register", detail: "0x7f3d...8e2a" },
                                 { icon: "✓", label: "Verified", detail: "Authentic", highlight: true },
                             ].map((node, i) => (

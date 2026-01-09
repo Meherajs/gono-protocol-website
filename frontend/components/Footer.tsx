@@ -28,7 +28,7 @@ const footerLinks = {
 
 export default function Footer() {
     return (
-        <footer id="about" className="py-12 sm:py-16 bg-[#111111] border-t border-white/[0.08] overflow-hidden">
+        <footer id="footer" className="py-12 sm:py-16 bg-[#111111] border-t border-white/[0.08] overflow-hidden">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
                 {/* Main */}
                 <div className="grid lg:grid-cols-[1.5fr_2fr] gap-16 mb-12">
