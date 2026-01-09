@@ -1,4 +1,104 @@
 import { Navbar, Footer } from "@/components";
+import {
+    BookOpen,
+    Zap,
+    Save,
+    Shield,
+    Vote,
+    Palette,
+    Home,
+    Cpu,
+    Newspaper,
+    Scan,
+    Database,
+    ShieldCheck,
+    FileSignature,
+    Search,
+    ArrowRight
+} from "lucide-react";
+
+
+const GLOSSARY_ITEMS = [
+    {
+        term: "x402",
+        definition: "HTTP-402 crypto micropayments for AI-to-AI commerce (USDC/stablecoin)"
+    },
+    {
+        term: "C2PA",
+        definition: "Content authenticity metadata standard embedded inside media files"
+    },
+    {
+        term: "ERC-7053",
+        definition: "On-chain index of media/receipt history and provenance"
+    },
+    {
+        term: "GONO",
+        definition: "Native utility token for network gas, storage, staking, and governance"
+    },
+    {
+        term: "zk-SNARKs",
+        definition: "Zero-knowledge proofs for anonymous identity verification"
+    },
+    {
+        term: "SANUB",
+        definition: "Stake-Aligned Neutral Unbiased Blockchain reputation algorithm"
+    },
+    {
+        term: "Arweave",
+        definition: "Permanent decentralized storage network (pay-once, store-forever)"
+    },
+    {
+        term: "Substrate",
+        definition: "Blockchain framework for building Polkadot parachains"
+    },
+    {
+        term: "Parachain",
+        definition: "Blockchain running parallel to Polkadot relay chain with shared security"
+    }
+];
+
+const VisualFlow = () => {
+    const steps = [
+        { icon: Scan, label: "Capture", sub: "Mandatory", active: true },
+        { icon: Database, label: "Store", sub: "Optional", active: false },
+        { icon: ShieldCheck, label: "Verify", sub: "Optional", active: false },
+        { icon: FileSignature, label: "Certify", sub: "Mandatory", active: true },
+        { icon: Search, label: "Check", sub: "Public Tool", active: false },
+    ];
+
+    return (
+        <div className="w-full overflow-x-auto pb-4 mb-12">
+            <div className="flex items-start justify-between min-w-[600px] px-2">
+                {steps.map((step, idx) => (
+                    <div key={step.label} className="flex-1 flex items-center">
+                        <div className="flex flex-col items-center gap-3 relative z-10">
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300 ${step.active
+                                    ? "bg-blue-600 border-blue-400 shadow-lg shadow-blue-900/40 text-white"
+                                    : "bg-gray-900/50 border-gray-700 text-gray-400"
+                                }`}>
+                                <step.icon className="w-6 h-6" />
+                            </div>
+                            <div className="text-center">
+                                <div className={`font-bold text-sm ${step.active ? "text-blue-200" : "text-gray-400"}`}>
+                                    {step.label}
+                                </div>
+                                <div className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded mt-1 ${step.active
+                                        ? "bg-blue-900/30 text-blue-300 border border-blue-800/30"
+                                        : "bg-gray-800/30 text-gray-500 border border-gray-700/30"
+                                    }`}>
+                                    {step.sub}
+                                </div>
+                            </div>
+                        </div>
+                        {idx < steps.length - 1 && (
+                            <div className="h-[2px] flex-1 mx-4 bg-gradient-to-r from-gray-800 via-blue-900/40 to-gray-800 -mt-8" />
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
 
 export default function WhitepaperPage() {
     return (
@@ -10,47 +110,17 @@ export default function WhitepaperPage() {
                     <details className="lg:hidden mb-8 bg-amber-100/5 border border-amber-700/30 rounded-lg overflow-hidden">
                         <summary className="p-4 cursor-pointer hover:bg-amber-100/10 transition-colors list-none">
                             <h3 className="text-base font-bold text-amber-500 uppercase tracking-wider inline-flex items-center gap-2">
-                                📖 Glossary
+                                <BookOpen className="w-4 h-4" /> Glossary
                                 <span className="text-xs text-gray-400 font-normal">(Tap to expand)</span>
                             </h3>
                         </summary>
                         <div className="p-4 pt-2 space-y-4 text-sm max-h-96 overflow-y-auto">
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">x402</h4>
-                                <p className="text-gray-400 leading-relaxed">HTTP-402 crypto micropayments for AI-to-AI commerce (USDC/stablecoin)</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">C2PA</h4>
-                                <p className="text-gray-400 leading-relaxed">Content authenticity metadata standard embedded inside media files</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">ERC-7053</h4>
-                                <p className="text-gray-400 leading-relaxed">On-chain index of media/receipt history and provenance</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">GONO</h4>
-                                <p className="text-gray-400 leading-relaxed">Native utility token for network gas, storage, staking, and governance</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">zk-SNARKs</h4>
-                                <p className="text-gray-400 leading-relaxed">Zero-knowledge proofs for anonymous identity verification</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">SANUB</h4>
-                                <p className="text-gray-400 leading-relaxed">Stake-Aligned Neutral Unbiased Blockchain reputation algorithm</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">Arweave</h4>
-                                <p className="text-gray-400 leading-relaxed">Permanent decentralized storage network (pay-once, store-forever)</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">Substrate</h4>
-                                <p className="text-gray-400 leading-relaxed">Blockchain framework for building Polkadot parachains</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-amber-600 mb-1">Parachain</h4>
-                                <p className="text-gray-400 leading-relaxed">Blockchain running parallel to Polkadot relay chain with shared security</p>
-                            </div>
+                            {GLOSSARY_ITEMS.map((item) => (
+                                <div key={item.term}>
+                                    <h4 className="font-bold text-amber-600 mb-1">{item.term}</h4>
+                                    <p className="text-gray-400 leading-relaxed">{item.definition}</p>
+                                </div>
+                            ))}
                         </div>
                     </details>
 
@@ -64,50 +134,12 @@ export default function WhitepaperPage() {
                                     </h3>
 
                                     <div className="space-y-6 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto pr-2">
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">x402</h4>
-                                            <p className="text-gray-400 leading-relaxed">HTTP-402 crypto micropayments for AI-to-AI commerce (USDC/stablecoin)</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">C2PA</h4>
-                                            <p className="text-gray-400 leading-relaxed">Content authenticity metadata standard embedded inside media files</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">ERC-7053</h4>
-                                            <p className="text-gray-400 leading-relaxed">On-chain index of media/receipt history and provenance</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">GONO</h4>
-                                            <p className="text-gray-400 leading-relaxed">Native utility token for network gas, storage, staking, and governance</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">zk-SNARKs</h4>
-                                            <p className="text-gray-400 leading-relaxed">Zero-knowledge proofs for anonymous identity verification</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">SANUB</h4>
-                                            <p className="text-gray-400 leading-relaxed">Stake-Aligned Neutral Unbiased Blockchain reputation algorithm</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">Arweave</h4>
-                                            <p className="text-gray-400 leading-relaxed">Permanent decentralized storage network (pay-once, store-forever)</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">Substrate</h4>
-                                            <p className="text-gray-400 leading-relaxed">Blockchain framework for building Polkadot parachains</p>
-                                        </div>
-
-                                        <div>
-                                            <h4 className="font-bold text-amber-600 mb-1">Parachain</h4>
-                                            <p className="text-gray-400 leading-relaxed">Blockchain running parallel to Polkadot relay chain with shared security</p>
-                                        </div>
+                                        {GLOSSARY_ITEMS.map((item) => (
+                                            <div key={item.term}>
+                                                <h4 className="font-bold text-amber-600 mb-1">{item.term}</h4>
+                                                <p className="text-gray-400 leading-relaxed">{item.definition}</p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
@@ -184,6 +216,7 @@ export default function WhitepaperPage() {
                                         <p className="text-gray-200 text-justify leading-relaxed mb-6 text-base sm:text-lg">
                                             Gono operates through a five-stage pipeline that transforms any asset into a permanently verified, globally accessible record. Each stage serves a specific purpose, and users can choose which stages to use based on their needs:
                                         </p>
+                                        <VisualFlow />
                                     </div>
 
                                     {/* Capture */}
@@ -257,9 +290,9 @@ export default function WhitepaperPage() {
                                             <strong className="text-white">How it works:</strong> Your asset can be reviewed by:
                                         </p>
                                         <ul className="space-y-2 text-gray-300 text-sm sm:text-base mb-4">
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> <strong className="text-white">Community Verifiers:</strong> Stake-holding experts who earn rewards for accurate assessments and lose stake for fraudulent ones</li>
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> <strong className="text-white">AI Oracles:</strong> Automated systems that check technical authenticity (e.g., detecting deepfakes, verifying GPS coordinates)</li>
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> <strong className="text-white">SANUB Reputation Engine:</strong> Our proprietary algorithm that weighs verifier credibility, stake amounts, and consensus patterns to produce a trust score</li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">Community Verifiers:</strong> Stake-holding experts who earn rewards for accurate assessments and lose stake for fraudulent ones</span></li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">AI Oracles:</strong> Automated systems that check technical authenticity (e.g., detecting deepfakes, verifying GPS coordinates)</span></li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">SANUB Reputation Engine:</strong> Our proprietary algorithm that weighs verifier credibility, stake amounts, and consensus patterns to produce a trust score</span></li>
                                         </ul>
                                         <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
                                             <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
@@ -344,11 +377,11 @@ export default function WhitepaperPage() {
                                             <strong className="text-white">How it works:</strong> Using the Gono Explorer (our public blockchain browser), anyone can:
                                         </p>
                                         <ul className="space-y-2 text-gray-300 text-sm sm:text-base mb-4">
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> Upload a file or enter its hash to check if it&apos;s registered on Gono</li>
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> View the complete provenance timeline: when it was created, who verified it, how it&apos;s been modified</li>
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> See verification scores from independent experts</li>
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> Access the original file from permanent storage</li>
-                                            <li className="flex gap-2"><span className="text-blue-200">•</span> Compare the current file against the blockchain record to detect tampering</li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span>Upload a file or enter its hash to check if it&apos;s registered on Gono</span></li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span>View the complete provenance timeline: when it was created, who verified it, how it&apos;s been modified</span></li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span>See verification scores from independent experts</span></li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span>Access the original file from permanent storage</span></li>
+                                            <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span>Compare the current file against the blockchain record to detect tampering</span></li>
                                         </ul>
                                         <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
                                             <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
@@ -379,11 +412,11 @@ export default function WhitepaperPage() {
                                             <div className="bg-black/30 border-l-4 border-blue-700/50 p-4 rounded-r-lg">
                                                 <h4 className="text-blue-200 font-bold mb-2 text-sm sm:text-base">Layer 3: Modular Service Pallets (Optional Extensions)</h4>
                                                 <p className="text-gray-300 text-sm leading-relaxed mb-3">Developers can &quot;plug in&quot; only the modules they need:</p>
-                                                <ul className="space-y-1 text-gray-400 text-xs sm:text-sm">
-                                                    <li>• <strong className="text-white">Store Pallet:</strong> Arweave integration for permanent hosting</li>
-                                                    <li>• <strong className="text-white">Verify Pallet:</strong> Community attestations + SANUB reputation</li>
-                                                    <li>• <strong className="text-white">Privacy Pallet:</strong> zk-SNARKs for anonymous verification</li>
-                                                    <li>• <strong className="text-white">x402 Micropayment Pallet:</strong> Machine-to-machine payments for AI commerce</li>
+                                                <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
+                                                    <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">Store Pallet:</strong> Arweave integration for permanent hosting</span></li>
+                                                    <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">Verify Pallet:</strong> Community attestations + SANUB reputation</span></li>
+                                                    <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">Privacy Pallet:</strong> zk-SNARKs for anonymous verification</span></li>
+                                                    <li className="flex gap-2"><span className="text-blue-200 flex-shrink-0">•</span> <span><strong className="text-white">x402 Micropayment Pallet:</strong> Machine-to-machine payments for AI commerce</span></li>
                                                 </ul>
                                             </div>
 
@@ -477,25 +510,25 @@ export default function WhitepaperPage() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">⚡</span> Proof-as-a-Fee
+                                                <Zap className="w-5 h-5 text-amber-400" /> Proof-as-a-Fee
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Every ERC-7053 write (new captures, receipt mints) requires GONO as "provenance gas."</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">💾</span> Storage Endowment
+                                                <Save className="w-5 h-5 text-green-400" /> Storage Endowment
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">A one-time upfront fee in GONO secures permanent space on Arweave.</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">💎</span> Network Security
+                                                <Shield className="w-5 h-5 text-blue-400" /> Network Security
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Nodes securing modular pallets must stake GONO and are subject to slashing for poor service.</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">🗳️</span> Governance
+                                                <Vote className="w-5 h-5 text-purple-400" /> Governance
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Staked GONO provides rights to vote on technical upgrades and fee schedules.</p>
                                         </div>
@@ -510,7 +543,7 @@ export default function WhitepaperPage() {
                                     <div className="space-y-4 sm:space-y-6">
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border-l-4 border-blue-700/50 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">🎨</span> Creator Monetization
+                                                <Palette className="w-6 h-6 text-pink-400" /> Creator Monetization
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base mb-3">
                                                 Artists register original content with C2PA credentials on-chain via ERC-7053. When AI agents license work through x402 micropayments, they receive verifiable on-chain usage certificates. Fans pre-fund projects by purchasing NFT passes, automatically receiving delivery receipts when promised content is released.
@@ -521,7 +554,7 @@ export default function WhitepaperPage() {
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border-l-4 border-blue-700/50 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">🏠</span> Real Estate Rental
+                                                <Home className="w-6 h-6 text-orange-400" /> Real Estate Rental
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base mb-3">
                                                 Properties linked to digital-twin NFTs with verifiable condition photos captured via C2PA. GONO-staked witness nodes verify identity and property condition at check-in, uploading signed attestations with C2PA-tagged photos. Revenue splits execute automatically according to the trust schedule, providing investors real-time auditable booking and payout history.
@@ -532,7 +565,7 @@ export default function WhitepaperPage() {
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border-l-4 border-blue-700/50 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">💻</span> DePIN GPU Computing
+                                                <Cpu className="w-6 h-6 text-cyan-400" /> DePIN GPU Computing
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base mb-3">
                                                 Decentralized GPU facilities represented as NFTs encoding investor rights to revenue portions. Clients pay in stablecoins for compute tasks, receiving usage certificate NFTs upon completion. Payments route automatically into on-chain revenue-split contracts, with witness nodes attesting that computing service was delivered and logging GPU utilization verification.
@@ -543,7 +576,7 @@ export default function WhitepaperPage() {
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border-l-4 border-blue-700/50 rounded-r-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <span className="text-xl sm:text-2xl">📰</span> Field Journalism
+                                                <Newspaper className="w-6 h-6 text-gray-400" /> Field Journalism
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base mb-3">
                                                 Journalists create Assignment Anchors capturing story proposals, budgets, timelines, and milestones, registered on-chain via ERC-7053 and C2PA. Sponsors receive non-transferable NFT tokens and funds are held in smart contract escrow. When milestones are reached, witness nodes attest with on-chain signatures, triggering payment releases. Geo-tagged C2PA photos prove field work authenticity.

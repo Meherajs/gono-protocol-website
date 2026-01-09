@@ -1,4 +1,5 @@
 import { api } from '@/lib/api';
+import { Newspaper, Bot, Building2, GraduationCap, Box } from "lucide-react";
 
 const fallbackUseCases = [
     {
@@ -42,11 +43,12 @@ export default async function UseCases() {
         Academia: { bg: 'bg-amber-500/10', border: 'border-amber-500/50', text: 'text-amber-400' },
     };
 
-    const categoryIcons: Record<string, string> = {
-        Media: '📰',
-        'AI Commerce': '🤖',
-        'Real Estate': '🏢',
-        Academia: '🎓',
+
+    const categoryIcons: Record<string, React.ReactNode> = {
+        Media: <Newspaper className="w-8 h-8" />,
+        'AI Commerce': <Bot className="w-8 h-8" />,
+        'Real Estate': <Building2 className="w-8 h-8" />,
+        Academia: <GraduationCap className="w-8 h-8" />,
     };
 
     return (

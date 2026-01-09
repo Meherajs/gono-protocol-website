@@ -1,14 +1,20 @@
+import { Smartphone, Link as LinkIcon, Palette, Search, Bot, Globe, BarChart, Lock, Coins, Camera } from "lucide-react";
+
 const products = [
     {
         title: "Capture App",
         description: "The blockchain camera that captures photos and videos with instant provenance registration. Available on iOS and Android.",
-        features: ["📱 Mobile First", "⛓️ Instant Registration", "🎨 NFT Creation"],
+        features: [
+            <span key="mobile" className="flex items-center gap-1"><Smartphone className="w-3 h-3" /> Mobile First</span>,
+            <span key="chain" className="flex items-center gap-1"><LinkIcon className="w-3 h-3" /> Instant Registration</span>,
+            <span key="nft" className="flex items-center gap-1"><Palette className="w-3 h-3" /> NFT Creation</span>
+        ],
         link: "Download App",
         preview: (
             <div className="w-40 h-72 bg-[#0a0a0a] border-[3px] border-zinc-600 rounded-3xl overflow-hidden p-2">
                 <div className="w-full h-full bg-[#1a1a1a] rounded-2xl flex flex-col">
                     <div className="flex items-center gap-2 p-2 text-xs font-semibold">
-                        <span className="text-indigo-500">◎</span>
+                        <span className="text-indigo-500"><Camera className="w-4 h-4" /></span>
                         <span>Capture</span>
                     </div>
                     <div className="flex-1 flex flex-col items-center justify-center gap-4 p-4">
@@ -26,7 +32,11 @@ const products = [
     {
         title: "Gono Search",
         description: "Search engine for digital media provenance. Find origin, ownership, and history of any registered content.",
-        features: ["🔍 Reverse Image Search", "🤖 AI-Powered", "🌐 Multi-Network"],
+        features: [
+            <span key="search" className="flex items-center gap-1"><Search className="w-3 h-3" /> Reverse Image Search</span>,
+            <span key="ai" className="flex items-center gap-1"><Bot className="w-3 h-3" /> AI-Powered</span>,
+            <span key="net" className="flex items-center gap-1"><Globe className="w-3 h-3" /> Multi-Network</span>
+        ],
         link: "Try Search",
         preview: (
             <div className="w-full max-w-[280px] bg-[#0a0a0a] border border-white/[0.08] rounded-xl overflow-hidden">
@@ -60,7 +70,11 @@ const products = [
     {
         title: "Dashboard",
         description: "Manage your digital assets, track provenance history, and control AI mining permissions in one place.",
-        features: ["📊 Analytics", "🔐 Access Control", "💰 Monetization"],
+        features: [
+            <span key="analytics" className="flex items-center gap-1"><BarChart className="w-3 h-3" /> Analytics</span>,
+            <span key="access" className="flex items-center gap-1"><Lock className="w-3 h-3" /> Access Control</span>,
+            <span key="money" className="flex items-center gap-1"><Coins className="w-3 h-3" /> Monetization</span>
+        ],
         link: "Open Dashboard",
         preview: (
             <div className="w-full max-w-[280px] h-44 bg-[#0a0a0a] border border-white/[0.08] rounded-xl overflow-hidden flex">

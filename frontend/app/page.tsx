@@ -23,11 +23,11 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <Architecture />
+        <Roadmap />
         <Products />
         <X402Micropayment />
         <UseCases />
         <Ecosystem />
-        <Roadmap />
         <FAQ />
         <CTA />
       </main>
