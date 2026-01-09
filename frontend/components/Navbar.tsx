@@ -226,7 +226,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 py-4 border-t border-white/[0.08]">
+                    <div className="md:hidden mt-4 py-4 border-t border-white/[0.08] bg-[#0a0a0a]/95 backdrop-blur-xl rounded-lg px-4">
                         <ul className="flex flex-col gap-4">
                             {[
                                 { name: "USE CASES", href: "/use-cases" },
