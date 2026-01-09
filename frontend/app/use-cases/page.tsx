@@ -43,6 +43,14 @@ const useCases = [
         date: "01.09.2026",
         image: "/images/use-cases/ip.jpg", // Placeholder - will be replaced
     },
+    {
+        id: "academic-credentials",
+        title: "Academic Credentials & Degree Verification",
+        category: "Education & Verification",
+        overview: "Eliminating diploma fraud and credential verification delays through blockchain-verified educational records. Instant verification, refugee-proof credentials, and lifelong learning portfolios.",
+        date: "01.08.2026",
+        image: "/images/use-cases/academic.jpg", // Placeholder - will be replaced
+    },
 ];
 
 export default function UseCasesPage() {
