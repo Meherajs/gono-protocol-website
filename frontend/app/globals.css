@@ -216,3 +216,74 @@ body {
 .delay-500 {
   animation-delay: 500ms;
 }
+
+
+/* Reading container - softer background */
+.reading-mode {
+  --reading-bg: #0f0f0f;
+  --reading-surface: rgba(255, 255, 255, 0.02);
+  --reading-border: rgba(255, 255, 255, 0.06);
+  --reading-text: #d4d4d8;
+  --reading-text-muted: #a1a1aa;
+  --reading-heading: #e4e4e7;
+  --reading-accent: #a1a1aa;
+  --reading-accent-subtle: rgba(161, 161, 170, 0.15);
+}
+
+/* Override prose styles for reading mode */
+.reading-mode .prose {
+  --tw-prose-body: var(--reading-text);
+  --tw-prose-headings: var(--reading-heading);
+  --tw-prose-bold: #e4e4e7;
+  --tw-prose-links: #a1a1aa;
+}
+
+/* Section headings in reading mode - muted accent */
+.reading-mode h2,
+.reading-mode .section-heading {
+  color: var(--reading-heading);
+  border-color: var(--reading-border);
+}
+
+/* Accent text in reading mode - subtle zinc tones */
+.reading-mode .accent-text {
+  color: #a1a1aa;
+}
+
+/* Card/box backgrounds - very subtle */
+.reading-mode .content-box {
+  background: var(--reading-surface);
+  border-color: var(--reading-border);
+}
+
+/* Callout boxes with minimal color */
+.reading-mode .callout {
+  background: rgba(161, 161, 170, 0.05);
+  border-left-color: #71717a;
+}
+
+/* Step indicators - neutral */
+.reading-mode .step-indicator {
+  background: #3f3f46;
+  color: #e4e4e7;
+}
+
+/* Tables - reduced contrast */
+.reading-mode table {
+  border-color: var(--reading-border);
+}
+
+.reading-mode thead {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.reading-mode th {
+  color: #a1a1aa;
+}
+
+/* Code blocks - subtle */
+.reading-mode pre,
+.reading-mode code {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: var(--reading-border);
+}

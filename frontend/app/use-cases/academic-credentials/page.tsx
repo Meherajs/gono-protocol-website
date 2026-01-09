@@ -9,9 +9,9 @@ export default function AcademicCredentialsPage() {
             <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-gradient-to-b from-gray-950 to-black">
                 <div className="max-w-4xl mx-auto">
                     {/* Back Link */}
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mb-8 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -21,7 +21,7 @@ export default function AcademicCredentialsPage() {
 
                     {/* Header */}
                     <div className="mb-12">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                        <div className="inline-block px-4 py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-sm font-medium mb-6 uppercase tracking-wider">
                             Education & Verification
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -41,8 +41,8 @@ export default function AcademicCredentialsPage() {
                     <div className="prose prose-invert prose-amber max-w-none">
                         {/* The Crisis */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">The Global Credential Crisis</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">The Global Credential Crisis</h2>
+
                             <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
                                 <p className="text-gray-200 text-lg font-semibold mb-2">The Scale of the Problem</p>
                                 <ul className="space-y-2 text-gray-300">
@@ -55,30 +55,30 @@ export default function AcademicCredentialsPage() {
                             </div>
 
                             <h3 className="text-2xl font-semibold text-white mb-4">Why Traditional Systems Fail</h3>
-                            
+
                             <div className="space-y-4">
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">🎓 Paper-Based Certificates</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">🎓 Paper-Based Certificates</h4>
                                     <p className="text-gray-300">Physical diplomas can be forged, lost, or destroyed. Universities store records in silos, making cross-border verification nearly impossible.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">📞 Manual Verification Nightmare</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">📞 Manual Verification Nightmare</h4>
                                     <p className="text-gray-300">Employers must contact universities directly, often across borders and time zones. Many institutions charge $25-100 per verification request. Some universities close or lose records entirely.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">🌍 Refugee Education Crisis</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">🌍 Refugee Education Crisis</h4>
                                     <p className="text-gray-300">Students fleeing war zones (Syria, Afghanistan, Ukraine, Myanmar) lose all proof of education. They cannot continue studies or find skilled employment, wasting years of learning.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">💼 LinkedIn & Resume Fraud</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">💼 LinkedIn & Resume Fraud</h4>
                                     <p className="text-gray-300">Fake certifications, inflated credentials, and fabricated skills plague professional networks. No way to verify claims without extensive background checks.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">🏛️ Diploma Mills Exploit Trust</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">🏛️ Diploma Mills Exploit Trust</h4>
                                     <p className="text-gray-300">Fake universities with legitimate-sounding names sell degrees for $500-5,000. Examples: "Belford University," "Trinity Southern University," "Rochville University" — all exposed as frauds.</p>
                                 </div>
                             </div>
@@ -86,32 +86,32 @@ export default function AcademicCredentialsPage() {
 
                         {/* Real-World Impact */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">Real-World Consequences</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">Real-World Consequences</h2>
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-red-400 mb-3">🏥 Healthcare Scandal</h3>
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🏥 Healthcare Scandal</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         In 2018, Pakistan discovered <strong>over 3,000 doctors</strong> were practicing with fake degrees. Patients died due to unqualified practitioners. Traditional verification failed to catch them for years.
                                     </p>
                                 </div>
 
                                 <div className="bg-gradient-to-br from-orange-900/20 to-orange-800/10 border border-orange-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-orange-400 mb-3">🏗️ Engineering Disaster</h3>
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🏗️ Engineering Disaster</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Bridge collapses and building failures traced to engineers with fraudulent degrees. Lives lost because credentials weren't verifiable at the point of hiring.
                                     </p>
                                 </div>
 
-                                <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-blue-400 mb-3">🎓 Refugee Students</h3>
+                                <div className="bg-gradient-to-br from-zinc-900/20 to-blue-800/10 border border-zinc-600/30 p-6 rounded-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🎓 Refugee Students</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Syrian refugees in Europe cannot prove they were medical students or engineers. Universities bombed, records destroyed. Forced to start education from scratch despite years of study.
                                     </p>
                                 </div>
 
-                                <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-purple-400 mb-3">💼 Corporate Fraud</h3>
+                                <div className="bg-gradient-to-br from-zinc-900/20 to-purple-800/10 border border-zinc-600/30 p-6 rounded-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">💼 Corporate Fraud</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Yahoo CEO Scott Thompson resigned after lying about his computer science degree. Countless smaller cases go undetected until costly background checks reveal them.
                                     </p>
@@ -121,16 +121,16 @@ export default function AcademicCredentialsPage() {
 
                         {/* The Solution */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">The Gono Protocol Solution: Verifiable Credential Infrastructure</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">The Gono Protocol Solution: Verifiable Credential Infrastructure</h2>
+
                             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
                                 Gono Protocol creates an <strong>unforgeable, portable, instantly verifiable</strong> system for academic credentials. Students own their education records. Employers verify in seconds. Universities reduce administrative burden. Refugees never lose proof of education.
                             </p>
 
                             {/* Phase 1: CAPTURE */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-l-4 border-amber-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-amber-400 mb-3">Phase 1: CAPTURE — Issuing Verifiable Credentials</h3>
+                                <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-zinc-300 mb-3">Phase 1: CAPTURE — Issuing Verifiable Credentials</h3>
                                     <p className="text-gray-300 mb-4">
                                         Universities, training programs, and certification bodies issue blockchain-anchored credentials at the moment of achievement.
                                     </p>
@@ -149,10 +149,10 @@ export default function AcademicCredentialsPage() {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Example: University of Dhaka Issues BSc Degree</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Example: University of Dhaka Issues BSc Degree</h4>
                                         <pre className="text-xs text-gray-300 overflow-x-auto">
-{`{
+                                            {`{
   "credentialType": "Bachelor of Science",
   "institution": "University of Dhaka",
   "institutionDID": "did:gono:university-of-dhaka",
@@ -204,8 +204,8 @@ export default function AcademicCredentialsPage() {
 
                             {/* Phase 2: CERTIFY */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-blue-400 mb-3">Phase 2: CERTIFY — Blockchain Registration & Self-Sovereign Identity</h3>
+                                <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 2: CERTIFY — Blockchain Registration & Self-Sovereign Identity</h3>
                                     <p className="text-gray-300 mb-4">
                                         Students own their credentials. No central authority can revoke access. Credentials exist forever, accessible anywhere.
                                     </p>
@@ -216,7 +216,7 @@ export default function AcademicCredentialsPage() {
                                         <h4 className="text-lg font-semibold text-white mb-2">🔐 Decentralized Identifiers (DIDs)</h4>
                                         <p className="text-gray-300 mb-3">Each student receives a Gono DID (W3C standard):</p>
                                         <ul className="space-y-2 text-gray-300 list-disc list-inside">
-                                            <li><strong>Example DID:</strong> <code className="text-amber-400">did:gono:student:0x742d35Cc...</code></li>
+                                            <li><strong>Example DID:</strong> <code className="text-zinc-300">did:gono:student:0x742d35Cc...</code></li>
                                             <li>Student controls private keys — no one else can access or revoke credentials</li>
                                             <li>Works across borders, survives university closures, persists through regime changes</li>
                                             <li>All credentials linked to DID: degrees, transcripts, certifications, endorsements</li>
@@ -234,8 +234,8 @@ export default function AcademicCredentialsPage() {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Refugee Use Case: Syrian Medical Student</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Refugee Use Case: Syrian Medical Student</h4>
                                         <p className="text-gray-300 text-sm mb-3">
                                             <strong>Scenario:</strong> Ahmed was a 3rd-year medical student at Damascus University when war forced him to flee to Germany. His university was bombed, physical records destroyed.
                                         </p>
@@ -251,8 +251,8 @@ export default function AcademicCredentialsPage() {
 
                             {/* Phase 3: CHECK */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-l-4 border-green-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-green-400 mb-3">Phase 3: CHECK — Instant Employer Verification</h3>
+                                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 3: CHECK — Instant Employer Verification</h3>
                                     <p className="text-gray-300 mb-4">
                                         Employers verify credentials in seconds, not weeks. No need to contact universities. Zero-knowledge proofs protect privacy while proving qualifications.
                                     </p>
@@ -277,35 +277,35 @@ export default function AcademicCredentialsPage() {
                                         </ol>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Verification Dashboard Example</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Verification Dashboard Example</h4>
                                         <div className="space-y-2 text-sm text-gray-300">
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Credential Valid:</strong> Bachelor of Science in Computer Science</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Issuer:</strong> University of Dhaka (Accredited by UGC Bangladesh)</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Student:</strong> Nadia Rahman (DID verified)</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Graduation Date:</strong> June 15, 2025</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Blockchain Proof:</strong> Block #8472193 on Gono Protocol</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>GPA:</strong> 3.89 / 4.0 (Magna Cum Laude)</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-yellow-400">⚠</span>
+                                                <span className="text-blue-200">⚠</span>
                                                 <span><strong>Privacy:</strong> Full transcript available with student consent</span>
                                             </div>
                                         </div>
@@ -337,8 +337,8 @@ export default function AcademicCredentialsPage() {
 
                             {/* Phase 4: CONTINUOUS LEARNING */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-l-4 border-purple-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-purple-400 mb-3">Phase 4: CONTINUOUS LEARNING — Micro-Credentials & Lifelong Education</h3>
+                                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 4: CONTINUOUS LEARNING — Micro-Credentials & Lifelong Education</h3>
                                     <p className="text-gray-300 mb-4">
                                         Education doesn't end at graduation. Gono tracks professional certifications, online courses, bootcamps, and skill updates throughout a career.
                                     </p>
@@ -367,19 +367,19 @@ export default function AcademicCredentialsPage() {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Example: Full Career Credential Chain</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Example: Full Career Credential Chain</h4>
                                         <div className="space-y-3 text-sm text-gray-300">
-                                            <div className="pl-4 border-l-2 border-amber-500">
+                                            <div className="pl-4 border-l-2 border-zinc-600">
                                                 <strong className="text-white">2022:</strong> BSc Computer Science, University of Dhaka (GPA 3.89)
                                             </div>
-                                            <div className="pl-4 border-l-2 border-blue-500">
+                                            <div className="pl-4 border-l-2 border-zinc-600">
                                                 <strong className="text-white">2023:</strong> AWS Solutions Architect Certification (scored 890/1000)
                                             </div>
-                                            <div className="pl-4 border-l-2 border-green-500">
+                                            <div className="pl-4 border-l-2 border-zinc-600">
                                                 <strong className="text-white">2023:</strong> React.js Developer Bootcamp, freeCodeCamp (portfolio verified)
                                             </div>
-                                            <div className="pl-4 border-l-2 border-purple-500">
+                                            <div className="pl-4 border-l-2 border-zinc-600">
                                                 <strong className="text-white">2024:</strong> Skill Endorsement: "Expert React Developer" signed by CTO of TechCorp
                                             </div>
                                             <div className="pl-4 border-l-2 border-pink-500">
@@ -399,7 +399,7 @@ export default function AcademicCredentialsPage() {
                             {/* Phase 5: CREDENTIAL REVOCATION */}
                             <div className="mb-10">
                                 <div className="bg-gradient-to-r from-red-500/20 to-pink-500/20 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-red-400 mb-3">Phase 5: REVOCATION — Handling Academic Misconduct</h3>
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 5: REVOCATION — Handling Academic Misconduct</h3>
                                     <p className="text-gray-300 mb-4">
                                         What if a degree is revoked due to plagiarism or fraud? Gono supports credential revocation while maintaining transparency.
                                     </p>
@@ -433,15 +433,15 @@ export default function AcademicCredentialsPage() {
 
                         {/* Comparison Table */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">Traditional System vs Gono Protocol</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">Traditional System vs Gono Protocol</h2>
+
                             <div className="overflow-x-auto">
                                 <table className="w-full border border-gray-700">
                                     <thead className="bg-gray-800">
                                         <tr>
-                                            <th className="border border-gray-700 px-4 py-3 text-left text-amber-400">Feature</th>
-                                            <th className="border border-gray-700 px-4 py-3 text-left text-red-400">Traditional System</th>
-                                            <th className="border border-gray-700 px-4 py-3 text-left text-green-400">Gono Protocol</th>
+                                            <th className="border border-gray-700 px-4 py-3 text-left text-zinc-300">Feature</th>
+                                            <th className="border border-gray-700 px-4 py-3 text-left text-blue-200">Traditional System</th>
+                                            <th className="border border-gray-700 px-4 py-3 text-left text-blue-200">Gono Protocol</th>
                                         </tr>
                                     </thead>
                                     <tbody className="text-sm">
@@ -497,11 +497,11 @@ export default function AcademicCredentialsPage() {
 
                         {/* Adoption Roadmap */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">Adoption Roadmap</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">Adoption Roadmap</h2>
 
                             <div className="space-y-6">
-                                <div className="bg-gradient-to-r from-blue-900/20 to-blue-800/10 border-l-4 border-blue-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-blue-400 mb-3">Phase 1: Pilot Universities (2026 Q1-Q2)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-blue-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">Phase 1: Pilot Universities (2026 Q1-Q2)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Partner with 5-10 universities in Bangladesh (Dhaka, BUET, NSU, IUB)</li>
                                         <li>• Issue Gono credentials to graduating class of 2026</li>
@@ -510,8 +510,8 @@ export default function AcademicCredentialsPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-purple-900/20 to-purple-800/10 border-l-4 border-purple-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-purple-400 mb-3">Phase 2: Employer Integration (2026 Q3)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-purple-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">Phase 2: Employer Integration (2026 Q3)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Partner with major employers (Grameenphone, bKash, Pathao, SELISE)</li>
                                         <li>• Integrate Gono Verify into HR systems (Workday, BambooHR)</li>
@@ -520,8 +520,8 @@ export default function AcademicCredentialsPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-green-900/20 to-green-800/10 border-l-4 border-green-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-green-400 mb-3">Phase 3: International Expansion (2026 Q4 - 2027)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-green-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">Phase 3: International Expansion (2026 Q4 - 2027)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Partner with MIT, Stanford, Oxford for cross-border credential verification</li>
                                         <li>• UNHCR adopts Gono for refugee education records</li>
@@ -530,8 +530,8 @@ export default function AcademicCredentialsPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-amber-900/20 to-amber-800/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-amber-400 mb-3">Phase 4: Professional Licensing (2027+)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-amber-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-zinc-300 mb-3">Phase 4: Professional Licensing (2027+)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Medical councils verify doctor credentials via Gono (prevent fake doctors)</li>
                                         <li>• Bar associations verify lawyer qualifications</li>
@@ -543,8 +543,8 @@ export default function AcademicCredentialsPage() {
                         </section>
 
                         {/* Impact Metrics */}
-                        <section className="mb-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/30 p-8 rounded-lg">
-                            <h2 className="text-2xl font-bold text-amber-400 mb-6">Projected Impact (10-Year Horizon)</h2>
+                        <section className="mb-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-zinc-600/30 p-8 rounded-lg">
+                            <h2 className="text-2xl font-bold text-zinc-300 mb-6">Projected Impact (10-Year Horizon)</h2>
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <h3 className="text-3xl font-bold text-white mb-2">500M+</h3>
@@ -575,25 +575,25 @@ export default function AcademicCredentialsPage() {
 
                         {/* UN SDG Alignment */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">UN Sustainable Development Goals Alignment</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">UN Sustainable Development Goals Alignment</h2>
                             <div className="grid md:grid-cols-3 gap-4">
-                                <div className="bg-blue-900/20 border border-blue-500/30 p-5 rounded-lg">
+                                <div className="bg-zinc-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">🎓</div>
-                                    <h3 className="text-lg font-semibold text-blue-400 mb-2">SDG 4: Quality Education</h3>
+                                    <h3 className="text-lg font-semibold text-blue-200 mb-2">SDG 4: Quality Education</h3>
                                     <p className="text-gray-300 text-sm">
                                         Portable credentials enable lifelong learning. Refugees access education. Skills verified beyond grades.
                                     </p>
                                 </div>
-                                <div className="bg-purple-900/20 border border-purple-500/30 p-5 rounded-lg">
+                                <div className="bg-zinc-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">💼</div>
-                                    <h3 className="text-lg font-semibold text-purple-400 mb-2">SDG 8: Decent Work</h3>
+                                    <h3 className="text-lg font-semibold text-blue-200 mb-2">SDG 8: Decent Work</h3>
                                     <p className="text-gray-300 text-sm">
                                         Faster hiring via instant verification. Prevent unqualified workers in critical roles (doctors, engineers).
                                     </p>
                                 </div>
-                                <div className="bg-green-900/20 border border-green-500/30 p-5 rounded-lg">
+                                <div className="bg-green-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">⚖️</div>
-                                    <h3 className="text-lg font-semibold text-green-400 mb-2">SDG 10: Reduced Inequalities</h3>
+                                    <h3 className="text-lg font-semibold text-blue-200 mb-2">SDG 10: Reduced Inequalities</h3>
                                     <p className="text-gray-300 text-sm">
                                         Students from Global South access opportunities via verifiable credentials. No geographic barriers.
                                     </p>
@@ -602,7 +602,7 @@ export default function AcademicCredentialsPage() {
                         </section>
 
                         {/* CTA */}
-                        <div className="text-center py-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg border border-amber-500/30">
+                        <div className="text-center py-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg border border-zinc-600/30">
                             <h2 className="text-3xl font-bold text-white mb-4">
                                 Ready to Eliminate Diploma Fraud?
                             </h2>

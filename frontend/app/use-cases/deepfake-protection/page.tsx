@@ -7,9 +7,9 @@ export default function DeepfakeProtectionPage() {
             <Navbar />
             <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-gradient-to-b from-gray-950 to-black">
                 <div className="max-w-4xl mx-auto">
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mb-8 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -18,7 +18,7 @@ export default function DeepfakeProtectionPage() {
                     </Link>
 
                     <div className="mb-12">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                        <div className="inline-block px-4 py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-sm font-medium mb-6 uppercase tracking-wider">
                             Deepfake Protection
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -40,19 +40,19 @@ export default function DeepfakeProtectionPage() {
 
                     <div className="prose prose-invert prose-amber max-w-none">
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Problem: The Rise of Undetectable Deepfakes</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Problem: The Rise of Undetectable Deepfakes</h2>
+
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 AI-generated photos and videos have become so realistic that distinguishing them from authentic content is nearly impossible. Deepfake technology can now clone anyone&apos;s face, synthesize realistic voices, and generate full video content indistinguishable from real footage.
                             </p>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Who is at Risk?</h3>
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Target</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Potential Harm</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Target</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Potential Harm</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -82,8 +82,8 @@ export default function DeepfakeProtectionPage() {
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Key Problems</h3>
                             <div className="space-y-4">
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-amber-400 mb-3">1. No Source of Truth</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-zinc-300 mb-3">1. No Source of Truth</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>There&apos;s no way to prove content is fake</li>
                                         <li>There&apos;s no way to prove the original is authentic</li>
@@ -91,8 +91,8 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-amber-400 mb-3">2. Detection is Losing the Race</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-zinc-300 mb-3">2. Detection is Losing the Race</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>AI detection tools are increasingly unreliable</li>
                                         <li>Deepfake technology improves faster than detection</li>
@@ -100,8 +100,8 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-amber-400 mb-3">3. No Registry of Authentic Content</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-zinc-300 mb-3">3. No Registry of Authentic Content</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>Celebrities post thousands of photos/videos</li>
                                         <li>No centralized, verifiable record of their authentic content</li>
@@ -112,10 +112,10 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Insight: Capture Authenticity at the Source</h2>
-                            
-                            <div className="bg-gradient-to-r from-amber-950/50 to-orange-950/50 border border-amber-900 rounded-lg p-6 my-8">
-                                <p className="text-lg text-amber-200 font-semibold mb-2">The only way to fight deepfakes:</p>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Insight: Capture Authenticity at the Source</h2>
+
+                            <div className="bg-gradient-to-r from-zinc-900/50 to-zinc-800/50 border border-zinc-800 rounded-lg p-6 my-8">
+                                <p className="text-lg text-zinc-300 font-semibold mb-2">The only way to fight deepfakes:</p>
                                 <p className="text-gray-300 text-xl">
                                     Prove what&apos;s REAL, not detect what&apos;s fake
                                 </p>
@@ -132,13 +132,13 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Solution: Gono Protocol Content Authenticity System</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Solution: Gono Protocol Content Authenticity System</h2>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">How It Works</h3>
-                            
+
                             <div className="space-y-6">
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-green-400 mb-3">CAPTURE (At Creation)</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">CAPTURE (At Creation)</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Celebrity captures photo/video using C2PA-enabled device or app</li>
                                         <li>• Cryptographic signature embedded in content metadata</li>
@@ -147,8 +147,8 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-blue-400 mb-3">STORE (Permanent Archive)</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">STORE (Permanent Archive)</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Original content uploaded to Arweave (permanent storage)</li>
                                         <li>• Thumbnail/preview stored for quick reference</li>
@@ -156,8 +156,8 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-purple-400 mb-3">CERTIFY (On-Chain Registration)</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">CERTIFY (On-Chain Registration)</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Content hash anchored on Gono Protocol via ERC-7053</li>
                                         <li>• C2PA metadata linked to creator&apos;s verified wallet</li>
@@ -166,8 +166,8 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-amber-400 mb-3">CHECK (Public Verification)</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-zinc-300 mb-3">CHECK (Public Verification)</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Anyone can submit any image/video for verification</li>
                                         <li>• System computes hash and checks against on-chain registry</li>
@@ -179,11 +179,11 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The User Experience</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The User Experience</h2>
 
                             <div className="grid md:grid-cols-2 gap-6 mb-8">
-                                <div className="bg-green-950/30 border border-green-900 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-green-400 mb-4">For Content Creators</h4>
+                                <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-4">For Content Creators</h4>
                                     <ol className="list-decimal list-inside space-y-2 text-gray-300">
                                         <li>Download the Gono Capture App</li>
                                         <li>Capture content (C2PA credentials auto-embedded)</li>
@@ -192,8 +192,8 @@ export default function DeepfakeProtectionPage() {
                                     </ol>
                                 </div>
 
-                                <div className="bg-blue-950/30 border border-blue-900 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-blue-400 mb-4">For the Public</h4>
+                                <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-4">For the Public</h4>
                                     <ol className="list-decimal list-inside space-y-2 text-gray-300">
                                         <li>See suspicious content online</li>
                                         <li>Submit to Gono Verification Portal</li>
@@ -209,14 +209,14 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">How Gono Protocol Enables This</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">How Gono Protocol Enables This</h2>
+
                             <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Gono Protocol Feature</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">How It Protects Against Deepfakes</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Gono Protocol Feature</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">How It Protects Against Deepfakes</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -250,11 +250,11 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Example Scenario: Protecting a Celebrity</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Example Scenario: Protecting a Celebrity</h2>
 
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="bg-red-950/30 border border-red-900 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-red-400 mb-3">Without Gono Protocol</h4>
+                                <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Without Gono Protocol</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Celebrity must issue denial (often not believed)</li>
                                         <li>• Hire forensic experts to analyze the video</li>
@@ -263,8 +263,8 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-green-950/30 border border-green-900 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-green-400 mb-3">With Gono Protocol</h4>
+                                <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">With Gono Protocol</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Anyone checks video against verified registry</li>
                                         <li>• Result: ⚠️ UNVERIFIED — Not in Celebrity X&apos;s authenticated content</li>
@@ -276,10 +276,10 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Adoption Strategy</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Adoption Strategy</h2>
 
                             <div className="space-y-4">
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
                                     <h4 className="text-xl font-semibold text-white mb-3">Phase 1: Celebrity Early Adopters</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Partner with high-profile celebrities facing deepfake threats</li>
@@ -288,7 +288,7 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
                                     <h4 className="text-xl font-semibold text-white mb-3">Phase 2: Platform Integration</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Integrate with major social media platforms</li>
@@ -297,7 +297,7 @@ export default function DeepfakeProtectionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
                                     <h4 className="text-xl font-semibold text-white mb-3">Phase 3: Universal Adoption</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Camera manufacturers embed C2PA by default</li>
@@ -309,14 +309,14 @@ export default function DeepfakeProtectionPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Conclusion: Proving What&apos;s Real</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Conclusion: Proving What&apos;s Real</h2>
+
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 The deepfake crisis cannot be solved by better detection. AI-generated content will only become more convincing. The only sustainable solution is to prove what&apos;s real at the source.
                             </p>
 
-                            <div className="bg-gradient-to-r from-amber-950/50 to-orange-950/50 border border-amber-900 rounded-lg p-6 my-8">
-                                <p className="text-lg text-amber-200 font-semibold mb-2">Gono Protocol provides the infrastructure to:</p>
+                            <div className="bg-gradient-to-r from-zinc-900/50 to-zinc-800/50 border border-zinc-800 rounded-lg p-6 my-8">
+                                <p className="text-lg text-zinc-300 font-semibold mb-2">Gono Protocol provides the infrastructure to:</p>
                                 <p className="text-gray-300 text-xl italic">
                                     &quot;Create an immutable, publicly verifiable registry of authentic content — so deepfakes are instantly identifiable as unverified.&quot;
                                 </p>
@@ -332,7 +332,7 @@ export default function DeepfakeProtectionPage() {
                                 For celebrities, influencers, and public figures, registering authentic content on Gono Protocol becomes as essential as copyright — a proactive defense against the rising tide of synthetic media.
                             </p>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mt-8 italic">
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mt-8 italic">
                                 <p className="text-gray-300">
                                     In a world where seeing is no longer believing, Gono Protocol makes authenticity verifiable — protecting individuals, preserving truth, and restoring trust in digital media.
                                 </p>
@@ -340,9 +340,9 @@ export default function DeepfakeProtectionPage() {
                         </section>
                     </div>
 
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mt-12 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mt-12 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

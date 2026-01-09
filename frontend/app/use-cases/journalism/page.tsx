@@ -8,9 +8,9 @@ export default function JournalismPage() {
             <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-gradient-to-b from-gray-950 to-black">
                 <div className="max-w-4xl mx-auto">
                     {/* Back Link */}
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mb-8 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -20,7 +20,7 @@ export default function JournalismPage() {
 
                     {/* Header */}
                     <div className="mb-12">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                        <div className="inline-block px-4 py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-sm font-medium mb-6 uppercase tracking-wider">
                             Gono Moncho
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -44,17 +44,17 @@ export default function JournalismPage() {
                     <div className="prose prose-invert prose-amber max-w-none">
                         {/* The Problem */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Problem: A Crisis of Trust in Modern Journalism</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Problem: A Crisis of Trust in Modern Journalism</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Global Challenge</h3>
                             <p className="text-gray-300 leading-relaxed">
                                 The global news ecosystem faces an unprecedented crisis. In the digital age, while access to information has become easier than ever, the <strong className="text-white">integrity and trustworthiness</strong> of that information has severely degraded. The very platforms designed to inform the public have become tools for manipulation, censorship, and oppression.
                             </p>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Key Problems Identified</h3>
-                            
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">1. Power and Narrative Control</h4>
+
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">1. Power and Narrative Control</h4>
                                 <p className="text-gray-300 mb-3">Modern media appears diverse but is predominantly controlled by a few powerful entities. These gatekeepers can:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Influence public perception by promoting stories that serve their interests</li>
@@ -63,8 +63,8 @@ export default function JournalismPage() {
                                 </ul>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">2. Misinformation and Disinformation Epidemic</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">2. Misinformation and Disinformation Epidemic</h4>
                                 <p className="text-gray-300 mb-3">Centralized, profit-driven digital platforms prioritize <strong className="text-white">engagement over accuracy</strong>. This has resulted in:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Widespread fabrication and dissemination of fake news</li>
@@ -74,8 +74,8 @@ export default function JournalismPage() {
                                 </ul>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">3. Lack of Transparency and Traceability</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">3. Lack of Transparency and Traceability</h4>
                                 <p className="text-gray-300 mb-3">Once news is published:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Its origins become opaque and unverifiable</li>
@@ -85,8 +85,8 @@ export default function JournalismPage() {
                                 </ul>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">4. Threats to Journalists</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">4. Threats to Journalists</h4>
                                 <p className="text-gray-300 mb-3">Those who cover sensitive topics face:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Immense political and legal pressure</li>
@@ -100,13 +100,13 @@ export default function JournalismPage() {
 
                         {/* Case Study */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Case Study: Bangladesh — A Nation in Crisis</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Case Study: Bangladesh — A Nation in Crisis</h2>
                             <p className="text-gray-300 leading-relaxed mb-4">
                                 Bangladesh represents a stark example of systemic press oppression.
                             </p>
 
-                            <div className="bg-red-950/30 border border-red-900 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-red-400 mb-3">Current Situation</h4>
+                            <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-blue-200 mb-3">Current Situation</h4>
                                 <ul className="space-y-2 text-gray-300">
                                     <li><strong className="text-white">World Press Freedom Index Rank</strong>: 149th out of 180 countries (2025)</li>
                                     <li><strong className="text-white">One of the least press-freedom countries</strong> in the world</li>
@@ -115,11 +115,11 @@ export default function JournalismPage() {
 
                             <h4 className="text-xl font-semibold text-white mb-3">Oppressive Legal Frameworks</h4>
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Law</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Impact</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Law</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Impact</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -146,7 +146,7 @@ export default function JournalismPage() {
 
                         {/* The Core Problem */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Core Problem: Centralized Architecture = Vulnerable Journalism</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Core Problem: Centralized Architecture = Vulnerable Journalism</h2>
                             <p className="text-gray-300 leading-relaxed mb-4">
                                 Existing news systems are built on <strong className="text-white">centralized client-server architectures</strong> which are inherently:
                             </p>
@@ -157,8 +157,8 @@ export default function JournalismPage() {
                                 <li><strong className="text-white">Unsafe for journalists</strong> — Identity exposure puts reporters at risk</li>
                             </ul>
 
-                            <div className="bg-gradient-to-r from-amber-950/50 to-orange-950/50 border border-amber-900 rounded-lg p-6 my-8">
-                                <p className="text-lg text-amber-200 font-semibold mb-2">The fundamental need:</p>
+                            <div className="bg-gradient-to-r from-zinc-900/50 to-zinc-800/50 border border-zinc-800 rounded-lg p-6 my-8">
+                                <p className="text-lg text-zinc-300 font-semibold mb-2">The fundamental need:</p>
                                 <p className="text-gray-300">
                                     A technological solution that is decentralized to resist censorship, transparent to ensure accountability, and immutable to guarantee the permanence and authenticity of published information.
                                 </p>
@@ -167,8 +167,8 @@ export default function JournalismPage() {
 
                         {/* The Solution */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Solution: Gono Moncho</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Solution: Gono Moncho</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Built on the Gono Protocol Blockchain</h3>
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 We introduce <strong className="text-white">Gono Moncho</strong> — a complete decentralized ecosystem for verifiable journalism, built on top of the <strong className="text-white">Gono Protocol</strong> blockchain infrastructure.
@@ -185,13 +185,13 @@ export default function JournalismPage() {
 
                             <h4 className="text-xl font-semibold text-white mb-3">Why Gono Protocol as the Foundation?</h4>
                             <p className="text-gray-300 mb-4">The Gono Protocol provides the perfect blockchain infrastructure for Gono Moncho:</p>
-                            
+
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Gono Protocol Feature</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">How It Enables Gono Moncho</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Gono Protocol Feature</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">How It Enables Gono Moncho</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -222,14 +222,14 @@ export default function JournalismPage() {
 
                         {/* Problem-Solution Mapping */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">How Gono Moncho Solves Each Problem</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">How Gono Moncho Solves Each Problem</h2>
+
                             <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Problem</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Gono Moncho Solution</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Problem</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Gono Moncho Solution</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -264,7 +264,7 @@ export default function JournalismPage() {
 
                         {/* Ecosystem */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Gono Moncho Ecosystem</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Gono Moncho Ecosystem</h2>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Publishing Channels</h3>
                             <ol className="list-decimal list-inside space-y-2 text-gray-300 mb-6">
@@ -274,12 +274,12 @@ export default function JournalismPage() {
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Key Roles</h3>
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Role</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Function</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Incentive</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Role</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Function</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Incentive</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -311,10 +311,10 @@ export default function JournalismPage() {
 
                         {/* Flow */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Flow: From Capture to Verification</h2>
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Flow: From Capture to Verification</h2>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 font-mono text-sm overflow-x-auto">
                                 <pre className="text-gray-300 whitespace-pre">
-{`┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+                                    {`┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
 │   CAPTURE   │────▶│    STORE    │────▶│   VERIFY    │────▶│   CERTIFY   │────▶│    CHECK    │
 │  (Content)  │     │  (Arweave)  │     │  (SANUB+AI) │     │ (ERC-7053)  │     │  (Audit)    │
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
@@ -328,10 +328,10 @@ export default function JournalismPage() {
 
                         {/* SDG Impact */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Impact: Alignment with UN Sustainable Development Goals</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Impact: Alignment with UN Sustainable Development Goals</h2>
 
-                            <div className="bg-blue-950/30 border border-blue-900 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-blue-400 mb-3">SDG 16: Peace, Justice and Strong Institutions</h4>
+                            <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-blue-200 mb-3">SDG 16: Peace, Justice and Strong Institutions</h4>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Ensures public access to information (Target 16.10)</li>
                                     <li>Creates transparent, accountable institutions (Target 16.6)</li>
@@ -339,16 +339,16 @@ export default function JournalismPage() {
                                 </ul>
                             </div>
 
-                            <div className="bg-blue-950/30 border border-blue-900 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-blue-400 mb-3">SDG 10: Reduced Inequalities</h4>
+                            <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-blue-200 mb-3">SDG 10: Reduced Inequalities</h4>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Empowers marginalized voices</li>
                                     <li>Prevents information-based political exclusion</li>
                                 </ul>
                             </div>
 
-                            <div className="bg-blue-950/30 border border-blue-900 rounded-lg p-6">
-                                <h4 className="text-xl font-semibold text-blue-400 mb-3">SDG 9: Industry, Innovation and Infrastructure</h4>
+                            <div className="bg-stone-900/20 border border-stone-700 rounded-lg p-6">
+                                <h4 className="text-xl font-semibold text-blue-200 mb-3">SDG 9: Industry, Innovation and Infrastructure</h4>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Novel digital infrastructure using cutting-edge technology</li>
                                     <li>Resilient, sustainable, and reliable innovation for democratic societies</li>
@@ -358,13 +358,13 @@ export default function JournalismPage() {
 
                         {/* Conclusion */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Conclusion: A New Era for Journalism</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Conclusion: A New Era for Journalism</h2>
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 The crisis is clear. Traditional centralized media systems have failed to protect journalistic integrity, enabling censorship, misinformation, and threats to reporters who dare speak truth to power.
                             </p>
 
-                            <div className="bg-gradient-to-r from-amber-950/50 to-orange-950/50 border border-amber-900 rounded-lg p-6 my-8">
-                                <p className="text-lg text-amber-200 font-semibold mb-2">Gono Moncho offers a fundamentally new paradigm:</p>
+                            <div className="bg-gradient-to-r from-zinc-900/50 to-zinc-800/50 border border-zinc-800 rounded-lg p-6 my-8">
+                                <p className="text-lg text-zinc-300 font-semibold mb-2">Gono Moncho offers a fundamentally new paradigm:</p>
                                 <p className="text-gray-300 text-xl italic">
                                     &quot;A decentralized, self-sustaining, self-policing ecosystem where the financial and reputational incentives of all parties are aligned with the collective goal of producing and verifying truthful information.&quot;
                                 </p>
@@ -385,7 +385,7 @@ export default function JournalismPage() {
                                 This is not just a platform. This is a movement to reclaim the truth.
                             </p>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mt-8 italic">
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mt-8 italic">
                                 <p className="text-gray-300">
                                     For nations like Bangladesh, where press freedom ranks among the world&apos;s lowest, Gono Moncho represents hope — a technological intervention that gives power back to the people and protects those who fight for it.
                                 </p>
@@ -394,9 +394,9 @@ export default function JournalismPage() {
                     </div>
 
                     {/* Back Link */}
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mt-12 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mt-12 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

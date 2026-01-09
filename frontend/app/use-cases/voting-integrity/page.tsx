@@ -9,9 +9,9 @@ export default function VotingIntegrityPage() {
             <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-gradient-to-b from-gray-950 to-black">
                 <div className="max-w-4xl mx-auto">
                     {/* Back Link */}
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mb-8 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -21,7 +21,7 @@ export default function VotingIntegrityPage() {
 
                     {/* Header */}
                     <div className="mb-12">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                        <div className="inline-block px-4 py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-sm font-medium mb-6 uppercase tracking-wider">
                             Democracy & Governance
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -41,8 +41,8 @@ export default function VotingIntegrityPage() {
                     <div className="prose prose-invert prose-amber max-w-none">
                         {/* The Crisis */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">The Global Democracy Crisis</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">The Global Democracy Crisis</h2>
+
                             <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
                                 <p className="text-gray-200 text-lg font-semibold mb-2">Democracy Under Attack</p>
                                 <ul className="space-y-2 text-gray-300">
@@ -55,30 +55,30 @@ export default function VotingIntegrityPage() {
                             </div>
 
                             <h3 className="text-2xl font-semibold text-white mb-4">Why Traditional Voting Systems Fail</h3>
-                            
+
                             <div className="space-y-4">
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">🗳️ Paper Ballot Vulnerabilities</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">🗳️ Paper Ballot Vulnerabilities</h4>
                                     <p className="text-gray-300">Physical ballots can be destroyed, stuffed, or miscounted. No cryptographic proof of accuracy. Recounts are slow, expensive, and often disputed. Chain of custody easily broken.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">💻 Electronic Voting Machine (EVM) Hacks</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">💻 Electronic Voting Machine (EVM) Hacks</h4>
                                     <p className="text-gray-300">Proprietary systems with no public audit trail. Researchers have demonstrated hacks on Diebold, ES&S, and Dominion machines. Vote tallies can be altered without detection. No voter-verifiable paper trail in many jurisdictions.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">🌍 Diaspora Voter Suppression</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">🌍 Diaspora Voter Suppression</h4>
                                     <p className="text-gray-300">Citizens abroad face impossible logistics: mail delays, embassy queues, postal vote fraud. Bangladesh has 10+ million overseas workers who cannot vote. India&apos;s 32 million NRIs largely disenfranchised.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">📊 No Transparent Audit Trail</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">📊 No Transparent Audit Trail</h4>
                                     <p className="text-gray-300">Voters cannot verify their vote was counted correctly. Election observers see only aggregates, not individual vote verification. Disputes drag on for months with no cryptographic proof.</p>
                                 </div>
 
                                 <div className="bg-gray-800/30 border border-gray-700 p-5 rounded-lg">
-                                    <h4 className="text-amber-400 font-semibold mb-2">⚖️ Post-Election Violence</h4>
+                                    <h4 className="text-zinc-300 font-semibold mb-2">⚖️ Post-Election Violence</h4>
                                     <p className="text-gray-300">Kenya 2007: 1,500 deaths over disputed elections. Bolivia 2019: President resigns amid fraud allegations. Myanmar 2021: Military coup justified by election fraud claims. Lack of verifiable proof fuels violence.</p>
                                 </div>
                             </div>
@@ -86,32 +86,32 @@ export default function VotingIntegrityPage() {
 
                         {/* Real-World Impact */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">Real-World Election Integrity Failures</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">Real-World Election Integrity Failures</h2>
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-red-400 mb-3">🇺🇸 USA 2020: Trust Collapse</h3>
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🇺🇸 USA 2020: Trust Collapse</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Despite no evidence of widespread fraud, <strong>30% of Americans</strong> distrust the result. Hundreds of lawsuits filed. Capitol insurrection on Jan 6, 2021. Cost: <strong>$519 million</strong> in legal battles + immeasurable social division. <em>Root cause: No cryptographic proof of vote integrity.</em>
                                     </p>
                                 </div>
 
                                 <div className="bg-gradient-to-br from-orange-900/20 to-orange-800/10 border border-orange-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-orange-400 mb-3">🇻🇪 Venezuela 2024: Digital Authoritarianism</h3>
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🇻🇪 Venezuela 2024: Digital Authoritarianism</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Government claimed Maduro won with 51%. Opposition has receipts proving otherwise. CNE (election authority) refuses to release precinct-level data. No international observers allowed. <strong>Result: Authoritarian regime continues, millions flee.</strong>
                                     </p>
                                 </div>
 
-                                <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-blue-400 mb-3">🇧🇩 Bangladesh 2024: Boycotted Elections</h3>
+                                <div className="bg-gradient-to-br from-zinc-900/20 to-blue-800/10 border border-zinc-600/30 p-6 rounded-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🇧🇩 Bangladesh 2024: Boycotted Elections</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Opposition parties boycott, citing rigged EVMs and voter intimidation. <strong>Turnout disputed:</strong> Government claims 40%, independent observers estimate 10-15%. No transparent audit possible. Democracy undermined.
                                     </p>
                                 </div>
 
-                                <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-500/30 p-6 rounded-lg">
-                                    <h3 className="text-xl font-semibold text-purple-400 mb-3">🇰🇪 Kenya 2017: Nullified Election</h3>
+                                <div className="bg-gradient-to-br from-zinc-900/20 to-purple-800/10 border border-zinc-600/30 p-6 rounded-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">🇰🇪 Kenya 2017: Nullified Election</h3>
                                     <p className="text-gray-300 text-sm leading-relaxed">
                                         Supreme Court <strong>nullified presidential election</strong> due to &quot;irregularities and illegalities.&quot; Rerun held, but credibility damaged. Cost: <strong>$480 million</strong> for rerun + ethnic tensions escalate.
                                     </p>
@@ -121,8 +121,8 @@ export default function VotingIntegrityPage() {
                             <div className="mt-8 bg-gradient-to-r from-gray-800/50 to-gray-700/30 border border-gray-600 p-6 rounded-lg">
                                 <h3 className="text-xl font-semibold text-white mb-3">📉 The Pattern: Lack of Verifiable Proof</h3>
                                 <p className="text-gray-300 leading-relaxed">
-                                    Across all these cases, the fundamental problem is identical: <strong>no cryptographic proof that votes were counted as cast.</strong> 
-                                    Voters cannot verify their individual ballots. Election authorities cannot prove aggregate tallies are accurate. 
+                                    Across all these cases, the fundamental problem is identical: <strong>no cryptographic proof that votes were counted as cast.</strong>
+                                    Voters cannot verify their individual ballots. Election authorities cannot prove aggregate tallies are accurate.
                                     Disputes devolve into &quot;he said, she said&quot; battles. Democracy erodes when citizens cannot trust the most basic civic act: voting.
                                 </p>
                             </div>
@@ -130,17 +130,17 @@ export default function VotingIntegrityPage() {
 
                         {/* The Solution */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">The Gono Protocol Solution: Verifiable Democracy Infrastructure</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">The Gono Protocol Solution: Verifiable Democracy Infrastructure</h2>
+
                             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                                Gono Protocol creates a <strong>transparent, auditable, privacy-preserving</strong> voting system where every citizen can cryptographically verify their vote was counted while maintaining ballot secrecy. 
+                                Gono Protocol creates a <strong>transparent, auditable, privacy-preserving</strong> voting system where every citizen can cryptographically verify their vote was counted while maintaining ballot secrecy.
                                 Combines blockchain immutability with zero-knowledge proofs for the world&apos;s first truly trustless elections.
                             </p>
 
                             {/* Phase 1: VOTER REGISTRATION */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-blue-400 mb-3">Phase 1: CAPTURE — Secure Voter Registration & Identity</h3>
+                                <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 1: CAPTURE — Secure Voter Registration & Identity</h3>
                                     <p className="text-gray-300 mb-4">
                                         Every eligible voter receives a cryptographic identity that proves their right to vote without revealing personal information.
                                     </p>
@@ -158,10 +158,10 @@ export default function VotingIntegrityPage() {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Example: Bangladesh Voter Registration</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Example: Bangladesh Voter Registration</h4>
                                         <pre className="text-xs text-gray-300 overflow-x-auto">
-{`{
+                                            {`{
   "voterDID": "did:gono:voter:bd:0x9f4a2c...",
   "nationalID": "19920615-1234-5678", // Hashed, never stored plaintext
   "eligibility": {
@@ -210,8 +210,8 @@ export default function VotingIntegrityPage() {
 
                             {/* Phase 2: VOTING PROCESS */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-l-4 border-amber-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-amber-400 mb-3">Phase 2: CERTIFY — Anonymous Ballot Submission & Blockchain Registration</h3>
+                                <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-zinc-300 mb-3">Phase 2: CERTIFY — Anonymous Ballot Submission & Blockchain Registration</h3>
                                     <p className="text-gray-300 mb-4">
                                         Voters cast ballots that are cryptographically verifiable yet completely anonymous. Blockchain records every vote, but no one can trace votes to voters.
                                     </p>
@@ -237,32 +237,32 @@ export default function VotingIntegrityPage() {
                                         </ol>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Ballot Submission Flow</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Ballot Submission Flow</h4>
                                         <div className="space-y-3 text-sm text-gray-300">
                                             <div className="flex items-start gap-3">
-                                                <span className="text-blue-400 font-mono">1.</span>
+                                                <span className="text-blue-200 font-mono">1.</span>
                                                 <div>
                                                     <strong className="text-white">Voter authenticates at polling station</strong>
                                                     <p className="text-xs text-gray-400 mt-1">Fingerprint scan → DID verified → Voting token generated</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <span className="text-green-400 font-mono">2.</span>
+                                                <span className="text-blue-200 font-mono">2.</span>
                                                 <div>
                                                     <strong className="text-white">zk-SNARK proof generated</strong>
                                                     <p className="text-xs text-gray-400 mt-1">Proves eligibility + hasn&apos;t voted yet, without revealing identity</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <span className="text-purple-400 font-mono">3.</span>
+                                                <span className="text-blue-200 font-mono">3.</span>
                                                 <div>
                                                     <strong className="text-white">Vote encrypted (candidate choice hidden)</strong>
                                                     <p className="text-xs text-gray-400 mt-1">Homomorphic encryption allows tallying without seeing individual votes</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-3">
-                                                <span className="text-amber-400 font-mono">4.</span>
+                                                <span className="text-zinc-300 font-mono">4.</span>
                                                 <div>
                                                     <strong className="text-white">Blockchain records encrypted vote</strong>
                                                     <p className="text-xs text-gray-400 mt-1">Immutable, timestamped, verifiable — but anonymous</p>
@@ -299,8 +299,8 @@ export default function VotingIntegrityPage() {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Anti-Coercion Mechanism</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Anti-Coercion Mechanism</h4>
                                         <p className="text-gray-300 text-sm mb-3">
                                             <strong>Problem:</strong> In authoritarian regimes or vote-buying schemes, voters may be forced to prove how they voted.
                                         </p>
@@ -319,8 +319,8 @@ export default function VotingIntegrityPage() {
 
                             {/* Phase 3: VERIFICATION & AUDITING */}
                             <div className="mb-10">
-                                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-l-4 border-green-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-green-400 mb-3">Phase 3: CHECK — Public Verification & Instant Audits</h3>
+                                <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-l-4 border-stone-500 p-6 rounded-r-lg mb-6">
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 3: CHECK — Public Verification & Instant Audits</h3>
                                     <p className="text-gray-300 mb-4">
                                         Anyone — voters, candidates, international observers, media — can verify the election results independently using blockchain data. No trust required.
                                     </p>
@@ -355,35 +355,35 @@ export default function VotingIntegrityPage() {
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Verification Dashboard Example</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Verification Dashboard Example</h4>
                                         <div className="space-y-2 text-sm text-gray-300">
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Total Votes Cast:</strong> 12,847,293 (matches blockchain record count)</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Eligible Voters:</strong> 119,000,000 (turnout: 10.8%)</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>All zk-SNARK proofs valid:</strong> No fraudulent votes detected</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>No duplicate voter IDs:</strong> One person, one vote confirmed</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Homomorphic tally:</strong> Candidate A: 6,234,812 | Candidate B: 6,612,481</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-blue-200">✓</span>
                                                 <span><strong>Official result match:</strong> Election Commission result matches blockchain</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-blue-400">ℹ</span>
+                                                <span className="text-blue-200">ℹ</span>
                                                 <span><strong>Audit completed in:</strong> 3 minutes 47 seconds</span>
                                             </div>
                                         </div>
@@ -419,7 +419,7 @@ export default function VotingIntegrityPage() {
                             {/* Phase 4: DISPUTE RESOLUTION */}
                             <div className="mb-10">
                                 <div className="bg-gradient-to-r from-red-500/20 to-pink-500/20 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
-                                    <h3 className="text-2xl font-bold text-red-400 mb-3">Phase 4: DISPUTE — Cryptographic Evidence for Court Proceedings</h3>
+                                    <h3 className="text-2xl font-bold text-blue-200 mb-3">Phase 4: DISPUTE — Cryptographic Evidence for Court Proceedings</h3>
                                     <p className="text-gray-300 mb-4">
                                         When election results are contested, blockchain provides mathematically irrefutable evidence. No more &quot;he said, she said&quot; — only cryptographic proof.
                                     </p>
@@ -445,8 +445,8 @@ export default function VotingIntegrityPage() {
                                         </ol>
                                     </div>
 
-                                    <div className="bg-gray-900/50 border border-gray-700 p-4 rounded-lg">
-                                        <h4 className="text-amber-400 font-semibold mb-3">Example: Venezuela-style Fraud Prevention</h4>
+                                    <div className="bg-blue-950/20 border border-gray-700 p-4 rounded-lg">
+                                        <h4 className="text-zinc-300 font-semibold mb-3">Example: Venezuela-style Fraud Prevention</h4>
                                         <p className="text-gray-300 text-sm mb-3">
                                             <strong>Scenario:</strong> Government claims Candidate A won with 51%. Opposition claims they won based on physical receipts.
                                         </p>
@@ -493,15 +493,15 @@ export default function VotingIntegrityPage() {
 
                         {/* Comparison Table */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">Traditional Elections vs Gono Protocol</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">Traditional Elections vs Gono Protocol</h2>
+
                             <div className="overflow-x-auto">
                                 <table className="w-full border border-gray-700">
                                     <thead className="bg-gray-800">
                                         <tr>
-                                            <th className="border border-gray-700 px-4 py-3 text-left text-amber-400">Feature</th>
-                                            <th className="border border-gray-700 px-4 py-3 text-left text-red-400">Traditional Voting</th>
-                                            <th className="border border-gray-700 px-4 py-3 text-left text-green-400">Gono Protocol</th>
+                                            <th className="border border-gray-700 px-4 py-3 text-left text-zinc-300">Feature</th>
+                                            <th className="border border-gray-700 px-4 py-3 text-left text-blue-200">Traditional Voting</th>
+                                            <th className="border border-gray-700 px-4 py-3 text-left text-blue-200">Gono Protocol</th>
                                         </tr>
                                     </thead>
                                     <tbody className="text-sm">
@@ -562,11 +562,11 @@ export default function VotingIntegrityPage() {
 
                         {/* Adoption Roadmap */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">Adoption Roadmap</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">Adoption Roadmap</h2>
 
                             <div className="space-y-6">
-                                <div className="bg-gradient-to-r from-blue-900/20 to-blue-800/10 border-l-4 border-blue-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-blue-400 mb-3">Phase 1: Pilot Elections (2026 Q2-Q3)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-blue-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">Phase 1: Pilot Elections (2026 Q2-Q3)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Partner with Bangladesh Election Commission for local government elections</li>
                                         <li>• Deploy in 3-5 municipalities (Dhaka North, Chittagong, Sylhet)</li>
@@ -576,8 +576,8 @@ export default function VotingIntegrityPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-purple-900/20 to-purple-800/10 border-l-4 border-purple-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-purple-400 mb-3">Phase 2: National Elections (2026 Q4 - 2027)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-purple-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">Phase 2: National Elections (2026 Q4 - 2027)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Scale to national parliamentary elections in Bangladesh</li>
                                         <li>• Enable diaspora voting for 10M+ overseas Bangladeshis</li>
@@ -587,8 +587,8 @@ export default function VotingIntegrityPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-green-900/20 to-green-800/10 border-l-4 border-green-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-green-400 mb-3">Phase 3: Regional Expansion (2027-2028)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-green-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-blue-200 mb-3">Phase 3: Regional Expansion (2027-2028)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Deploy in India (NRI voting for 32M diaspora)</li>
                                         <li>• Kenya, Nigeria, South Africa adopt for national elections</li>
@@ -598,8 +598,8 @@ export default function VotingIntegrityPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-amber-900/20 to-amber-800/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
-                                    <h3 className="text-xl font-semibold text-amber-400 mb-3">Phase 4: Global Standard (2028+)</h3>
+                                <div className="bg-gradient-to-r from-zinc-900/20 to-amber-800/10 border-l-4 border-stone-500 p-6 rounded-r-lg">
+                                    <h3 className="text-xl font-semibold text-zinc-300 mb-3">Phase 4: Global Standard (2028+)</h3>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• EU pilots Gono for European Parliament elections</li>
                                         <li>• USA states adopt for primaries and local elections</li>
@@ -612,8 +612,8 @@ export default function VotingIntegrityPage() {
                         </section>
 
                         {/* Impact Metrics */}
-                        <section className="mb-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/30 p-8 rounded-lg">
-                            <h2 className="text-2xl font-bold text-amber-400 mb-6">Projected Impact (10-Year Horizon)</h2>
+                        <section className="mb-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-zinc-600/30 p-8 rounded-lg">
+                            <h2 className="text-2xl font-bold text-zinc-300 mb-6">Projected Impact (10-Year Horizon)</h2>
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <h3 className="text-3xl font-bold text-white mb-2">2 billion+</h3>
@@ -644,32 +644,32 @@ export default function VotingIntegrityPage() {
 
                         {/* UN SDG Alignment */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-6">UN Sustainable Development Goals Alignment</h2>
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-6">UN Sustainable Development Goals Alignment</h2>
                             <div className="grid md:grid-cols-2 gap-4">
-                                <div className="bg-blue-900/20 border border-blue-500/30 p-5 rounded-lg">
+                                <div className="bg-zinc-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">🗳️</div>
-                                    <h3 className="text-lg font-semibold text-blue-400 mb-2">SDG 16: Peace, Justice & Strong Institutions</h3>
+                                    <h3 className="text-lg font-semibold text-blue-200 mb-2">SDG 16: Peace, Justice & Strong Institutions</h3>
                                     <p className="text-gray-300 text-sm">
                                         Verifiable elections strengthen democracy, reduce post-election violence, and build trust in governance. Transparent institutions emerge from transparent elections.
                                     </p>
                                 </div>
-                                <div className="bg-purple-900/20 border border-purple-500/30 p-5 rounded-lg">
+                                <div className="bg-zinc-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">⚖️</div>
-                                    <h3 className="text-lg font-semibold text-purple-400 mb-2">SDG 10: Reduced Inequalities</h3>
+                                    <h3 className="text-lg font-semibold text-blue-200 mb-2">SDG 10: Reduced Inequalities</h3>
                                     <p className="text-gray-300 text-sm">
                                         Diaspora voting removes geographic barriers. Refugees participate in governance. Rural voters access mobile voting. Democracy becomes truly inclusive.
                                     </p>
                                 </div>
-                                <div className="bg-green-900/20 border border-green-500/30 p-5 rounded-lg">
+                                <div className="bg-green-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">🌍</div>
-                                    <h3 className="text-lg font-semibold text-green-400 mb-2">SDG 17: Partnerships for the Goals</h3>
+                                    <h3 className="text-lg font-semibold text-blue-200 mb-2">SDG 17: Partnerships for the Goals</h3>
                                     <p className="text-gray-300 text-sm">
                                         International election observation enhanced. Cross-border verification enables global democratic solidarity. UN, EU, AU collaboration on election integrity.
                                     </p>
                                 </div>
-                                <div className="bg-amber-900/20 border border-amber-500/30 p-5 rounded-lg">
+                                <div className="bg-amber-900/20 border border-zinc-600/30 p-5 rounded-lg">
                                     <div className="text-2xl mb-2">💪</div>
-                                    <h3 className="text-lg font-semibold text-amber-400 mb-2">SDG 5: Gender Equality</h3>
+                                    <h3 className="text-lg font-semibold text-zinc-300 mb-2">SDG 5: Gender Equality</h3>
                                     <p className="text-gray-300 text-sm">
                                         Women in patriarchal societies can vote privately without family coercion. Anonymous voting protects political expression. Receipt-freeness prevents vote-buying that targets women.
                                     </p>
@@ -678,7 +678,7 @@ export default function VotingIntegrityPage() {
                         </section>
 
                         {/* CTA */}
-                        <div className="text-center py-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg border border-amber-500/30">
+                        <div className="text-center py-12 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-lg border border-zinc-600/30">
                             <h2 className="text-3xl font-bold text-white mb-4">
                                 Ready to Protect Democracy?
                             </h2>
