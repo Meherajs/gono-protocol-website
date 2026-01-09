@@ -51,6 +51,14 @@ const useCases = [
         date: "01.08.2026",
         image: "/images/use-cases/academic.jpg", // Placeholder - will be replaced
     },
+    {
+        id: "voting-integrity",
+        title: "Voting & Election Integrity",
+        category: "Democracy & Governance",
+        overview: "Protecting democracy through verifiable, transparent elections using blockchain provenance and zero-knowledge cryptography. Anonymous voting with public auditability.",
+        date: "01.01.2026",
+        image: "/images/use-cases/voting.jpg", // Placeholder - will be replaced
+    },
 ];
 
 export default function UseCasesPage() {
