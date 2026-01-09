@@ -22,12 +22,12 @@ export default async function UseCases() {
     };
 
     return (
-        <section className="px-6 py-24 relative overflow-hidden">
+        <section className="px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent pointer-events-none"></div>
 
             <div className="container mx-auto max-w-7xl relative z-10">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent">
                         Real-World Use Cases
                     </h2>

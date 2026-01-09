@@ -7,8 +7,8 @@ const tokenFeatures = [
 
 export default function Ecosystem() {
     return (
-        <section id="ecosystem" className="py-24 bg-[#111111]">
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+        <section id="ecosystem" className="py-16 sm:py-24 bg-[#111111] overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
                 {/* Content */}
                 <div>
                     <span className="inline-block px-3 py-1 text-sm font-medium text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-4">
@@ -42,13 +42,13 @@ export default function Ecosystem() {
                     {/* CTAs */}
                     <div className="flex gap-4">
                         <a
-                            href="#"
+                            href="/coming-soon"
                             className="gradient-primary px-6 py-3 rounded-lg font-medium hover:scale-105 transition-transform glow-sm"
                         >
                             Get GONO Token
                         </a>
                         <a
-                            href="#"
+                            href="/coming-soon"
                             className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all"
                         >
                             View Tokenomics
@@ -66,7 +66,7 @@ export default function Ecosystem() {
 
                         {/* Center */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 gradient-primary rounded-full flex items-center justify-center font-bold font-mono text-lg glow">
-                            NUM
+                            GONO
                         </div>
 
                         {/* Orbit Nodes */}

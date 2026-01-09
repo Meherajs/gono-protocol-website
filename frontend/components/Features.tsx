@@ -56,14 +56,14 @@ const features = [
 
 export default function Features() {
     return (
-        <section id="features" className="py-24">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="features" className="py-16 sm:py-24 overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
                 {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <span className="inline-block px-3 py-1 text-sm font-medium text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-4">
+                <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+                    <span className="inline-block px-3 py-1 text-sm font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-4">
                         Features
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4">
                         Built for the <em className="font-serif italic text-cyan-400">future</em> of digital trust
                     </h2>
                     <p className="text-lg text-zinc-400">
@@ -72,26 +72,26 @@ export default function Features() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                     {features.map((feature, i) => (
                         <div
                             key={i}
-                            className={`p-8 glass rounded-2xl glass-hover transition-all hover:-translate-y-1 ${feature.large ? "md:col-span-2 md:row-span-2" : ""
+                            className={`p-6 sm:p-8 glass rounded-2xl glass-hover transition-all hover:-translate-y-1 ${feature.large ? "md:col-span-2 md:row-span-2" : ""
                                 }`}
                         >
-                            <div className="w-12 h-12 text-indigo-500 mb-6">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-500 mb-4 sm:mb-6">
                                 {feature.icon}
                             </div>
-                            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                            <p className="text-zinc-400">{feature.description}</p>
+                            <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>
+                            <p className="text-sm sm:text-base text-zinc-400">{feature.description}</p>
 
                             {feature.large && (
-                                <div className="mt-8 flex items-center justify-center gap-3">
+                                <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto pb-2">
                                     {[1, 2, 3, 4, 5].map((_, idx) => (
-                                        <div key={idx} className="flex items-center gap-3">
-                                            <div className={`w-12 h-12 glass rounded-lg ${idx === 4 ? "gradient-primary glow" : ""}`} />
+                                        <div key={idx} className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 glass rounded-lg ${idx === 4 ? "gradient-primary glow" : ""}`} />
                                             {idx < 4 && (
-                                                <div className="w-8 h-0.5 bg-gradient-to-r from-white/[0.08] to-indigo-500" />
+                                                <div className="w-4 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-white/[0.08] to-indigo-500 flex-shrink-0" />
                                             )}
                                         </div>
                                     ))}

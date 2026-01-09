@@ -49,13 +49,13 @@ export default function FAQ() {
     ];
 
     return (
-        <section className="px-6 py-24 relative overflow-hidden">
+        <section className="px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/10 to-transparent pointer-events-none"></div>
 
             <div className="container mx-auto max-w-4xl relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-300 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-indigo-300 via-cyan-300 to-indigo-300 bg-clip-text text-transparent px-4">
                         Frequently Asked Questions
                     </h2>
                     <p className="text-lg text-gray-400">

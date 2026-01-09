@@ -7,6 +7,7 @@ export { default as Architecture } from "./Architecture";
 export { default as Products } from "./Products";
 export { default as X402Micropayment } from "./X402Micropayment";
 export { default as UseCases } from "./UseCases";
+export { default as Roadmap } from "./Roadmap";
 export { default as Archive } from "./Archive";
 export { default as Ecosystem } from "./Ecosystem";
 export { default as FAQ } from "./FAQ";

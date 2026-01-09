@@ -1,6 +1,6 @@
 export default function X402Micropayment() {
     return (
-        <section className="px-6 py-24 relative overflow-hidden">
+        <section className="px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 via-indigo-950/20 to-cyan-950/20 pointer-events-none"></div>
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -8,25 +8,25 @@ export default function X402Micropayment() {
 
             <div className="container mx-auto max-w-7xl relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                     <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-medium mb-6">
                         x402 Protocol
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent">
                         Machine-to-Machine Micropayments
                     </h2>
-                    <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto px-4">
                         Reviving HTTP-402 for the AI economy. Enable autonomous agents to pay for data and services per request.
                     </p>
                 </div>
 
                 {/* Main content grid */}
-                <div className="grid md:grid-cols-2 gap-8 mb-16">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
                     {/* Left: Explanation */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                         <div className="group relative">
                             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity"></div>
-                            <div className="relative bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all">
+                            <div className="relative bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-2xl p-4 sm:p-6 md:p-8 hover:border-cyan-500/50 transition-all">
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
                                         <span className="text-2xl">💳</span>

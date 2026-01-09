@@ -62,16 +62,16 @@ export default function HowItWorks() {
     ];
 
     return (
-        <section className="px-6 py-24 relative overflow-hidden">
+        <section className="px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/10 to-transparent pointer-events-none"></div>
             
             <div className="container mx-auto max-w-7xl relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-300 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-indigo-300 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
                         How It Works
                     </h2>
-                    <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto px-4">
                         A seamless provenance pipeline from capture to verification. Each step is modular and optional based on your use case.
                     </p>
                 </div>
@@ -81,7 +81,7 @@ export default function HowItWorks() {
                     {/* Connection lines */}
                     <div className="hidden md:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 relative">
                         {steps.map((step, index) => (
                             <div key={step.id} className="relative">
                                 {/* Step card */}
@@ -90,24 +90,24 @@ export default function HowItWorks() {
                                     <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity"></div>
                                     
                                     {/* Card */}
-                                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/20">
+                                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/20">
                                         {/* Number badge */}
                                         <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-lg">
                                             {step.id}
                                         </div>
 
                                         {/* Icon */}
-                                        <div className="w-16 h-16 mx-auto mb-4 text-indigo-400 group-hover:text-cyan-400 transition-colors">
+                                        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 text-indigo-400 group-hover:text-cyan-400 transition-colors">
                                             {step.icon}
                                         </div>
 
                                         {/* Title */}
-                                        <h3 className="text-xl font-bold text-white mb-3 text-center">
+                                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 text-center">
                                             {step.name}
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="text-sm text-gray-400 text-center leading-relaxed">
+                                        <p className="text-xs sm:text-sm text-gray-400 text-center leading-relaxed">
                                             {step.description}
                                         </p>
                                     </div>
@@ -127,8 +127,8 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="mt-16 text-center">
-                    <p className="text-gray-400 mb-6">
+                <div className="mt-12 sm:mt-16 text-center px-4">
+                    <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
                         Each module is optional - use only what you need for your specific use case
                     </p>
                     <a

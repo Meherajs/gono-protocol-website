@@ -6,37 +6,37 @@ async function HeroStats() {
 
     if (!stats) {
         return (
-            <div className="flex items-center gap-8">
+            <div className="grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8 w-full">
                 <StatSkeleton />
-                <div className="w-px h-10 bg-white/[0.08]" />
+                <div className="hidden sm:block w-px h-10 bg-white/[0.08]" />
                 <StatSkeleton />
-                <div className="w-px h-10 bg-white/[0.08]" />
+                <div className="hidden sm:block w-px h-10 bg-white/[0.08]" />
                 <StatSkeleton />
             </div>
         );
     }
 
     return (
-        <div className="flex flex-wrap items-center gap-8">
-            <div className="flex flex-col">
-                <span className="text-2xl font-bold font-mono gradient-text-primary">
+        <div className="grid grid-cols-3 gap-3 sm:flex sm:items-center sm:gap-8 w-full justify-center md:justify-start">
+            <div className="flex flex-col items-center md:items-start">
+                <span className="text-lg sm:text-2xl font-bold font-mono gradient-text-primary">
                     {stats.assets_registered}
                 </span>
-                <span className="text-sm text-zinc-500">Assets Registered</span>
+                <span className="text-[10px] sm:text-sm text-zinc-500 text-center md:text-left">Assets<br className="sm:hidden" /> Registered</span>
             </div>
             <div className="w-px h-10 bg-white/[0.08] hidden sm:block" />
-            <div className="flex flex-col">
-                <span className="text-2xl font-bold font-mono gradient-text-primary">
+            <div className="flex flex-col items-center md:items-start">
+                <span className="text-lg sm:text-2xl font-bold font-mono gradient-text-primary">
                     {stats.active_users}
                 </span>
-                <span className="text-sm text-zinc-500">Active Users</span>
+                <span className="text-[10px] sm:text-sm text-zinc-500 text-center md:text-left">Active<br className="sm:hidden" /> Users</span>
             </div>
             <div className="w-px h-10 bg-white/[0.08] hidden sm:block" />
-            <div className="flex flex-col">
-                <span className="text-2xl font-bold font-mono gradient-text-primary">
+            <div className="flex flex-col items-center md:items-start">
+                <span className="text-lg sm:text-2xl font-bold font-mono gradient-text-primary">
                     {stats.partners}+
                 </span>
-                <span className="text-sm text-zinc-500">Partners</span>
+                <span className="text-[10px] sm:text-sm text-zinc-500">Partners</span>
             </div>
         </div>
     );
@@ -44,25 +44,27 @@ async function HeroStats() {
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-x-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[150%] h-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] opacity-60" />
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-full max-w-[200vw] h-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] opacity-60" />
                 <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_at_center,black_0%,transparent_70%)]" />
                 <div className="absolute top-[20%] right-[10%] w-96 h-96 bg-[radial-gradient(circle,rgba(34,211,238,0.1)_0%,transparent_60%)] rounded-full blur-3xl animate-float" />
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 {/* Content */}
-                <div className="animate-fade-in-up">
+                <div className="animate-fade-in-up w-full text-center md:text-left">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-zinc-400 mb-6 group hover:border-indigo-500/50 transition-colors">
-                        <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-glow" />
-                        <span>Decentralized Provenance Standard</span>
+                    <div className="flex justify-center md:justify-start mb-4 sm:mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 glass rounded-full text-xs sm:text-sm text-zinc-400 group hover:border-indigo-500/50 transition-colors">
+                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-glow" />
+                            <span>Decentralized Provenance Standard</span>
+                        </div>
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight mb-4 sm:mb-6">
                         <span className="block">Provenance infrastructure</span>
                         <span className="block gradient-text">
                             for humans <em className="font-serif italic text-cyan-400">&</em> AI
@@ -70,16 +72,16 @@ export default function Hero() {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-lg text-zinc-400 max-w-lg mb-8 leading-relaxed">
+                    <p className="text-base sm:text-lg text-zinc-400 mb-6 sm:mb-8 leading-relaxed">
                         Secure digital media authenticity through blockchain technology.
                         Create immutable records of attribution and ownership for every piece of content.
                     </p>
 
                     {/* CTAs */}
-                    <div className="flex flex-wrap gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
                         <a
-                            href="#"
-                            className="gradient-primary px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25 transition-all glow-sm group"
+                            href="/coming-soon"
+                            className="gradient-primary px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25 transition-all glow-sm group"
                         >
                             Start Building
                             <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
@@ -87,8 +89,8 @@ export default function Hero() {
                             </svg>
                         </a>
                         <a
-                            href="#"
-                            className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all hover:scale-105"
+                            href="/docs"
+                            className="px-6 py-3 rounded-lg font-medium glass glass-hover transition-all hover:scale-105 text-center"
                         >
                             View Documentation
                         </a>

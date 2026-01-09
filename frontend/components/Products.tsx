@@ -24,7 +24,7 @@ const products = [
         ),
     },
     {
-        title: "Numbers Search",
+        title: "Gono Search",
         description: "Search engine for digital media provenance. Find origin, ownership, and history of any registered content.",
         features: ["🔍 Reverse Image Search", "🤖 AI-Powered", "🌐 Multi-Network"],
         link: "Try Search",
@@ -37,7 +37,7 @@ const products = [
                         <span className="w-2 h-2 bg-zinc-600 rounded-full" />
                     </div>
                     <div className="flex-1 text-[10px] text-zinc-500 font-mono bg-[#0a0a0a] px-2 py-1 rounded">
-                        search.numbersprotocol.io
+                        search.gonoprotocol.io
                     </div>
                 </div>
                 <div className="p-3 space-y-3">
@@ -85,33 +85,33 @@ const products = [
 
 export default function Products() {
     return (
-        <section id="products" className="py-24 bg-[#111111]">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="products" className="py-16 sm:py-24 bg-[#111111] overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
                 {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-16">
+                <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
                     <span className="inline-block px-3 py-1 text-sm font-medium text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-4">
                         Products
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-semibold">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
                         Complete <em className="font-serif italic text-cyan-400">ecosystem</em> for digital provenance
                     </h2>
                 </div>
 
                 {/* Grid */}
-                <div className="grid lg:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {products.map((product, i) => (
                         <div
                             key={i}
                             className="glass rounded-2xl overflow-hidden glass-hover transition-all hover:-translate-y-1"
                         >
                             {/* Preview */}
-                            <div className="p-8 flex justify-center items-center min-h-[280px] bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 border-b border-white/[0.08]">
+                            <div className="p-6 sm:p-8 flex justify-center items-center min-h-[240px] sm:min-h-[280px] bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 border-b border-white/[0.08]">
                                 {product.preview}
                             </div>
 
                             {/* Info */}
-                            <div className="p-6">
-                                <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
+                            <div className="p-4 sm:p-6">
+                                <h3 className="text-lg sm:text-xl font-semibold mb-2">{product.title}</h3>
                                 <p className="text-zinc-400 text-sm mb-4">{product.description}</p>
 
                                 <div className="flex flex-wrap gap-2 mb-6">
@@ -126,7 +126,7 @@ export default function Products() {
                                 </div>
 
                                 <a
-                                    href="#"
+                                    href="/coming-soon"
                                     className="inline-flex items-center gap-2 text-indigo-400 font-medium hover:text-indigo-300 transition-colors"
                                 >
                                     {product.link}
