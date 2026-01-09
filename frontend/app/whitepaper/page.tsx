@@ -166,55 +166,297 @@ export default function WhitepaperPage() {
                             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-gray-800 pb-3 sm:pb-4">
                                 <span className="text-amber-500">02.</span> The Gono Platform
                             </h2>
-                            <p className="text-gray-200 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
-                                Gono Platform provides a unified provenance network for digital and physical assets through a single pipeline.
-                            </p>
+                            
+                            {/* Platform Overview */}
+                            <div className="mb-8 sm:mb-10">
+                                <h3 className="text-xl sm:text-2xl font-semibold text-amber-400 mb-4">What is Gono Platform?</h3>
+                                <p className="text-gray-200 leading-relaxed mb-4 text-base sm:text-lg">
+                                    Gono Platform is a <strong className="text-white">modular blockchain infrastructure</strong> that creates permanent, verifiable records of digital and physical assets. Think of it as a universal &quot;certificate of authenticity&quot; system that works for everything from news articles and photographs to real estate transactions and AI-generated content.
+                                </p>
+                                <p className="text-gray-200 leading-relaxed mb-4 text-base sm:text-lg">
+                                    Unlike traditional systems where records can be altered or deleted, Gono creates an <strong className="text-white">immutable chain of evidence</strong> that proves exactly when something was created, who created it, and how it has been used or modified over time. This &quot;provenance&quot; — the complete history of an asset — becomes a permanent part of the blockchain, accessible to anyone who needs to verify authenticity.
+                                </p>
+                            </div>
+
+                            {/* How It Works */}
+                            <div className="mb-8 sm:mb-10">
+                                <h3 className="text-xl sm:text-2xl font-semibold text-amber-400 mb-4">How Does It Work?</h3>
+                                <p className="text-gray-200 leading-relaxed mb-6 text-base sm:text-lg">
+                                    Gono operates through a five-stage pipeline that transforms any asset into a permanently verified, globally accessible record. Each stage serves a specific purpose, and users can choose which stages to use based on their needs:
+                                </p>
+                            </div>
+
+                            {/* The Five-Stage Pipeline */}
+                            <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/30 border border-gray-700 rounded-xl p-6 sm:p-8 mb-8">
+                                <h4 className="text-lg sm:text-xl font-bold text-white mb-6 flex items-center gap-3">
+                                    <span className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-black text-sm font-bold">1</span>
+                                    The Five-Stage Provenance Pipeline
+                                </h4>
+                                <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 sm:gap-2">
+                                    <div className="text-center p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+                                        <div className="font-bold text-amber-400 mb-1">CAPTURE</div>
+                                        <div className="text-xs text-gray-400">Mandatory</div>
+                                    </div>
+                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
+                                    <div className="text-center p-3 bg-gray-700/20 border border-gray-600/30 rounded-lg">
+                                        <div className="font-bold text-gray-300 mb-1">STORE</div>
+                                        <div className="text-xs text-gray-500">Optional</div>
+                                    </div>
+                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
+                                    <div className="text-center p-3 bg-gray-700/20 border border-gray-600/30 rounded-lg">
+                                        <div className="font-bold text-gray-300 mb-1">VERIFY</div>
+                                        <div className="text-xs text-gray-500">Optional</div>
+                                    </div>
+                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
+                                    <div className="text-center p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+                                        <div className="font-bold text-amber-400 mb-1">CERTIFY</div>
+                                        <div className="text-xs text-gray-400">Mandatory</div>
+                                    </div>
+                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
+                                    <div className="text-center p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg col-span-1 sm:col-span-5">
+                                        <div className="font-bold text-amber-400 mb-1">CHECK</div>
+                                        <div className="text-xs text-gray-400">Public Verification</div>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* Capture */}
                             <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                                <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3">Capture</h3>
-                                <p className="text-gray-200 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">Capture anchors assets to an immutable chain by generating tamper-evident evidence.</p>
-                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                                    <li className="leading-relaxed"><strong className="text-white">Generate Proof:</strong> The Capture SDK generates a cryptographic hash of the asset and embeds C2PA metadata.</li>
-                                    <li className="leading-relaxed"><strong className="text-white">Privacy-First:</strong> For high-stakes journalism, the zk-SNARKs Privacy Pallet proves personhood while keeping the user's wallet anonymous.</li>
-                                </ul>
+                                <div className="flex items-start gap-3 mb-3">
+                                    <span className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-black text-sm font-bold flex-shrink-0 mt-1">1</span>
+                                    <div>
+                                        <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2">CAPTURE — Creating the Digital Fingerprint</h3>
+                                        <div className="inline-block px-2 py-1 bg-amber-500/20 border border-amber-500/40 rounded text-xs text-amber-300 mb-3">
+                                            MANDATORY
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">What it does:</strong> The Capture stage creates a unique &quot;digital fingerprint&quot; of your asset. When you upload a photo, document, or any digital file, our SDK instantly generates a cryptographic hash — a one-of-a-kind code that represents exactly that file. Even changing a single pixel would create a completely different hash.
+                                </p>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">How it works:</strong> The system embeds industry-standard C2PA metadata directly into your file. This metadata includes critical information like who created it, when it was created, what device was used, and even GPS coordinates if applicable. For journalists or whistleblowers who need anonymity, our zero-knowledge proof technology (zk-SNARKs) lets you prove you&apos;re a real person without revealing your identity.
+                                </p>
+                                <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
+                                    <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                        A journalist in Myanmar captures video of protests. The moment they press &quot;record,&quot; Gono&apos;s SDK embeds C2PA metadata with timestamp, location, and device info — but uses zk-SNARKs to keep the journalist&apos;s identity completely anonymous. Even if authorities seize the phone, they cannot trace who filmed it.
+                                    </p>
+                                </div>
                             </div>
 
                             {/* Store */}
-                            <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border-l-4 border-gray-600 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                                <h3 className="text-lg sm:text-xl font-bold text-gray-300 mb-2 sm:mb-3">Store <span className="text-xs sm:text-sm text-gray-500 font-normal">(Optional)</span></h3>
-                                <p className="text-gray-200 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">For content requiring absolute permanence, the Store Pallet provides a native bridge to Arweave.</p>
-                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                                    <li className="leading-relaxed"><strong className="text-white">Censorship Resistance:</strong> Users pay a one-time "Storage Endowment" in GONO tokens to fund hosting forever.</li>
-                                </ul>
+                            <div className="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border-l-4 border-blue-500 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
+                                <div className="flex items-start gap-3 mb-3">
+                                    <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">2</span>
+                                    <div>
+                                        <h3 className="text-lg sm:text-xl font-bold text-blue-400 mb-2">STORE — Permanent, Censorship-Proof Storage</h3>
+                                        <div className="inline-block px-2 py-1 bg-blue-500/20 border border-blue-500/40 rounded text-xs text-blue-300 mb-3">
+                                            OPTIONAL
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">What it does:</strong> For content that must survive forever — war crime evidence, historical records, critical journalism — the Store module uploads your file to Arweave, a decentralized storage network that guarantees data will remain accessible for at least 200 years. No government, corporation, or hacker can delete it.
+                                </p>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">How it works:</strong> You pay a one-time &quot;Storage Endowment&quot; in GONO tokens (typically a few dollars for most files). This fee funds the distributed network of Arweave storage nodes that replicate your file across thousands of servers worldwide. Unlike cloud storage subscriptions that require monthly payments, you pay once and the file is stored permanently.
+                                </p>
+                                <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
+                                    <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                        Human rights organizations documenting war crimes in Ukraine upload evidence to Gono. Even if Russia bombs servers or pressures cloud providers to delete files, the evidence remains on Arweave&apos;s permanent network, accessible to international courts decades later.
+                                    </p>
+                                </div>
+                                <div className="bg-blue-900/20 border border-blue-700/30 rounded p-3 mt-4">
+                                    <p className="text-blue-300 text-xs sm:text-sm"><strong>Why optional?</strong> Not all content needs permanent storage. A restaurant menu doesn&apos;t need to exist for 200 years, but investigative journalism exposing corruption does. Users choose based on their needs.</p>
+                                </div>
                             </div>
 
                             {/* Verify */}
-                            <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border-l-4 border-gray-600 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                                <h3 className="text-lg sm:text-xl font-bold text-gray-300 mb-2 sm:mb-3">Verify <span className="text-xs sm:text-sm text-gray-500 font-normal">(Optional)</span></h3>
-                                <p className="text-gray-200 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">Assets are submitted for assessment by community verifiers or automated AI Oracles.</p>
-                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                                    <li className="leading-relaxed"><strong className="text-white">Reputation Engine:</strong> Results are processed through the SANUB reputation engine to calculate credibility.</li>
+                            <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-l-4 border-purple-500 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
+                                <div className="flex items-start gap-3 mb-3">
+                                    <span className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">3</span>
+                                    <div>
+                                        <h3 className="text-lg sm:text-xl font-bold text-purple-400 mb-2">VERIFY — Community Trust & AI Validation</h3>
+                                        <div className="inline-block px-2 py-1 bg-purple-500/20 border border-purple-500/40 rounded text-xs text-purple-300 mb-3">
+                                            OPTIONAL
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">What it does:</strong> The Verify stage adds a layer of credibility by having independent experts or AI systems assess your content. This creates a trust score that helps audiences distinguish reliable information from misinformation.
+                                </p>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">How it works:</strong> Your asset can be reviewed by:
+                                </p>
+                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base mb-4">
+                                    <li className="flex gap-2"><span className="text-purple-400">•</span> <strong className="text-white">Community Verifiers:</strong> Stake-holding experts who earn rewards for accurate assessments and lose stake for fraudulent ones</li>
+                                    <li className="flex gap-2"><span className="text-purple-400">•</span> <strong className="text-white">AI Oracles:</strong> Automated systems that check technical authenticity (e.g., detecting deepfakes, verifying GPS coordinates)</li>
+                                    <li className="flex gap-2"><span className="text-purple-400">•</span> <strong className="text-white">SANUB Reputation Engine:</strong> Our proprietary algorithm that weighs verifier credibility, stake amounts, and consensus patterns to produce a trust score</li>
                                 </ul>
+                                <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
+                                    <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                        A photo claims to show election fraud. Five independent journalists (verified experts who staked GONO tokens) examine the metadata, cross-reference timestamps with polling hours, and vote on authenticity. The SANUB engine weighs their reputations and produces a 92% confidence score that the photo is genuine — far more trustworthy than a random social media post.
+                                    </p>
+                                </div>
+                                <div className="bg-purple-900/20 border border-purple-700/30 rounded p-3 mt-4">
+                                    <p className="text-purple-300 text-xs sm:text-sm"><strong>Why optional?</strong> A wedding photo doesn&apos;t need third-party verification, but a news article claiming government corruption benefits enormously from expert validation. Users activate Verify when credibility matters.</p>
+                                </div>
                             </div>
 
                             {/* Certify */}
                             <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                                <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3">Certify</h3>
-                                <p className="text-gray-200 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">Certify appends provenance to an asset, enriching its history without overwriting prior entries.</p>
-                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                                    <li className="leading-relaxed"><strong className="text-white">Media Receipts:</strong> The final state—including storage links and metadata—is indexed via ERC-7053.</li>
-                                    <li className="leading-relaxed"><strong className="text-white">Version Control:</strong> This functions as a decentralized version control system, akin to Git, for asset management.</li>
-                                </ul>
+                                <div className="flex items-start gap-3 mb-3">
+                                    <span className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-black text-sm font-bold flex-shrink-0 mt-1">4</span>
+                                    <div>
+                                        <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2">CERTIFY — Blockchain Registration & Media Receipts</h3>
+                                        <div className="inline-block px-2 py-1 bg-amber-500/20 border border-amber-500/40 rounded text-xs text-amber-300 mb-3">
+                                            MANDATORY
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">What it does:</strong> This is where the magic happens. Certify takes all the information from previous stages — the cryptographic hash, storage location, verification results — and writes it permanently to the Gono blockchain using the ERC-7053 standard. This creates an immutable &quot;media receipt&quot; that proves your asset&apos;s complete history.
+                                </p>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">How it works:</strong> Think of it like Git for assets. Every time you update, modify, or add new verification to your content, a new entry is appended to the blockchain. The old versions aren&apos;t deleted — they remain as part of the permanent historical record. This creates an unbreakable chain of custody showing exactly how the asset evolved over time.
+                                </p>
+                                <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4 mb-4">
+                                    <h4 className="text-white font-semibold mb-3 text-sm sm:text-base">What Gets Recorded on the Blockchain:</h4>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                        <div className="bg-gray-900/50 border border-gray-700 rounded p-3">
+                                            <div className="text-amber-400 font-semibold mb-1">Asset Hash</div>
+                                            <div className="text-gray-400 text-xs">Unique cryptographic fingerprint</div>
+                                        </div>
+                                        <div className="bg-gray-900/50 border border-gray-700 rounded p-3">
+                                            <div className="text-amber-400 font-semibold mb-1">Timestamp</div>
+                                            <div className="text-gray-400 text-xs">Exact moment of creation</div>
+                                        </div>
+                                        <div className="bg-gray-900/50 border border-gray-700 rounded p-3">
+                                            <div className="text-amber-400 font-semibold mb-1">Creator ID</div>
+                                            <div className="text-gray-400 text-xs">Wallet address or anonymous proof</div>
+                                        </div>
+                                        <div className="bg-gray-900/50 border border-gray-700 rounded p-3">
+                                            <div className="text-amber-400 font-semibold mb-1">Storage Link</div>
+                                            <div className="text-gray-400 text-xs">Arweave permanent URL (if used)</div>
+                                        </div>
+                                        <div className="bg-gray-900/50 border border-gray-700 rounded p-3">
+                                            <div className="text-amber-400 font-semibold mb-1">Verification Score</div>
+                                            <div className="text-gray-400 text-xs">SANUB credibility rating (if verified)</div>
+                                        </div>
+                                        <div className="bg-gray-900/50 border border-gray-700 rounded p-3">
+                                            <div className="text-amber-400 font-semibold mb-1">Update History</div>
+                                            <div className="text-gray-400 text-xs">All subsequent modifications</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
+                                    <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                        An investigative report about corruption is published. Initial certification includes the article hash, timestamp, and author wallet. Three months later, new documents emerge — these are added as a new certification entry, linked to the original. Six months later, independent journalists verify the claims, adding their attestations. The full timeline is visible to anyone checking the blockchain, creating an auditable trail of evidence.
+                                    </p>
+                                </div>
                             </div>
 
                             {/* Check */}
-                            <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                                <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2 sm:mb-3">Check</h3>
-                                <p className="text-gray-200 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">Check enables public auditing and transparency for any user or automated system.</p>
-                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                                    <li className="leading-relaxed"><strong className="text-white">Public Auditing:</strong> Cross-reference a file's hash against the on-chain registry to confirm authenticity via the Gono Explorer.</li>
+                            <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border-l-4 border-green-500 rounded-r-xl p-4 sm:p-6 mb-4 sm:mb-6">
+                                <div className="flex items-start gap-3 mb-3">
+                                    <span className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">5</span>
+                                    <div>
+                                        <h3 className="text-lg sm:text-xl font-bold text-green-400 mb-2">CHECK — Public Verification & Transparency</h3>
+                                        <div className="inline-block px-2 py-1 bg-green-500/20 border border-green-500/40 rounded text-xs text-green-300 mb-3">
+                                            PUBLIC TOOL
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">What it does:</strong> Check is the verification tool that anyone — journalists, researchers, courts, or ordinary citizens — can use to confirm an asset&apos;s authenticity. It&apos;s like a search engine for truth.
+                                </p>
+                                <p className="text-gray-200 mb-4 leading-relaxed text-sm sm:text-base">
+                                    <strong className="text-white">How it works:</strong> Using the Gono Explorer (our public blockchain browser), anyone can:
+                                </p>
+                                <ul className="space-y-2 text-gray-300 text-sm sm:text-base mb-4">
+                                    <li className="flex gap-2"><span className="text-green-400">•</span> Upload a file or enter its hash to check if it&apos;s registered on Gono</li>
+                                    <li className="flex gap-2"><span className="text-green-400">•</span> View the complete provenance timeline: when it was created, who verified it, how it&apos;s been modified</li>
+                                    <li className="flex gap-2"><span className="text-green-400">•</span> See verification scores from independent experts</li>
+                                    <li className="flex gap-2"><span className="text-green-400">•</span> Access the original file from permanent storage</li>
+                                    <li className="flex gap-2"><span className="text-green-400">•</span> Compare the current file against the blockchain record to detect tampering</li>
                                 </ul>
+                                <div className="bg-black/30 border border-gray-700 rounded-lg p-4 mt-4">
+                                    <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">Real-World Example:</h4>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                        You see a viral video claiming election fraud. Instead of trusting it blindly, you upload it to Gono Explorer. The system reveals: (1) The video was actually filmed 3 years ago at a different election, (2) It was edited to remove timestamps, (3) Independent fact-checkers gave it a 5% credibility score. Within seconds, you know it&apos;s misinformation.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Platform Architecture */}
+                            <div className="mt-10 bg-gradient-to-r from-gray-900/50 to-gray-800/30 border border-gray-700 rounded-xl p-6 sm:p-8">
+                                <h3 className="text-xl sm:text-2xl font-semibold text-amber-400 mb-6">Modular Architecture: Built for Flexibility</h3>
+                                <p className="text-gray-200 leading-relaxed mb-6 text-sm sm:text-base">
+                                    Gono is built on <strong className="text-white">Substrate as a Polkadot Parachain</strong>, which means it inherits enterprise-grade security from day one while remaining flexible enough to adapt to different use cases. Here&apos;s how the architecture works:
+                                </p>
+                                
+                                <div className="space-y-4">
+                                    <div className="bg-black/30 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                                        <h4 className="text-indigo-400 font-bold mb-2 text-sm sm:text-base">Layer 1: Polkadot Relay Chain (Shared Security)</h4>
+                                        <p className="text-gray-300 text-sm leading-relaxed">Provides institutional-grade security against 51% attacks and state-level censorship. Gono doesn&apos;t need to bootstrap its own security — it leverages Polkadot&apos;s $10B+ staked validator network from day one.</p>
+                                    </div>
+                                    
+                                    <div className="bg-black/30 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                                        <h4 className="text-amber-400 font-bold mb-2 text-sm sm:text-base">Layer 2: Gono Execution Rail (Core Parachain)</h4>
+                                        <p className="text-gray-300 text-sm leading-relaxed">The mandatory ERC-7053 indexing logic that creates the global &quot;Media Receipt&quot; ledger. This is the immutable backbone that every asset must pass through.</p>
+                                    </div>
+                                    
+                                    <div className="bg-black/30 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                                        <h4 className="text-blue-400 font-bold mb-2 text-sm sm:text-base">Layer 3: Modular Service Pallets (Optional Extensions)</h4>
+                                        <p className="text-gray-300 text-sm leading-relaxed mb-3">Developers can &quot;plug in&quot; only the modules they need:</p>
+                                        <ul className="space-y-1 text-gray-400 text-xs sm:text-sm">
+                                            <li>• <strong className="text-white">Store Pallet:</strong> Arweave integration for permanent hosting</li>
+                                            <li>• <strong className="text-white">Verify Pallet:</strong> Community attestations + SANUB reputation</li>
+                                            <li>• <strong className="text-white">Privacy Pallet:</strong> zk-SNARKs for anonymous verification</li>
+                                            <li>• <strong className="text-white">x402 Micropayment Pallet:</strong> Machine-to-machine payments for AI commerce</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div className="bg-black/30 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                        <h4 className="text-green-400 font-bold mb-2 text-sm sm:text-base">Layer 4: Application Layer</h4>
+                                        <p className="text-gray-300 text-sm leading-relaxed">User-facing apps like Gono Moncho (journalism platform), TrustLens (media verification), or custom dApps built by third-party developers.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* x402 Micropayments Integration */}
+                            <div className="mt-8 bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-700/40 rounded-xl p-6 sm:p-8">
+                                <h3 className="text-xl sm:text-2xl font-semibold text-purple-400 mb-4">x402 Micropayments: The AI Commerce Engine</h3>
+                                <p className="text-gray-200 leading-relaxed mb-4 text-sm sm:text-base">
+                                    Gono integrates the <strong className="text-white">x402 Open Standard</strong> (reviving HTTP-402) to enable instant, pay-per-use transactions between humans and AI agents. This isn&apos;t a separate stage in the pipeline — it&apos;s a protocol-wide capability that enables commerce at any point.
+                                </p>
+                                <p className="text-gray-200 leading-relaxed mb-4 text-sm sm:text-base">
+                                    <strong className="text-white">How it works for non-technical stakeholders:</strong>
+                                </p>
+                                <ul className="space-y-3 text-gray-300 text-sm sm:text-base mb-4">
+                                    <li className="flex gap-2">
+                                        <span className="text-purple-400 flex-shrink-0">•</span>
+                                        <span><strong className="text-white">AI systems pay for data automatically:</strong> When an AI training model needs verified news articles, it sends a micropayment (in USDC stablecoins) directly to the creator&apos;s wallet. No invoices, no contracts — just instant payment per request.</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-purple-400 flex-shrink-0">•</span>
+                                        <span><strong className="text-white">Creators earn from usage:</strong> Instead of selling exclusive rights to platforms, photographers, journalists, or data providers earn micropayments every time their content is accessed or used by AI systems.</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-purple-400 flex-shrink-0">•</span>
+                                        <span><strong className="text-white">Transparent royalties:</strong> Every x402 payment is logged on-chain, creating an auditable trail. Creators can prove exactly how many times their content was used and verify they were paid correctly.</span>
+                                    </li>
+                                </ul>
+                                <div className="bg-black/40 border border-purple-700/30 rounded-lg p-4">
+                                    <h4 className="text-purple-300 font-semibold mb-2 text-sm">Business Model Example:</h4>
+                                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        OpenAI wants to train GPT-5 on verified journalism. Instead of scraping websites illegally, its AI agent queries Gono&apos;s index, finds 10,000 articles from The Guardian, sends $0.05 per article via x402 (paid in USDC), and receives instant access. Journalists get paid, AI gets licensed data, everyone wins.
+                                    </p>
+                                </div>
                             </div>
                         </section>
 
