@@ -315,10 +315,10 @@ export default function AcademicCredentialsPage() {
                                         <h4 className="text-lg font-semibold text-white mb-2">🔒 Privacy-Preserving Verification (zk-SNARKs)</h4>
                                         <p className="text-gray-300 mb-3">Students control what information to share:</p>
                                         <ul className="space-y-2 text-gray-300 list-disc list-inside">
-                                            <li><strong>Selective disclosure:</strong> Prove "GPA > 3.5" without revealing exact 3.89</li>
-                                            <li><strong>Date ranges:</strong> Prove "graduated within last 5 years" without exact date</li>
-                                            <li><strong>Course verification:</strong> Prove "completed Machine Learning course" without sharing entire transcript</li>
-                                            <li><strong>Age gates:</strong> Prove "over 18" for online certifications without revealing birthdate</li>
+                                            <li><strong>Selective disclosure:</strong> Prove &quot;GPA &gt; 3.5&quot; without revealing exact 3.89</li>
+                                            <li><strong>Date ranges:</strong> Prove &quot;graduated within last 5 years&quot; without exact date</li>
+                                            <li><strong>Course verification:</strong> Prove &quot;completed Machine Learning course&quot; without sharing entire transcript</li>
+                                            <li><strong>Age gates:</strong> Prove &quot;over 18&quot; for online certifications without revealing birthdate</li>
                                         </ul>
                                     </div>
 
