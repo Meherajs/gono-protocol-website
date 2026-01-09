@@ -57,12 +57,7 @@ export default function Hero() {
                 {/* Content */}
                 <div className="animate-fade-in-up w-full text-center md:text-left">
                     {/* Badge */}
-                    <div className="flex justify-center md:justify-start mb-4 sm:mb-6">
-                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 glass rounded-full text-xs sm:text-sm text-zinc-400 group hover:border-indigo-500/50 transition-colors">
-                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-glow" />
-                            <span>Decentralized Provenance Standard</span>
-                        </div>
-                    </div>
+
 
                     {/* Title */}
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight mb-4 sm:mb-6">
