@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   keywords: ["blockchain", "provenance", "digital media", "AI", "verification", "NFT", "Web3"],
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
