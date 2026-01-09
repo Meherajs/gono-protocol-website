@@ -415,7 +415,6 @@ export default function VotingIntegrityPage() {
                                     </div>
                                 </div>
                             </div>
-                        </section>
 
                             {/* Phase 4: DISPUTE RESOLUTION */}
                             <div className="mb-10">
