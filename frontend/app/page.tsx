@@ -1,7 +1,6 @@
 import {
   Navbar,
   Hero,
-  Partners,
   Features,
   HowItWorks,
   Architecture,
@@ -22,7 +21,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Partners />
         <Features />
         <HowItWorks />
         <Architecture />
