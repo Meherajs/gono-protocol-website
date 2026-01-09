@@ -9,6 +9,7 @@ const useCases = [
         category: "Gono Moncho",
         overview: "A complete decentralized ecosystem for verifiable journalism, built on the Gono Protocol blockchain. Empowering censorship-resistant publishing with privacy-preserving Zero-Knowledge Proofs.",
         date: "12.15.2025",
+        author: "Jonayet Hossain",
         image: "/images/use-cases/journalism.jpg", // Placeholder - will be replaced
     },
     {
@@ -17,6 +18,7 @@ const useCases = [
         category: "Content Verification",
         overview: "Creating an immutable registry of authentic content to combat the deepfake crisis. Prove what's REAL at the source with cryptographic verification.",
         date: "12.22.2025",
+        author: "Jonayet Hossain",
         image: "/images/use-cases/deepfake.jpg", // Placeholder - will be replaced
     },
     {
@@ -25,6 +27,7 @@ const useCases = [
         category: "Public Infrastructure",
         overview: "How BTRC, NEIR, and Electricity Providers can supercharge their services using blockchain provenance. Transparent, verifiable infrastructure for citizens.",
         date: "01.05.2026",
+        author: "Jonayet Hossain",
         image: "/images/use-cases/utilities.jpg", // Placeholder - will be replaced
     },
     {
@@ -33,6 +36,7 @@ const useCases = [
         category: "isItTrue?",
         overview: "Harnessing the collective intelligence of global journalism through AI-powered aggregation, cross-source consensus scoring, and immutable blockchain provenance.",
         date: "12.12.2025",
+        author: "Jonayet Hossain",
         image: "/images/use-cases/news-verification.jpg", // Placeholder - will be replaced
     },
     {
@@ -41,6 +45,7 @@ const useCases = [
         category: "IP Protection",
         overview: "Creating immutable proof of original creation and automating IP licensing through blockchain provenance. Protect your creativity with cryptographic timestamps and smart contract enforcement.",
         date: "01.09.2026",
+        author: "Meheraj Alam",
         image: "/images/use-cases/ip.jpg", // Placeholder - will be replaced
     },
     {
@@ -49,6 +54,7 @@ const useCases = [
         category: "Education & Verification",
         overview: "Eliminating diploma fraud and credential verification delays through blockchain-verified educational records. Instant verification, refugee-proof credentials, and lifelong learning portfolios.",
         date: "01.08.2026",
+        author: "Meheraj Alam",
         image: "/images/use-cases/academic.jpg", // Placeholder - will be replaced
     },
     {
@@ -57,6 +63,7 @@ const useCases = [
         category: "Democracy & Governance",
         overview: "Protecting democracy through verifiable, transparent elections using blockchain provenance and zero-knowledge cryptography. Anonymous voting with public auditability.",
         date: "01.01.2026",
+        author: "Meheraj Alam",
         image: "/images/use-cases/voting.jpg", // Placeholder - will be replaced
     },
 ];
@@ -82,50 +89,67 @@ export default function UseCasesPage() {
 
                     {/* Use Cases Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        {useCases.map((useCase) => (
-                            <Link
-                                key={useCase.id}
-                                href={`/use-cases/${useCase.id}`}
-                                className="group"
-                            >
-                                <div className="border border-gray-800 bg-gray-900/50 hover:bg-gray-900/80 transition-all duration-300 hover:border-amber-500/50 h-full flex flex-col">
-                                    {/* Content Section */}
-                                    <div className="p-8 flex-grow">
-                                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 group-hover:text-amber-400 transition-colors">
-                                            {useCase.title}
-                                        </h2>
+                        {useCases.map((useCase, index) => {
+                            const categoryIcons: Record<string, string> = {
+                                "Gono Moncho": "📰",
+                                "Content Verification": "🛡️",
+                                "Public Infrastructure": "🏛️",
+                                "isItTrue?": "🔍",
+                                "IP Protection": "©️",
+                                "Education & Verification": "🎓",
+                                "Democracy & Governance": "🗳️",
+                            };
+                            const icon = categoryIcons[useCase.category] || "📋";
 
-                                        <div className="space-y-4">
-                                            <div>
-                                                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
-                                                    OVERVIEW
-                                                </h3>
-                                                <p className="text-gray-300 leading-relaxed">
-                                                    {useCase.overview}
-                                                </p>
+                            return (
+                                <Link
+                                    key={useCase.id}
+                                    href={`/use-cases/${useCase.id}`}
+                                    className="group"
+                                >
+                                    <div className="relative h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 hover:border-amber-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10">
+                                        {/* Gradient accent bar */}
+                                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 opacity-60 group-hover:opacity-100 transition-opacity" />
+
+                                        {/* Content */}
+                                        <div className="p-6 sm:p-8">
+                                            {/* Header with icon and category */}
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 flex items-center justify-center text-2xl">
+                                                    {icon}
+                                                </div>
+                                                <div>
+                                                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
+                                                        {useCase.category}
+                                                    </span>
+                                                    <p className="text-xs text-gray-500">
+                                                        By {useCase.author} • {useCase.date}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Title */}
+                                            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors leading-tight">
+                                                {useCase.title}
+                                            </h2>
+
+                                            {/* Description */}
+                                            <p className="text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                                                {useCase.overview}
+                                            </p>
+
+                                            {/* CTA */}
+                                            <div className="flex items-center gap-2 text-amber-400 font-medium group-hover:text-amber-300 transition-colors">
+                                                <span>Read Case Study</span>
+                                                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
                                             </div>
                                         </div>
                                     </div>
-
-                                    {/* Image and Footer Section */}
-                                    <div className="border-t border-gray-800 flex items-center justify-between p-4">
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                                                USE CASES
-                                            </span>
-                                            <span className="text-xs text-gray-500">
-                                                {useCase.date}
-                                            </span>
-                                        </div>
-                                        
-                                        {/* Placeholder for image - will be replaced with actual images */}
-                                        <div className="w-20 h-20 bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 flex items-center justify-center">
-                                            <span className="text-amber-500 text-xs">Image</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     {/* Summary Section */}
