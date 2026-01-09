@@ -1,11 +1,40 @@
 import { api } from '@/lib/api';
+import { Newspaper, Bot, Building2, GraduationCap, Box } from "lucide-react";
+
+const fallbackUseCases = [
+    {
+        id: 1,
+        title: "Gono Moncho - Journalist Protection",
+        description: "Secure platform for journalists to capture, store, and verify their work with cryptographic proof of authenticity.",
+        category: "Media",
+        pallets_used: ["Capture", "Store", "Privacy"]
+    },
+    {
+        id: 2,
+        title: "AI Training Data Markets",
+        description: "Verified provenance for AI training datasets with automated micropayments to content creators.",
+        category: "AI Commerce",
+        pallets_used: ["Capture", "x402", "Verify"]
+    },
+    {
+        id: 3,
+        title: "Real Estate Documentation",
+        description: "Immutable records of property inspections, contracts, and ownership transfers.",
+        category: "Real Estate",
+        pallets_used: ["Capture", "Store", "Certify"]
+    },
+    {
+        id: 4,
+        title: "Academic Credential Verification",
+        description: "Blockchain-verified academic certificates and research paper provenance.",
+        category: "Academia",
+        pallets_used: ["Capture", "Verify", "Certify"]
+    }
+];
 
 export default async function UseCases() {
     const useCases = await api.getUseCases();
-
-    if (!useCases) {
-        return null;
-    }
+    const data = useCases || fallbackUseCases;
 
     const categoryColors: Record<string, { bg: string; border: string; text: string }> = {
         Media: { bg: 'bg-purple-500/10', border: 'border-purple-500/50', text: 'text-purple-400' },
@@ -14,11 +43,12 @@ export default async function UseCases() {
         Academia: { bg: 'bg-amber-500/10', border: 'border-amber-500/50', text: 'text-amber-400' },
     };
 
-    const categoryIcons: Record<string, string> = {
-        Media: '📰',
-        'AI Commerce': '🤖',
-        'Real Estate': '🏢',
-        Academia: '🎓',
+
+    const categoryIcons: Record<string, React.ReactNode> = {
+        Media: <Newspaper className="w-8 h-8" />,
+        'AI Commerce': <Bot className="w-8 h-8" />,
+        'Real Estate': <Building2 className="w-8 h-8" />,
+        Academia: <GraduationCap className="w-8 h-8" />,
     };
 
     return (
@@ -37,7 +67,7 @@ export default async function UseCases() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {useCases.map((useCase, index) => {
+                    {data.map((useCase, index) => {
                         const colors = categoryColors[useCase.category] || categoryColors.Media;
                         const icon = categoryIcons[useCase.category] || '📦';
 
@@ -109,9 +139,7 @@ export default async function UseCases() {
                                 Explore Products
                             </a>
                             <a
-                                href="https://github.com/gono-protocol"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/docs"
                                 className="px-6 py-3 bg-gray-800/50 border border-gray-700 text-gray-300 rounded-lg font-medium hover:border-indigo-500/50 hover:text-white transition-all"
                             >
                                 View Documentation

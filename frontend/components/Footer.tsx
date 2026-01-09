@@ -1,20 +1,34 @@
 import Link from "next/link";
 
 const footerLinks = {
-    Products: ["Capture App", "Gono Search", "Dashboard", "API"],
-    Developers: ["Documentation", "SDK", "GitHub", "Status"],
+    Products: [
+        { label: "Capture App", href: "/coming-soon" },
+        { label: "Gono Search", href: "/coming-soon" },
+        { label: "Dashboard", href: "/coming-soon" },
+        { label: "API", href: "/coming-soon" }
+    ],
+    Developers: [
+        { label: "Documentation", href: "/docs" },
+        { label: "SDK", href: "/coming-soon" },
+        { label: "GitHub", href: "https://github.com/Meherajs/gono-protocol-website" },
+        { label: "Status", href: "/coming-soon" }
+    ],
     Company: [
         { label: "About", href: "/about" },
         { label: "Blog", href: "/archive" },
         { label: "Careers", href: "/careers" },
         { label: "Press", href: "/coming-soon" }
     ],
-    Legal: ["Privacy", "Terms", "Cookies"],
+    Legal: [
+        { label: "Privacy", href: "/coming-soon" },
+        { label: "Terms", href: "/coming-soon" },
+        { label: "Cookies", href: "/coming-soon" }
+    ],
 };
 
 export default function Footer() {
     return (
-        <footer id="about" className="py-12 sm:py-16 bg-[#111111] border-t border-white/[0.08] overflow-hidden">
+        <footer id="footer" className="py-12 sm:py-16 bg-[#111111] border-t border-white/[0.08] overflow-hidden">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
                 {/* Main */}
                 <div className="grid lg:grid-cols-[1.5fr_2fr] gap-16 mb-12">
@@ -94,7 +108,7 @@ export default function Footer() {
                                         const isObject = typeof link === 'object';
                                         const label = isObject ? link.label : link;
                                         const href = isObject ? link.href : "#";
-                                        
+
                                         return (
                                             <li key={label}>
                                                 <Link

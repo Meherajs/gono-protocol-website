@@ -1,3 +1,5 @@
+import { Scan, Database, ShieldCheck, FileSignature, Search } from "lucide-react";
+
 const features = [
     {
         icon: (
@@ -7,8 +9,8 @@ const features = [
                 <path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" strokeWidth="2" />
             </svg>
         ),
-        title: "Blockchain Provenance",
-        description: "Every digital asset receives an immutable blockchain record, creating a transparent and verifiable chain of custody that can never be altered.",
+        title: "Immutable Provenance Records",
+        description: "Every digital asset photo, video, document, or dataset receives a unique cryptographic fingerprint stored permanently on the blockchain. This creates an unalterable chain of custody from creation to any point in time, ensuring authenticity can always be verified.",
         large: true,
     },
     {
@@ -18,8 +20,8 @@ const features = [
                 <path d="M24 14v10l7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
         ),
-        title: "Real-time Verification",
-        description: "Instantly verify the authenticity and origin of any digital content with our AI-powered verification engine.",
+        title: "Instant Authenticity Checks",
+        description: "Upload any content and get immediate verification results. Our engine checks against registered provenance records and runs AI-powered analysis to detect tampering, deepfakes, and unauthorized modifications.",
     },
     {
         icon: (
@@ -28,8 +30,8 @@ const features = [
                 <path d="M24 24v20M4 14l20 10 20-10" stroke="currentColor" strokeWidth="2" />
             </svg>
         ),
-        title: "Decentralized Storage",
-        description: "Content is stored across a distributed network, ensuring permanence and censorship resistance.",
+        title: "Permanent Decentralized Storage",
+        description: "Optional integration with Arweave ensures your content is stored forever across a global network. No single point of failure, no censorship, no data loss content survives as long as the network exists.",
     },
     {
         icon: (
@@ -39,8 +41,8 @@ const features = [
                 <path d="M40 40L30 28l-8 8-6-6-8 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
         ),
-        title: "AI Detection",
-        description: "Identify AI-generated content and deepfakes with advanced detection algorithms and metadata analysis.",
+        title: "Deepfake & AI Detection",
+        description: "Advanced machine learning algorithms analyze metadata, pixel patterns, and compression artifacts to identify AI-generated or manipulated content. Know if an image or video is synthetic before trusting it.",
     },
     {
         icon: (
@@ -49,8 +51,8 @@ const features = [
                 <path d="M4 24h40M24 4c5 5 8 12 8 20s-3 15-8 20c-5-5-8-12-8-20s3-15 8-20z" stroke="currentColor" strokeWidth="2" />
             </svg>
         ),
-        title: "Global Standards",
-        description: "Compatible with C2PA, IPTC, and EIP-7053 standards for universal interoperability.",
+        title: "Industry-Standard Compliance",
+        description: "Built on C2PA (Coalition for Content Provenance and Authenticity), ERC-7053 (Ethereum Media Receipts), and IPTC metadata standards. Seamlessly integrates with existing newsroom workflows and enterprise systems.",
     },
 ];
 
@@ -87,9 +89,17 @@ export default function Features() {
 
                             {feature.large && (
                                 <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto pb-2">
-                                    {[1, 2, 3, 4, 5].map((_, idx) => (
+                                    {[
+                                        <Scan key="1" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <Database key="2" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <ShieldCheck key="3" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <FileSignature key="4" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <Search key="5" className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                    ].map((icon, idx) => (
                                         <div key={idx} className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 glass rounded-lg ${idx === 4 ? "gradient-primary glow" : ""}`} />
+                                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 glass rounded-lg flex items-center justify-center ${idx === 4 ? "gradient-primary glow" : ""}`}>
+                                                {icon}
+                                            </div>
                                             {idx < 4 && (
                                                 <div className="w-4 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-white/[0.08] to-indigo-500 flex-shrink-0" />
                                             )}

@@ -1,4 +1,5 @@
 import { api, Stats } from "@/lib/api";
+import { Camera, Link, CheckCircle } from "lucide-react";
 import { StatSkeleton } from "./Skeleton";
 
 async function HeroStats() {
@@ -109,10 +110,11 @@ export default function Hero() {
                             <span className="w-3 h-3 rounded-full bg-red-400" />
                         </div>
                         <div className="p-6 space-y-4">
+
                             {[
-                                { icon: "📷", label: "Capture", detail: "2024-01-15 09:42:33" },
-                                { icon: "🔗", label: "Register", detail: "0x7f3d...8e2a" },
-                                { icon: "✓", label: "Verified", detail: "Authentic", highlight: true },
+                                { icon: <Camera className="w-5 h-5" />, label: "Capture", detail: "2026-01-09 17:30:00" },
+                                { icon: <Link className="w-5 h-5" />, label: "Register", detail: "0x7f3d...8e2a" },
+                                { icon: <CheckCircle className="w-5 h-5" />, label: "Verified", detail: "Authentic", highlight: true },
                             ].map((node, i) => (
                                 <div key={i}>
                                     <div className="flex items-center gap-4 p-4 glass rounded-lg glass-hover transition-all cursor-pointer group hover:scale-[1.02]">

@@ -91,9 +91,8 @@ export default function FAQ() {
 
                                 {/* Answer */}
                                 <div
-                                    className={`overflow-hidden transition-all duration-300 ${
-                                        openIndex === index ? 'max-h-96' : 'max-h-0'
-                                    }`}
+                                    className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96' : 'max-h-0'
+                                        }`}
                                 >
                                     <div className="px-6 pb-5 pt-2 border-t border-gray-800">
                                         <p className="text-gray-400 leading-relaxed">
@@ -113,17 +112,13 @@ export default function FAQ() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="https://github.com/gono-protocol"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/docs"
                             className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-500/50 transition-all"
                         >
                             Read the Docs
                         </a>
                         <a
-                            href="https://discord.gg/gono-protocol"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/coming-soon"
                             className="px-6 py-3 bg-gray-800/50 border border-gray-700 text-gray-300 rounded-lg font-medium hover:border-indigo-500/50 hover:text-white transition-all"
                         >
                             Join Discord

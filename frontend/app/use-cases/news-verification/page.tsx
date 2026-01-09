@@ -7,9 +7,9 @@ export default function NewsVerificationPage() {
             <Navbar />
             <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-gradient-to-b from-gray-950 to-black">
                 <div className="max-w-4xl mx-auto">
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mb-8 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -18,7 +18,7 @@ export default function NewsVerificationPage() {
                     </Link>
 
                     <div className="mb-12">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                        <div className="inline-block px-4 py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-sm font-medium mb-6 uppercase tracking-wider">
                             isItTrue?
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -40,13 +40,13 @@ export default function NewsVerificationPage() {
 
                     <div className="prose prose-invert prose-amber max-w-none">
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Problem: How Do We Know What&apos;s True?</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Problem: How Do We Know What&apos;s True?</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Information Overload Challenge</h3>
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 In today&apos;s hyper-connected world, a single event can generate coverage from hundreds of news outlets — local newspapers, national broadcasters, international channels, online publications, and independent journalists. While this abundance of sources <em>should</em> improve our understanding, it creates a paradox:
                             </p>
-                            <blockquote className="border-l-4 border-amber-500 pl-4 italic text-gray-300 my-6">
+                            <blockquote className="border-l-4 border-stone-500 pl-4 italic text-gray-300 my-6">
                                 More sources, less clarity.
                             </blockquote>
                             <p className="text-gray-300 leading-relaxed">
@@ -54,9 +54,9 @@ export default function NewsVerificationPage() {
                             </p>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Key Problems Identified</h3>
-                            
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">1. Fragmented Truth</h4>
+
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">1. Fragmented Truth</h4>
                                 <p className="text-gray-300 mb-3">A single event is covered by dozens of outlets, each with their own:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Editorial bias</li>
@@ -67,8 +67,8 @@ export default function NewsVerificationPage() {
                                 <p className="text-gray-300 mt-3"><strong className="text-white">Result:</strong> Readers receive fragmented, sometimes contradictory versions of the same story with no way to synthesize them.</p>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">2. No Cross-Source Verification Mechanism</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">2. No Cross-Source Verification Mechanism</h4>
                                 <p className="text-gray-300 mb-3">Currently, there is <strong className="text-white">no system</strong> that:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Tracks how many outlets covered the same event</li>
@@ -79,8 +79,8 @@ export default function NewsVerificationPage() {
                                 <p className="text-gray-300 mt-3"><strong className="text-white">Result:</strong> A fabricated story on one outlet looks just as legitimate as a verified story covered by 50 outlets.</p>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">3. The &quot;First Mover&quot; Problem</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">3. The &quot;First Mover&quot; Problem</h4>
                                 <p className="text-gray-300 mb-3">When breaking news occurs:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Speed is prioritized over accuracy</li>
@@ -91,8 +91,8 @@ export default function NewsVerificationPage() {
                                 <p className="text-gray-300 mt-3"><strong className="text-white">Result:</strong> Misinformation spreads before verification catches up.</p>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">4. Evidence Scarcity</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">4. Evidence Scarcity</h4>
                                 <p className="text-gray-300 mb-3">Most news articles are:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>Self-contained with no linked evidence</li>
@@ -102,8 +102,8 @@ export default function NewsVerificationPage() {
                                 <p className="text-gray-300 mt-3"><strong className="text-white">Result:</strong> Readers must &quot;trust&quot; outlets rather than verify claims.</p>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
-                                <h4 className="text-xl font-semibold text-amber-400 mb-3">5. Information Silos</h4>
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
+                                <h4 className="text-xl font-semibold text-zinc-300 mb-3">5. Information Silos</h4>
                                 <p className="text-gray-300 mb-3">Each news outlet operates in isolation:</p>
                                 <ul className="space-y-2 text-gray-300">
                                     <li>No shared database of events</li>
@@ -115,9 +115,9 @@ export default function NewsVerificationPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Insight: Consensus = Credibility</h2>
-                            
-                            <blockquote className="border-l-4 border-amber-500 pl-4 italic text-gray-300 my-6">
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Insight: Consensus = Credibility</h2>
+
+                            <blockquote className="border-l-4 border-stone-500 pl-4 italic text-gray-300 my-6">
                                 If 50 independent news outlets report the same facts about an event, it&apos;s far more likely to be true than if only 1 outlet reports it.
                             </blockquote>
 
@@ -137,8 +137,8 @@ export default function NewsVerificationPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Solution: isItTrue?</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Solution: isItTrue?</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Built on the Gono Protocol Blockchain</h3>
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 We introduce <strong className="text-white">isItTrue?</strong> — an AI-powered, cross-source news verification and aggregation system built on the Gono Protocol infrastructure.
@@ -156,10 +156,10 @@ export default function NewsVerificationPage() {
                             </ul>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">How It Works</h3>
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mb-6">
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 mb-6">
                                 <div className="space-y-6">
                                     <div>
-                                        <h4 className="text-lg font-semibold text-green-400 mb-2">1. Scraper Network</h4>
+                                        <h4 className="text-lg font-semibold text-blue-200 mb-2">1. Scraper Network</h4>
                                         <ul className="space-y-1 text-gray-300 text-sm">
                                             <li>• Monitors 500+ news outlets in real-time</li>
                                             <li>• Extracts article content, metadata, timestamps</li>
@@ -167,7 +167,7 @@ export default function NewsVerificationPage() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-blue-400 mb-2">2. Event Clustering Engine (AI)</h4>
+                                        <h4 className="text-lg font-semibold text-blue-200 mb-2">2. Event Clustering Engine (AI)</h4>
                                         <ul className="space-y-1 text-gray-300 text-sm">
                                             <li>• NLP analysis identifies same-event articles</li>
                                             <li>• Groups stories by event, not by keywords</li>
@@ -175,7 +175,7 @@ export default function NewsVerificationPage() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-purple-400 mb-2">3. Consensus Scoring Module</h4>
+                                        <h4 className="text-lg font-semibold text-blue-200 mb-2">3. Consensus Scoring Module</h4>
                                         <ul className="space-y-1 text-gray-300 text-sm">
                                             <li>• Counts unique outlets covering the event</li>
                                             <li>• Weights outlets by historical credibility (SANUB algorithm)</li>
@@ -184,7 +184,7 @@ export default function NewsVerificationPage() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-amber-400 mb-2">4. AI Summarization Engine</h4>
+                                        <h4 className="text-lg font-semibold text-zinc-300 mb-2">4. AI Summarization Engine</h4>
                                         <ul className="space-y-1 text-gray-300 text-sm">
                                             <li>• Synthesizes all articles into comprehensive summary</li>
                                             <li>• Highlights agreed facts vs. disputed claims</li>
@@ -193,7 +193,7 @@ export default function NewsVerificationPage() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-orange-400 mb-2">5. Evidence Aggregator</h4>
+                                        <h4 className="text-lg font-semibold text-blue-200 mb-2">5. Evidence Aggregator</h4>
                                         <ul className="space-y-1 text-gray-300 text-sm">
                                             <li>• Scrapes for supporting evidence (videos, photos, documents)</li>
                                             <li>• Finds primary source materials</li>
@@ -202,7 +202,7 @@ export default function NewsVerificationPage() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-red-400 mb-2">6. Blockchain Certification (Gono Protocol)</h4>
+                                        <h4 className="text-lg font-semibold text-blue-200 mb-2">6. Blockchain Certification (Gono Protocol)</h4>
                                         <ul className="space-y-1 text-gray-300 text-sm">
                                             <li>• Event summary anchored on-chain via ERC-7053</li>
                                             <li>• Immutable record of all sources and evidence</li>
@@ -215,14 +215,14 @@ export default function NewsVerificationPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">How Gono Protocol Enables isItTrue?</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">How Gono Protocol Enables isItTrue?</h2>
+
                             <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Gono Protocol Feature</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">How It Powers isItTrue?</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Gono Protocol Feature</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">How It Powers isItTrue?</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -256,41 +256,41 @@ export default function NewsVerificationPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">The Consensus Score: Quantifying Truth</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">The Consensus Score: Quantifying Truth</h2>
+
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Score</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Label</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Meaning</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Score</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Label</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Meaning</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
                                         <tr>
                                             <td className="px-4 py-3 text-gray-300 font-semibold">90-100</td>
-                                            <td className="px-4 py-3 text-green-400 font-semibold">✅ Verified</td>
+                                            <td className="px-4 py-3 text-blue-200 font-semibold">✅ Verified</td>
                                             <td className="px-4 py-3 text-gray-300">Covered by 20+ credible outlets with matching facts and evidence</td>
                                         </tr>
                                         <tr>
                                             <td className="px-4 py-3 text-gray-300 font-semibold">70-89</td>
-                                            <td className="px-4 py-3 text-lime-400 font-semibold">🟢 High Confidence</td>
+                                            <td className="px-4 py-3 text-blue-200 font-semibold">🟢 High Confidence</td>
                                             <td className="px-4 py-3 text-gray-300">Covered by 10+ outlets with strong agreement</td>
                                         </tr>
                                         <tr>
                                             <td className="px-4 py-3 text-gray-300 font-semibold">50-69</td>
-                                            <td className="px-4 py-3 text-yellow-400 font-semibold">🟡 Developing</td>
+                                            <td className="px-4 py-3 text-blue-200 font-semibold">🟡 Developing</td>
                                             <td className="px-4 py-3 text-gray-300">Multiple outlets with some discrepancies</td>
                                         </tr>
                                         <tr>
                                             <td className="px-4 py-3 text-gray-300 font-semibold">30-49</td>
-                                            <td className="px-4 py-3 text-orange-400 font-semibold">🟠 Low Confidence</td>
+                                            <td className="px-4 py-3 text-blue-200 font-semibold">🟠 Low Confidence</td>
                                             <td className="px-4 py-3 text-gray-300">Few sources or significant fact conflicts</td>
                                         </tr>
                                         <tr>
                                             <td className="px-4 py-3 text-gray-300 font-semibold">0-29</td>
-                                            <td className="px-4 py-3 text-red-400 font-semibold">🔴 Unverified</td>
+                                            <td className="px-4 py-3 text-blue-200 font-semibold">🔴 Unverified</td>
                                             <td className="px-4 py-3 text-gray-300">Single source or contradicted by other outlets</td>
                                         </tr>
                                     </tbody>
@@ -299,14 +299,14 @@ export default function NewsVerificationPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Problem → Solution Mapping</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Problem → Solution Mapping</h2>
+
                             <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Problem</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">isItTrue? Solution</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Problem</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">isItTrue? Solution</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -340,13 +340,13 @@ export default function NewsVerificationPage() {
                         </section>
 
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Conclusion: From Fragmented News to Verified Truth</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Conclusion: From Fragmented News to Verified Truth</h2>
+
                             <p className="text-gray-300 leading-relaxed mb-6">
                                 The current news ecosystem presents a paradox: more sources than ever, yet less clarity about what&apos;s true. Readers are overwhelmed, journalists are siloed, and misinformation thrives in the chaos.
                             </p>
 
-                            <blockquote className="border-l-4 border-amber-500 pl-4 italic text-gray-300 my-6">
+                            <blockquote className="border-l-4 border-stone-500 pl-4 italic text-gray-300 my-6">
                                 isItTrue?, built on the Gono Protocol, transforms this landscape by harnessing the collective intelligence of global journalism through AI-powered aggregation, cross-source consensus scoring, and immutable blockchain provenance.
                             </blockquote>
 

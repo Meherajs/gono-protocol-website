@@ -1,11 +1,35 @@
 import { api } from '@/lib/api';
 
+const fallbackArchitecture = [
+    {
+        layer: 1,
+        name: "Polkadot Relay Chain",
+        description: "Shared security and cross-chain interoperability through Polkadot's relay chain consensus.",
+        components: ["Shared Security", "XCM Protocol", "Parachain Slots"]
+    },
+    {
+        layer: 2,
+        name: "Gono Execution Layer",
+        description: "Core ERC-7053 indexing and provenance record management on the Gono Parachain.",
+        components: ["ERC-7053 Indexer", "Media Receipts", "Provenance Registry"]
+    },
+    {
+        layer: 3,
+        name: "Modular Service Pallets",
+        description: "Optional, pluggable modules for storage, verification, privacy, and payments.",
+        components: ["Store Pallet", "Verify Pallet", "Privacy (zk-SNARKs)", "x402 Payments"]
+    },
+    {
+        layer: 4,
+        name: "Application Layer",
+        description: "User-facing applications and developer tools built on Gono Protocol.",
+        components: ["TrustLens", "Verify Engine", "Capture SDK", "Explorer"]
+    }
+];
+
 export default async function Architecture() {
     const architecture = await api.getArchitecture();
-
-    if (!architecture) {
-        return null;
-    }
+    const data = architecture || fallbackArchitecture;
 
     return (
         <section className="px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
@@ -24,7 +48,7 @@ export default async function Architecture() {
                 </div>
 
                 <div className="space-y-4 sm:space-y-6">
-                    {architecture.map((layer, index) => (
+                    {data.map((layer, index) => (
                         <div
                             key={layer.layer}
                             className="group relative"
@@ -69,7 +93,7 @@ export default async function Architecture() {
                                     </div>
 
                                     {/* Connection indicator (except for last layer) */}
-                                    {index < architecture.length - 1 && (
+                                    {index < data.length - 1 && (
                                         <div className="hidden md:block absolute -bottom-3 left-8 w-0.5 h-6 bg-gradient-to-b from-indigo-500/50 to-transparent"></div>
                                     )}
                                 </div>
@@ -81,26 +105,16 @@ export default async function Architecture() {
                 {/* Technology badges */}
                 <div className="mt-16 text-center">
                     <p className="text-gray-500 text-sm uppercase tracking-wider mb-6">Powered By</p>
-                    <div className="flex flex-wrap justify-center gap-6">
-                        {[
-                            { name: 'Substrate', icon: '⛓️' },
-                            { name: 'Polkadot', icon: '🔴' },
-                            { name: 'Arweave', icon: '🌐' },
-                            { name: 'ERC-7053', icon: '📜' },
-                            { name: 'C2PA', icon: '🔏' },
-                            { name: 'zk-SNARKs', icon: '🔐' },
-                        ].map((tech) => (
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {['Substrate', 'Polkadot', 'Arweave', 'ERC-7053', 'C2PA', 'zk-SNARKs'].map((tech) => (
                             <div
-                                key={tech.name}
-                                className="group relative px-6 py-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl hover:border-indigo-500/50 transition-all"
+                                key={tech}
+                                className="group relative px-5 py-2.5 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg hover:border-indigo-500/50 transition-all"
                             >
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity"></div>
-                                <div className="relative flex items-center gap-3">
-                                    <span className="text-2xl">{tech.icon}</span>
-                                    <span className="font-medium text-gray-300 group-hover:text-white transition-colors">
-                                        {tech.name}
-                                    </span>
-                                </div>
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-lg opacity-0 group-hover:opacity-30 blur transition-opacity"></div>
+                                <span className="relative font-medium text-gray-300 group-hover:text-white transition-colors">
+                                    {tech}
+                                </span>
                             </div>
                         ))}
                     </div>

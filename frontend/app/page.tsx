@@ -1,14 +1,12 @@
 import {
   Navbar,
   Hero,
-  Partners,
   Features,
   HowItWorks,
   Architecture,
   Products,
   X402Micropayment,
   UseCases,
-  Archive,
   Ecosystem,
   Roadmap,
   FAQ,
@@ -22,16 +20,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Partners />
         <Features />
         <HowItWorks />
         <Architecture />
+        <Roadmap />
         <Products />
         <X402Micropayment />
         <UseCases />
-        <Archive />
         <Ecosystem />
-        <Roadmap />
         <FAQ />
         <CTA />
       </main>

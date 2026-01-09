@@ -7,9 +7,9 @@ export default function UtilitiesPage() {
             <Navbar />
             <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-gradient-to-b from-gray-950 to-black">
                 <div className="max-w-4xl mx-auto">
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mb-8 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -18,7 +18,7 @@ export default function UtilitiesPage() {
                     </Link>
 
                     <div className="mb-12">
-                        <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm font-medium mb-6 uppercase tracking-wider">
+                        <div className="inline-block px-4 py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-sm font-medium mb-6 uppercase tracking-wider">
                             Government Services
                         </div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -41,8 +41,8 @@ export default function UtilitiesPage() {
                     <div className="prose prose-invert prose-amber max-w-none">
                         {/* Use Case A: NEIR */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Use Case A: NEIR (National Equipment Identity Register) — BTRC</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Use Case A: NEIR (National Equipment Identity Register) — BTRC</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">What is NEIR?</h3>
                             <p className="text-gray-300 leading-relaxed mb-4">
                                 NEIR is Bangladesh&apos;s mobile device registration system managed by BTRC. Key features:
@@ -57,11 +57,11 @@ export default function UtilitiesPage() {
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Current Challenges</h3>
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Problem</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Impact</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Problem</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Impact</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -86,10 +86,10 @@ export default function UtilitiesPage() {
                             </div>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Solution: NEIR Enhanced with Gono Protocol</h3>
-                            
+
                             <div className="space-y-6">
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-green-400 mb-3">Capture</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Capture</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• When a device enters Bangladesh (import/manufacture), IMEI is registered on Gono Protocol</li>
                                         <li>• C2PA-style cryptographic signature links IMEI to importer/manufacturer identity</li>
@@ -98,8 +98,8 @@ export default function UtilitiesPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-blue-400 mb-3">Certify</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Certify</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• IMEI record anchored on Gono Protocol via ERC-7053</li>
                                         <li>• Creates immutable &quot;Device Birth Certificate&quot; on-chain</li>
@@ -109,8 +109,8 @@ export default function UtilitiesPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-purple-400 mb-3">Check</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Check</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• <strong>Buyers:</strong> Verify complete device history before purchasing used phones</li>
                                         <li>• <strong>BTRC:</strong> Immutable audit trail for all registrations</li>
@@ -128,8 +128,8 @@ export default function UtilitiesPage() {
                                     <h4 className="text-lg font-semibold text-indigo-400 mb-3">New Device Purchase Verification</h4>
                                     <div className="font-mono text-sm bg-black/50 p-4 rounded">
                                         <div className="text-gray-400">Current: SMS &quot;KYD &lt;IMEI&gt;&quot; to 16002 → Get status</div>
-                                        <div className="text-green-400 mt-2">Enhanced: Same SMS → Get status + Blockchain verification link</div>
-                                        <div className="text-green-400">→ View complete provenance history on Gono Explorer</div>
+                                        <div className="text-blue-200 mt-2">Enhanced: Same SMS → Get status + Blockchain verification link</div>
+                                        <div className="text-blue-200">→ View complete provenance history on Gono Explorer</div>
                                     </div>
                                 </div>
 
@@ -137,9 +137,9 @@ export default function UtilitiesPage() {
                                     <h4 className="text-lg font-semibold text-indigo-400 mb-3">De-Registration (Device Transfer)</h4>
                                     <div className="font-mono text-sm bg-black/50 p-4 rounded">
                                         <div className="text-gray-400">Current: USSD *16161# → 10 min window → Transfer complete</div>
-                                        <div className="text-green-400 mt-2">Enhanced: Same process → Transaction recorded on Gono Protocol</div>
-                                        <div className="text-green-400">→ Both parties get cryptographic proof of transfer</div>
-                                        <div className="text-green-400">→ Immutable ownership history preserved</div>
+                                        <div className="text-blue-200 mt-2">Enhanced: Same process → Transaction recorded on Gono Protocol</div>
+                                        <div className="text-blue-200">→ Both parties get cryptographic proof of transfer</div>
+                                        <div className="text-blue-200">→ Immutable ownership history preserved</div>
                                     </div>
                                 </div>
 
@@ -147,9 +147,9 @@ export default function UtilitiesPage() {
                                     <h4 className="text-lg font-semibold text-indigo-400 mb-3">Lost/Stolen Device</h4>
                                     <div className="font-mono text-sm bg-black/50 p-4 rounded">
                                         <div className="text-gray-400">Current: Lock via Citizen Portal → Device blacklisted</div>
-                                        <div className="text-green-400 mt-2">Enhanced: Lock request → On-chain blacklist entry</div>
-                                        <div className="text-green-400">→ Cannot be removed without owner&apos;s cryptographic signature</div>
-                                        <div className="text-green-400">→ Recovery status verifiable by anyone</div>
+                                        <div className="text-blue-200 mt-2">Enhanced: Lock request → On-chain blacklist entry</div>
+                                        <div className="text-blue-200">→ Cannot be removed without owner&apos;s cryptographic signature</div>
+                                        <div className="text-blue-200">→ Recovery status verifiable by anyone</div>
                                     </div>
                                 </div>
                             </div>
@@ -157,15 +157,15 @@ export default function UtilitiesPage() {
 
                         {/* Use Case B: Electricity Providers */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Use Case B: Electricity Providers (DESCO, NESCO, DPDC)</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Use Case B: Electricity Providers (DESCO, NESCO, DPDC)</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Problem</h3>
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Problem</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Impact</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Problem</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Impact</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -190,10 +190,10 @@ export default function UtilitiesPage() {
                             </div>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Solution: Smart Metering on Gono Protocol</h3>
-                            
+
                             <div className="space-y-6">
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-green-400 mb-3">Capture</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Capture</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Smart meters equipped with secure signing chips</li>
                                         <li>• Each reading is cryptographically signed at the meter</li>
@@ -202,8 +202,8 @@ export default function UtilitiesPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-blue-400 mb-3">Certify</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Certify</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Meter readings anchored on Gono Protocol via ERC-7053</li>
                                         <li>• Creates immutable consumption record for each billing cycle</li>
@@ -212,8 +212,8 @@ export default function UtilitiesPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-purple-400 mb-3">Check</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Check</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• <strong>Consumers:</strong> Verify their own consumption history anytime</li>
                                         <li>• <strong>Utilities:</strong> Detect anomalies (sudden drops = potential tampering)</li>
@@ -223,11 +223,11 @@ export default function UtilitiesPage() {
                                 </div>
                             </div>
 
-                            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 my-8">
+                            <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6 my-8">
                                 <h4 className="text-xl font-semibold text-white mb-4">Smart Billing Flow</h4>
                                 <div className="font-mono text-sm bg-black/50 p-4 rounded overflow-x-auto">
                                     <pre className="text-gray-300 whitespace-pre">
-{`┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+                                        {`┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │   SMART METER   │────▶│  GONO PROTOCOL  │────▶│   CONSUMER APP  │
 │  (Signed Read)  │     │  (Immutable)    │     │  (Verify Bill)  │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
@@ -242,8 +242,8 @@ export default function UtilitiesPage() {
 
                         {/* Use Case C: Utility Bill Verification */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Use Case C: Utility Bill as Verified Identity Document</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Use Case C: Utility Bill as Verified Identity Document</h2>
+
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Problem</h3>
                             <p className="text-gray-300 leading-relaxed mb-4">
                                 Utility bills are commonly used for address verification (bank accounts, SIM registration, KYC), but current bills are:
@@ -255,10 +255,10 @@ export default function UtilitiesPage() {
                             </ul>
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">The Solution: Verified Utility Credentials</h3>
-                            
+
                             <div className="space-y-6">
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-green-400 mb-3">Capture</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Capture</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• When a bill is generated, utility creates a digital credential</li>
                                         <li>• Contains: customer ID, address, billing period, amount, payment status</li>
@@ -266,8 +266,8 @@ export default function UtilitiesPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-blue-400 mb-3">Certify</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Certify</h4>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Credential hash stored on Gono Protocol</li>
                                         <li>• Customer receives verifiable bill NFT (non-transferable)</li>
@@ -275,8 +275,8 @@ export default function UtilitiesPage() {
                                     </ul>
                                 </div>
 
-                                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                                    <h4 className="text-xl font-semibold text-purple-400 mb-3">Check</h4>
+                                <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-6">
+                                    <h4 className="text-xl font-semibold text-blue-200 mb-3">Check</h4>
                                     <p className="text-gray-300 mb-3">Banks, telecom operators, or government agencies can instantly verify:</p>
                                     <ul className="space-y-2 text-gray-300">
                                         <li>• Is this bill authentic?</li>
@@ -300,15 +300,15 @@ export default function UtilitiesPage() {
 
                         {/* Summary */}
                         <section className="mb-12">
-                            <h2 className="text-3xl font-bold text-amber-400 mb-4">Summary: Gono Protocol for Government & Utilities</h2>
-                            
+                            <h2 className="text-3xl font-bold text-zinc-300 mb-4">Summary: Gono Protocol for Government & Utilities</h2>
+
                             <div className="overflow-x-auto mb-6">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Service</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Current Problem</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Gono Protocol Solution</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Service</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Current Problem</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Gono Protocol Solution</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -343,11 +343,11 @@ export default function UtilitiesPage() {
 
                             <h3 className="text-2xl font-bold text-white mt-8 mb-4">Why Gono Protocol for Utilities?</h3>
                             <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-800">
+                                <table className="min-w-full border border-blue-900/30">
                                     <thead className="bg-gray-900">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-amber-400">Feature</th>
-                                            <th className="px-4 py-3 text-left text-amber-400">Benefit for Utilities</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Feature</th>
+                                            <th className="px-4 py-3 text-left text-zinc-300">Benefit for Utilities</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800">
@@ -375,7 +375,7 @@ export default function UtilitiesPage() {
                                 </table>
                             </div>
 
-                            <div className="bg-gradient-to-r from-amber-950/50 to-orange-950/50 border border-amber-900 rounded-lg p-6 my-8">
+                            <div className="bg-gradient-to-r from-zinc-900/50 to-zinc-800/50 border border-zinc-800 rounded-lg p-6 my-8">
                                 <p className="text-gray-300 italic text-center">
                                     By integrating Gono Protocol, Bangladesh&apos;s utility and telecom services can transform from opaque, dispute-prone systems into transparent, verifiable infrastructure that serves citizens better while reducing fraud and operational costs.
                                 </p>
@@ -383,9 +383,9 @@ export default function UtilitiesPage() {
                         </section>
                     </div>
 
-                    <Link 
-                        href="/use-cases" 
-                        className="inline-flex items-center text-amber-500 hover:text-amber-400 mt-12 transition-colors"
+                    <Link
+                        href="/use-cases"
+                        className="inline-flex items-center text-blue-200 hover:text-zinc-300 mt-12 transition-colors"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

@@ -1,8 +1,10 @@
+import { Zap, Vote, Shield, Gauge, CircleDot, Image as ImageIcon, Bot, ChartBar } from "lucide-react";
+
 const tokenFeatures = [
-    { icon: "⚡", title: "Transaction Fees", description: "Pay for asset registration and verification services" },
-    { icon: "🗳️", title: "Governance", description: "Vote on protocol upgrades and proposals" },
-    { icon: "💎", title: "Staking Rewards", description: "Earn rewards by securing the network" },
-    { icon: "🔄", title: "Cross-Chain", description: "ERC-20 compatible with BNB bridge" },
+    { icon: <Zap className="w-6 h-6" />, title: "Transaction Fees", description: "Pay for asset registration and verification services" },
+    { icon: <Vote className="w-6 h-6" />, title: "Governance", description: "Vote on protocol upgrades and proposals" },
+    { icon: <Shield className="w-6 h-6" />, title: "Staking Rewards", description: "Earn rewards by securing the network" },
+    { icon: <Gauge className="w-6 h-6" />, title: "Cross-Chain", description: "ERC-20 compatible with BNB bridge" },
 ];
 
 export default function Ecosystem() {

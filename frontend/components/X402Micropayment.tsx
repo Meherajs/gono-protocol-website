@@ -1,7 +1,9 @@
+import { CreditCard, Bot, Coins, Search, BarChart, Palette } from "lucide-react";
+
 export default function X402Micropayment() {
     return (
         <section className="px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
-            {/* Background effects */}
+            {/* ... background ... */}
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 via-indigo-950/20 to-cyan-950/20 pointer-events-none"></div>
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -29,7 +31,7 @@ export default function X402Micropayment() {
                             <div className="relative bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-2xl p-4 sm:p-6 md:p-8 hover:border-cyan-500/50 transition-all">
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                                        <span className="text-2xl">💳</span>
+                                        <CreditCard className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-2">What is x402?</h3>
@@ -46,7 +48,7 @@ export default function X402Micropayment() {
                             <div className="relative bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all">
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                                        <span className="text-2xl">🤖</span>
+                                        <Bot className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-2">AI Agent Commerce</h3>
@@ -63,7 +65,7 @@ export default function X402Micropayment() {
                             <div className="relative bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all">
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                                        <span className="text-2xl">💰</span>
+                                        <Coins className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-2">Stablecoin Settlement</h3>
@@ -81,7 +83,7 @@ export default function X402Micropayment() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-2xl opacity-20 blur"></div>
                         <div className="relative bg-gray-900/90 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 h-full">
                             <h3 className="text-xl font-bold text-white mb-8 text-center">Payment Flow</h3>
-                            
+
                             <div className="space-y-6">
                                 {/* Step 1 */}
                                 <div className="flex items-center gap-4">
@@ -168,17 +170,17 @@ export default function X402Micropayment() {
                 <div className="grid md:grid-cols-3 gap-6">
                     {[
                         {
-                            icon: '🔍',
+                            icon: <Search className="w-8 h-8 mx-auto text-cyan-400" />,
                             title: 'Training Data Markets',
                             description: 'AI companies purchase verified, high-quality training datasets with provenance guarantees',
                         },
                         {
-                            icon: '📊',
+                            icon: <BarChart className="w-8 h-8 mx-auto text-indigo-400" />,
                             title: 'Real-time Analytics',
                             description: 'Pay-per-query access to live data feeds for autonomous trading bots and analytics engines',
                         },
                         {
-                            icon: '🎨',
+                            icon: <Palette className="w-8 h-8 mx-auto text-pink-400" />,
                             title: 'Content Licensing',
                             description: 'Automated micro-licensing for AI-generated content using original creator assets',
                         },

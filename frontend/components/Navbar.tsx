@@ -32,8 +32,8 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.08]"
-                    : "bg-transparent"
+                ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.08]"
+                : "bg-transparent"
                 }`}
         >
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4">
@@ -55,7 +55,7 @@ export default function Navbar() {
                         {[
                             { name: "USE CASES", href: "/use-cases" },
                             { name: "BLOG", href: "/archive" },
-                            { name: "ECOSYSTEM", href: "/#ecosystem" },
+                            { name: "ECOSYSTEM", href: "/coming-soon" },
                             { name: "ABOUT", href: "/about" },
                             { name: "CAREERS", href: "/careers" },
                         ].map((item) => (
@@ -68,7 +68,7 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
-                        
+
                         {/* TOOLS Dropdown */}
                         <li className="relative">
                             <button
@@ -81,14 +81,14 @@ export default function Navbar() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
-                            
+
                             {toolsDropdownOpen && (
-                                <div 
+                                <div
                                     onMouseLeave={() => setToolsDropdownOpen(false)}
                                     className="absolute top-full right-0 mt-2 w-56 bg-[#0a0a0a] border border-gray-800 rounded-lg shadow-xl overflow-hidden"
                                 >
                                     <Link
-                                        href="/tools/mainnet"
+                                        href="/coming-soon"
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setToolsDropdownOpen(false)}
                                     >
@@ -112,7 +112,7 @@ export default function Navbar() {
                                         VERIFY ENGINE
                                     </Link>
                                     <Link
-                                        href="/tools/capture"
+                                        href="/coming-soon"
                                         className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
                                         onClick={() => setToolsDropdownOpen(false)}
                                     >
@@ -124,7 +124,7 @@ export default function Navbar() {
                                 </div>
                             )}
                         </li>
-                        
+
                         {/* GONO Dropdown */}
                         <li className="relative">
                             <button
@@ -137,9 +137,9 @@ export default function Navbar() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
-                            
+
                             {gonoDropdownOpen && (
-                                <div 
+                                <div
                                     onMouseLeave={() => setGonoDropdownOpen(false)}
                                     className="absolute top-full right-0 mt-2 w-48 bg-[#0a0a0a] border border-gray-800 rounded-lg shadow-xl overflow-hidden"
                                 >
@@ -218,7 +218,7 @@ export default function Navbar() {
                             {[
                                 { name: "USE CASES", href: "/use-cases" },
                                 { name: "BLOG", href: "/archive" },
-                                { name: "ECOSYSTEM", href: "/#ecosystem" },
+                                { name: "ECOSYSTEM", href: "/coming-soon" },
                                 { name: "ABOUT", href: "/about" },
                                 { name: "CAREERS", href: "/careers" },
                             ].map((item) => (
@@ -232,13 +232,13 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             ))}
-                            
+
                             {/* TOOLS Section */}
                             <li className="pt-2 border-t border-white/[0.08]">
                                 <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">TOOLS</span>
                                 <div className="mt-3 flex flex-col gap-3 pl-2">
                                     <Link
-                                        href="/tools/mainnet"
+                                        href="/coming-soon"
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
@@ -262,7 +262,7 @@ export default function Navbar() {
                                         Verify Engine
                                     </Link>
                                     <Link
-                                        href="/tools/capture"
+                                        href="/coming-soon"
                                         className="text-zinc-400 hover:text-white transition-colors font-medium"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
@@ -273,7 +273,7 @@ export default function Navbar() {
                                     </Link>
                                 </div>
                             </li>
-                            
+
                             {/* GONO Section */}
                             <li className="pt-2 border-t border-white/[0.08]">
                                 <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">GONO</span>
