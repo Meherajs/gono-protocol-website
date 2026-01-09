@@ -192,28 +192,71 @@ export default function WhitepaperPage() {
                                     <span className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-black text-sm font-bold">1</span>
                                     The Five-Stage Provenance Pipeline
                                 </h4>
-                                <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 sm:gap-2">
-                                    <div className="text-center p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+                                
+                                {/* Desktop/Tablet Layout (visible sm and above) */}
+                                <div className="hidden sm:block">
+                                    {/* Top Row */}
+                                    <div className="flex items-center justify-center gap-3 mb-3">
+                                        <div className="text-center p-4 bg-amber-500/10 border-2 border-amber-500/50 rounded-lg flex-shrink-0 w-40">
+                                            <div className="font-bold text-amber-400 mb-1">CAPTURE</div>
+                                            <div className="text-xs text-gray-400">Mandatory</div>
+                                        </div>
+                                        <div className="text-gray-500 text-2xl">→</div>
+                                        <div className="text-center p-4 bg-blue-500/5 border border-blue-500/20 rounded-lg flex-shrink-0 w-40">
+                                            <div className="font-bold text-blue-300 mb-1">STORE</div>
+                                            <div className="text-xs text-gray-500">Optional</div>
+                                        </div>
+                                        <div className="text-gray-500 text-2xl">→</div>
+                                        <div className="text-center p-4 bg-blue-500/5 border border-blue-500/20 rounded-lg flex-shrink-0 w-40">
+                                            <div className="font-bold text-blue-300 mb-1">VERIFY</div>
+                                            <div className="text-xs text-gray-500">Optional</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Middle Arrow */}
+                                    <div className="flex justify-start items-center mb-3 ml-20">
+                                        <div className="text-gray-500 text-2xl">↓</div>
+                                    </div>
+                                    
+                                    {/* Middle Row */}
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="text-center p-4 bg-amber-500/10 border-2 border-amber-500/50 rounded-lg flex-shrink-0 w-40">
+                                            <div className="font-bold text-amber-400 mb-1">CERTIFY</div>
+                                            <div className="text-xs text-gray-400">Mandatory</div>
+                                        </div>
+                                        <div className="text-gray-500 text-2xl">→</div>
+                                    </div>
+                                    
+                                    {/* Bottom Row */}
+                                    <div className="text-center p-4 bg-amber-500/10 border-2 border-amber-500/50 rounded-lg w-full">
+                                        <div className="font-bold text-amber-400 mb-1">CHECK</div>
+                                        <div className="text-xs text-gray-400">Public Verification</div>
+                                    </div>
+                                </div>
+                                
+                                {/* Mobile Layout (visible below sm) */}
+                                <div className="sm:hidden space-y-3">
+                                    <div className="text-center p-4 bg-amber-500/10 border-2 border-amber-500/50 rounded-lg">
                                         <div className="font-bold text-amber-400 mb-1">CAPTURE</div>
                                         <div className="text-xs text-gray-400">Mandatory</div>
                                     </div>
-                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
-                                    <div className="text-center p-3 bg-gray-700/20 border border-gray-600/30 rounded-lg">
-                                        <div className="font-bold text-gray-300 mb-1">STORE</div>
+                                    <div className="flex justify-center text-gray-500 text-xl">↓</div>
+                                    <div className="text-center p-4 bg-blue-500/5 border border-blue-500/20 rounded-lg">
+                                        <div className="font-bold text-blue-300 mb-1">STORE</div>
                                         <div className="text-xs text-gray-500">Optional</div>
                                     </div>
-                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
-                                    <div className="text-center p-3 bg-gray-700/20 border border-gray-600/30 rounded-lg">
-                                        <div className="font-bold text-gray-300 mb-1">VERIFY</div>
+                                    <div className="flex justify-center text-gray-500 text-xl">↓</div>
+                                    <div className="text-center p-4 bg-blue-500/5 border border-blue-500/20 rounded-lg">
+                                        <div className="font-bold text-blue-300 mb-1">VERIFY</div>
                                         <div className="text-xs text-gray-500">Optional</div>
                                     </div>
-                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
-                                    <div className="text-center p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+                                    <div className="flex justify-center text-gray-500 text-xl">↓</div>
+                                    <div className="text-center p-4 bg-amber-500/10 border-2 border-amber-500/50 rounded-lg">
                                         <div className="font-bold text-amber-400 mb-1">CERTIFY</div>
                                         <div className="text-xs text-gray-400">Mandatory</div>
                                     </div>
-                                    <div className="flex items-center justify-center text-gray-600 text-2xl hidden sm:block">→</div>
-                                    <div className="text-center p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg col-span-1 sm:col-span-5">
+                                    <div className="flex justify-center text-gray-500 text-xl">↓</div>
+                                    <div className="text-center p-4 bg-amber-500/10 border-2 border-amber-500/50 rounded-lg">
                                         <div className="font-bold text-amber-400 mb-1">CHECK</div>
                                         <div className="text-xs text-gray-400">Public Verification</div>
                                     </div>
