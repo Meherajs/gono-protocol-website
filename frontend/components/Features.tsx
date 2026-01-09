@@ -1,3 +1,5 @@
+import { Scan, Database, ShieldCheck, FileSignature, Search } from "lucide-react";
+
 const features = [
     {
         icon: (
@@ -8,7 +10,7 @@ const features = [
             </svg>
         ),
         title: "Immutable Provenance Records",
-        description: "Every digital asset—photo, video, document, or dataset—receives a unique cryptographic fingerprint stored permanently on the blockchain. This creates an unalterable chain of custody from creation to any point in time, ensuring authenticity can always be verified.",
+        description: "Every digital asset photo, video, document, or dataset receives a unique cryptographic fingerprint stored permanently on the blockchain. This creates an unalterable chain of custody from creation to any point in time, ensuring authenticity can always be verified.",
         large: true,
     },
     {
@@ -29,7 +31,7 @@ const features = [
             </svg>
         ),
         title: "Permanent Decentralized Storage",
-        description: "Optional integration with Arweave ensures your content is stored forever across a global network. No single point of failure, no censorship, no data loss—content survives as long as the network exists.",
+        description: "Optional integration with Arweave ensures your content is stored forever across a global network. No single point of failure, no censorship, no data loss content survives as long as the network exists.",
     },
     {
         icon: (
@@ -87,9 +89,17 @@ export default function Features() {
 
                             {feature.large && (
                                 <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto pb-2">
-                                    {[1, 2, 3, 4, 5].map((_, idx) => (
+                                    {[
+                                        <Scan key="1" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <Database key="2" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <ShieldCheck key="3" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <FileSignature key="4" className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-400" />,
+                                        <Search key="5" className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                    ].map((icon, idx) => (
                                         <div key={idx} className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 glass rounded-lg ${idx === 4 ? "gradient-primary glow" : ""}`} />
+                                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 glass rounded-lg flex items-center justify-center ${idx === 4 ? "gradient-primary glow" : ""}`}>
+                                                {icon}
+                                            </div>
                                             {idx < 4 && (
                                                 <div className="w-4 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-white/[0.08] to-indigo-500 flex-shrink-0" />
                                             )}

@@ -73,8 +73,8 @@ const VisualFlow = () => {
                     <div key={step.label} className="flex-1 flex items-center">
                         <div className="flex flex-col items-center gap-3 relative z-10">
                             <div className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300 ${step.active
-                                    ? "bg-blue-600 border-blue-400 shadow-lg shadow-blue-900/40 text-white"
-                                    : "bg-gray-900/50 border-gray-700 text-gray-400"
+                                ? "bg-blue-600 border-blue-400 shadow-lg shadow-blue-900/40 text-white"
+                                : "bg-gray-900/50 border-gray-700 text-gray-400"
                                 }`}>
                                 <step.icon className="w-6 h-6" />
                             </div>
@@ -83,8 +83,8 @@ const VisualFlow = () => {
                                     {step.label}
                                 </div>
                                 <div className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded mt-1 ${step.active
-                                        ? "bg-blue-900/30 text-blue-300 border border-blue-800/30"
-                                        : "bg-gray-800/30 text-gray-500 border border-gray-700/30"
+                                    ? "bg-blue-900/30 text-blue-300 border border-blue-800/30"
+                                    : "bg-gray-800/30 text-gray-500 border border-gray-700/30"
                                     }`}>
                                     {step.sub}
                                 </div>
@@ -206,7 +206,7 @@ export default function WhitepaperPage() {
                                             Gono Platform is a <strong className="text-white">modular blockchain infrastructure</strong> that creates permanent, verifiable records of digital and physical assets. Think of it as a universal &quot;certificate of authenticity&quot; system that works for everything from news articles and photographs to real estate transactions and AI-generated content.
                                         </p>
                                         <p className="text-gray-200 text-justify leading-relaxed mb-4 text-base sm:text-lg">
-                                            Unlike traditional systems where records can be altered or deleted, Gono creates an <strong className="text-white">immutable chain of evidence</strong> that proves exactly when something was created, who created it, and how it has been used or modified over time. This &quot;provenance&quot; — the complete history of an asset — becomes a permanent part of the blockchain, accessible to anyone who needs to verify authenticity.
+                                            Unlike traditional systems where records can be altered or deleted, Gono creates an <strong className="text-white">immutable chain of evidence</strong> that proves exactly when something was created, who created it, and how it has been used or modified over time. This &quot;provenance&quot; the complete history of an asset becomes a permanent part of the blockchain, accessible to anyone who needs to verify authenticity.
                                         </p>
                                     </div>
 
