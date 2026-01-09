@@ -196,7 +196,7 @@ export default function Navbar() {
                             </svg>
                         </Link>
                         <Link
-                            href="#products"
+                            href="/build"
                             className="px-6 py-2.5 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors tracking-wide"
                         >
                             BUILD ON GONO
@@ -317,7 +317,7 @@ export default function Navbar() {
                         </ul>
                         <div className="mt-6 pt-4 border-t border-white/[0.08]">
                             <Link
-                                href="#products"
+                                href="/build"
                                 className="w-full px-6 py-3 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors tracking-wide text-center block"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
