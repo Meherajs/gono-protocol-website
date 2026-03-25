@@ -6,8 +6,6 @@ import Link from "next/link";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [gonoDropdownOpen, setGonoDropdownOpen] = useState(false);
-    const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -53,11 +51,8 @@ export default function Navbar() {
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex items-center gap-8">
                         {[
-                            { name: "USE CASES", href: "/use-cases" },
-                            { name: "BLOG", href: "/archive" },
-                            { name: "ECOSYSTEM", href: "/coming-soon" },
-                            { name: "ABOUT", href: "/about" },
-                            { name: "CAREERS", href: "/careers" },
+                            { name: "HOME", href: "/" },
+                            { name: "WHITEPAPER", href: "/whitepaper" },
                         ].map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -68,105 +63,6 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
-
-                        {/* TOOLS Dropdown */}
-                        <li className="relative">
-                            <button
-                                onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
-                                onMouseEnter={() => setToolsDropdownOpen(true)}
-                                className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide flex items-center gap-1"
-                            >
-                                TOOLS
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-
-                            {toolsDropdownOpen && (
-                                <div
-                                    onMouseLeave={() => setToolsDropdownOpen(false)}
-                                    className="absolute top-full right-0 mt-2 w-56 bg-[#0a0a0a] border border-gray-800 rounded-lg shadow-xl overflow-hidden"
-                                >
-                                    <Link
-                                        href="/coming-soon"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setToolsDropdownOpen(false)}
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <span>MAINNET</span>
-                                            <span className="text-xs text-orange-500">Coming Soon</span>
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        href="/tools/trustlens"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setToolsDropdownOpen(false)}
-                                    >
-                                        TRUSTLENS
-                                    </Link>
-                                    <Link
-                                        href="/tools/verify-engine"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setToolsDropdownOpen(false)}
-                                    >
-                                        VERIFY ENGINE
-                                    </Link>
-                                    <Link
-                                        href="/coming-soon"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setToolsDropdownOpen(false)}
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <span>RECORD</span>
-                                            <span className="text-xs text-orange-500">Coming Soon</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )}
-                        </li>
-
-                        {/* GONO Dropdown */}
-                        <li className="relative">
-                            <button
-                                onClick={() => setGonoDropdownOpen(!gonoDropdownOpen)}
-                                onMouseEnter={() => setGonoDropdownOpen(true)}
-                                className="text-zinc-400 hover:text-white transition-colors text-sm font-medium tracking-wide flex items-center gap-1"
-                            >
-                                GONO
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-
-                            {gonoDropdownOpen && (
-                                <div
-                                    onMouseLeave={() => setGonoDropdownOpen(false)}
-                                    className="absolute top-full right-0 mt-2 w-48 bg-[#0a0a0a] border border-gray-800 rounded-lg shadow-xl overflow-hidden"
-                                >
-                                    <Link
-                                        href="/whitepaper"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setGonoDropdownOpen(false)}
-                                    >
-                                        WHITEPAPER
-                                    </Link>
-                                    <Link
-                                        href="/docs"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setGonoDropdownOpen(false)}
-                                    >
-                                        DOCS
-                                    </Link>
-                                    <Link
-                                        href="/staking"
-                                        className="block px-4 py-3 text-sm text-zinc-400 hover:text-white hover:bg-gray-800/50 transition-colors"
-                                        onClick={() => setGonoDropdownOpen(false)}
-                                    >
-                                        STAKING
-                                    </Link>
-                                </div>
-                            )}
-                        </li>
                     </ul>
 
                     {/* Actions */}
@@ -183,10 +79,10 @@ export default function Navbar() {
                             </svg>
                         </Link>
                         <Link
-                            href="/build"
+                            href="/whitepaper"
                             className="px-6 py-2.5 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors tracking-wide"
                         >
-                            BUILD ON GONO
+                            READ WHITEPAPER
                         </Link>
                     </div>
 
@@ -216,11 +112,8 @@ export default function Navbar() {
                     <div className="md:hidden mt-4 py-4 border-t border-white/[0.08] bg-[#0a0a0a]/95 backdrop-blur-xl rounded-lg px-4">
                         <ul className="flex flex-col gap-4">
                             {[
-                                { name: "USE CASES", href: "/use-cases" },
-                                { name: "BLOG", href: "/archive" },
-                                { name: "ECOSYSTEM", href: "/coming-soon" },
-                                { name: "ABOUT", href: "/about" },
-                                { name: "CAREERS", href: "/careers" },
+                                { name: "HOME", href: "/" },
+                                { name: "WHITEPAPER", href: "/whitepaper" },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
@@ -232,83 +125,14 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             ))}
-
-                            {/* TOOLS Section */}
-                            <li className="pt-2 border-t border-white/[0.08]">
-                                <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">TOOLS</span>
-                                <div className="mt-3 flex flex-col gap-3 pl-2">
-                                    <Link
-                                        href="/coming-soon"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <span>Mainnet</span>
-                                            <span className="text-xs text-orange-500">Coming Soon</span>
-                                        </div>
-                                    </Link>
-                                    <Link
-                                        href="/tools/trustlens"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        TrustLens
-                                    </Link>
-                                    <Link
-                                        href="/tools/verify-engine"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        Verify Engine
-                                    </Link>
-                                    <Link
-                                        href="/coming-soon"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <span>Record</span>
-                                            <span className="text-xs text-orange-500">Coming Soon</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </li>
-
-                            {/* GONO Section */}
-                            <li className="pt-2 border-t border-white/[0.08]">
-                                <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">GONO</span>
-                                <div className="mt-3 flex flex-col gap-3 pl-2">
-                                    <Link
-                                        href="/whitepaper"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        Whitepaper
-                                    </Link>
-                                    <Link
-                                        href="/docs"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        Docs
-                                    </Link>
-                                    <Link
-                                        href="/staking"
-                                        className="text-zinc-400 hover:text-white transition-colors font-medium"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        Staking
-                                    </Link>
-                                </div>
-                            </li>
                         </ul>
                         <div className="mt-6 pt-4 border-t border-white/[0.08]">
                             <Link
-                                href="/build"
+                                href="/whitepaper"
                                 className="w-full px-6 py-3 bg-white text-black rounded-lg text-sm font-semibold hover:bg-gray-200 transition-colors tracking-wide text-center block"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
-                                BUILD ON GONO
+                                READ WHITEPAPER
                             </Link>
                         </div>
                     </div>

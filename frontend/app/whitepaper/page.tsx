@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Navbar, Footer } from "@/components";
 import {
     BookOpen,
@@ -13,8 +14,7 @@ import {
     Database,
     ShieldCheck,
     FileSignature,
-    Search,
-    ArrowRight
+    Search
 } from "lucide-react";
 
 
@@ -512,7 +512,7 @@ export default function WhitepaperPage() {
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
                                                 <Zap className="w-5 h-5 text-amber-400" /> Proof-as-a-Fee
                                             </h4>
-                                            <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Every ERC-7053 write (new captures, receipt mints) requires GONO as "provenance gas."</p>
+                                            <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Every ERC-7053 write (new captures, receipt mints) requires GONO as &quot;provenance gas.&quot;</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-500/20 transition-all">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
@@ -646,12 +646,12 @@ export default function WhitepaperPage() {
                                         Join the future of provenance infrastructure and start building verifiable applications today.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                                        <a
-                                            href="/#products"
+                                        <Link
+                                            href="/"
                                             className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-zinc-600 to-gray-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-zinc-500/50 transition-all text-sm sm:text-base"
                                         >
                                             Get Started
-                                        </a>
+                                        </Link>
                                         <a
                                             href="https://github.com/gono-protocol"
                                             target="_blank"

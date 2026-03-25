@@ -92,12 +92,6 @@ gono-protocol/
 │
 ├── backend/                     # Rust + Actix-web
 │   ├── Cargo.toml              # Dependencies
-│   └── src/
-│       └── main.rs             # API server with 7 endpoints
-│
-├── vercel.json                 # Vercel deployment config
-├── .gitignore
-└── README.md
 ```
 
 ---
@@ -105,201 +99,126 @@ gono-protocol/
 ## 🚀 Quick Start
 
 ### Prerequisites
+# Gono Protocol Website
 
-| Tool | Version |
-|------|---------|
-| Node.js | >= 18.x |
-| npm | >= 9.x |
-| Rust | >= 1.75 (edition 2021) |
+Provenance infrastructure messaging site for humans and AI.
 
-### Installation
+Official repository: https://github.com/Meherajs/gono-protocol-website
 
-```bash
-# Clone the repository
-git clone <your-repo-url>
-cd gono-protocol
+## Baseline Snapshot (March 2026)
 
-# Install frontend dependencies
-cd frontend && npm install
+This commit is intended as a clean baseline for new developers.
 
-# Build backend
-cd ../backend && cargo build --release
+Current website scope:
+- `/` Home page (minimal product overview)
+- `/whitepaper` Technical whitepaper page
+
+Legacy pages were intentionally removed and permanently redirected to `/` in `frontend/next.config.ts`.
+
+## Why This Baseline Matters
+
+Historically, the frontend had a much larger multi-page marketing IA (use-cases, tools, docs placeholders, and many section components). This baseline preserves the simplified, production-safe foundation and documents the new direction.
+
+Use this commit when you need to:
+- understand the first stable "2-page" architecture
+- diff against previous broad-scope marketing versions
+- onboard quickly without legacy routing noise
+
+## Tech Stack
+
+Frontend:
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- ESLint
+
+Backend:
+- Rust (Edition 2021)
+- Actix Web
+
+Infra:
+- Vercel deployment (`vercel.json`)
+
+## Engineering Principles
+
+This repository follows these practical principles:
+
+1. Scope discipline
+- Keep product surface intentionally small unless expansion is explicitly approved.
+- Avoid placeholder routes/pages that create maintenance debt.
+
+2. Route safety and backward compatibility
+- Remove retired pages from filesystem.
+- Add permanent redirects for retired URLs to prevent broken links and SEO regressions.
+
+3. Simplicity over premature abstraction
+- Keep only actively used shared components.
+- Remove dead exports and unused UI modules.
+
+4. Verifiability
+- Every structural refactor should pass lint and build before merge.
+- Prefer deterministic changes that are easy to review via git diff.
+
+5. Maintainability
+- Keep docs aligned with real architecture (routes, stack, run steps).
+- Favor clear naming and small, focused files.
+
+6. User trust and ethical engineering
+- Use transparent claims and avoid misleading product capabilities.
+- Prioritize accessibility, clear navigation, and graceful handling of legacy links.
+
+## Project Structure
+
+```text
+gono-protocol-website/
+|-- frontend/
+|   |-- app/
+|   |   |-- page.tsx
+|   |   `-- whitepaper/page.tsx
+|   |-- components/
+|   |   |-- Navbar.tsx
+|   |   |-- Footer.tsx
+|   |   `-- index.ts
+|   `-- next.config.ts
+|-- backend/
+|   |-- Cargo.toml
+|   `-- src/main.rs
+|-- vercel.json
+`-- README.md
 ```
 
-### Running the Application
+## Local Development
 
-Open **two terminals**:
+Prerequisites:
+- Node.js 18+
+- npm 9+
+- Rust stable
 
-**Terminal 1 - Backend (port 8080)**
-```bash
-cd backend
-RUST_LOG=info cargo run
-```
+Run frontend:
 
-**Terminal 2 - Frontend (port 3000)**
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000) 🎉
-
----
-
-## 🌐 Available Pages
-
-| Route | Description |
-|-------|-------------|
-| `/` | Main homepage with all sections |
-| `/about` | About Gono Protocol |
-| `/archive` | Content archive |
-| `/build` | Build with Gono |
-| `/careers` | Career opportunities |
-| `/docs` | Documentation |
-| `/staking` | GONO token staking |
-| `/tools` | Developer tools |
-| `/whitepaper` | Technical whitepaper |
-| `/use-cases` | Use cases overview |
-| `/use-cases/journalism` | Gono Moncho - Journalist protection |
-| `/use-cases/news-verification` | Cross-source news verification |
-| `/use-cases/deepfake-protection` | AI deepfake protection |
-| `/use-cases/voting-integrity` | Voting integrity solution |
-| `/use-cases/academic-credentials` | Academic credential verification |
-| `/use-cases/intellectual-property` | IP protection |
-| `/use-cases/utilities` | Utility applications |
-
----
-
-## 📡 API Reference
-
-All endpoints return structured JSON:
-```json
-{
-  "success": true,
-  "data": { ... },
-  "timestamp": "2024-01-15T09:42:33Z"
-}
-```
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/health` | GET | Health check with uptime |
-| `/api/stats` | GET | Site statistics (assets, users, partners) |
-| `/api/features` | GET | List of platform features |
-| `/api/archive` | GET | Archived content items |
-| `/api/partners` | GET | Partner organizations |
-| `/api/products` | GET | Product catalog |
-| `/api/token` | GET | GONO token information |
-
-**Example:**
-```bash
-curl http://localhost:8080/api/stats
-```
-
----
-
-## 🎨 Design System
-
-### Colors
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--background` | `#0a0a0a` | Page background |
-| `--primary` | `#6366f1` | Indigo accent |
-| `--secondary` | `#22d3ee` | Cyan accent |
-| `--accent-green` | `#34d399` | Success states |
-
-### Typography
-
-- **Body**: Inter
-- **Mono**: Roboto Mono
-- **Display**: System serif (for italics)
-
-### Effects
-
-- **Glassmorphism**: `glass` utility class
-- **Gradients**: `gradient-primary`, `gradient-secondary`
-- **Glow**: `glow`, `glow-sm`
-- **Animations**: `animate-float`, `animate-pulse-glow`, `animate-fade-in-up`
-
----
-
-## 🛠️ Development
-
-### Frontend Commands
+Run backend:
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Production build
-npm run start    # Start production server
-npm run lint     # Run ESLint
+cd backend
+cargo run
 ```
 
-### Backend Commands
+## Frontend Routing Policy
 
-```bash
-cargo run              # Development mode
-cargo build --release  # Production build
-cargo test             # Run tests
-cargo clippy           # Lint code
-```
+Allowed internal routes:
+- `/`
+- `/whitepaper`
 
-### Environment Variables
+Any new route should be proposed with:
+- purpose
+- ownership
+- test/validation plan
+- navigation impact
 
-Create a `.env.local` in the frontend:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8080
-```
-
----
-
-## � Deployment
-
-### Vercel (Frontend)
-
-The project includes a `vercel.json` configuration for seamless deployment:
-
-```json
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "frontend/$1"
-    }
-  ]
-}
-```
-
-Simply connect your repository to Vercel for automatic deployments.
-
----
-
-## �📦 Tech Stack
-
-| Layer | Technology | Version | Purpose |
-|-------|------------|---------|---------|
-| Frontend | Next.js | 16.1.1 | React framework with App Router |
-| UI Library | React | 19.2.3 | Component-based UI |
-| Styling | Tailwind CSS | 4.x | Utility-first CSS |
-| Language | TypeScript | 5.x | Type safety |
-| Backend | Rust | 2021 Edition | Systems programming |
-| Server | Actix-web | 4.x | High-performance web framework |
-| Serialization | Serde | 1.0 | JSON handling |
-| Deployment | Vercel | - | Frontend hosting |
-
----
-
-## 📄 License
-
----
-
-<p align="center">
-  Built with ❤️ using <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, and <strong>Rust</strong>
-</p>

@@ -1,15 +1,2 @@
 export { default as Navbar } from "./Navbar";
-export { default as Hero } from "./Hero";
-export { default as Features } from "./Features";
-export { default as HowItWorks } from "./HowItWorks";
-export { default as Architecture } from "./Architecture";
-export { default as Products } from "./Products";
-export { default as X402Micropayment } from "./X402Micropayment";
-export { default as UseCases } from "./UseCases";
-export { default as Roadmap } from "./Roadmap";
-export { default as Archive } from "./Archive";
-export { default as Ecosystem } from "./Ecosystem";
-export { default as FAQ } from "./FAQ";
-export { default as CTA } from "./CTA";
 export { default as Footer } from "./Footer";
-export { Skeleton, CardSkeleton, ArchiveSkeleton, StatSkeleton } from "./Skeleton";
