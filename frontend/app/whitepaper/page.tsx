@@ -106,14 +106,14 @@ export default function WhitepaperPage() {
             <Navbar />
             <main className="whitepaper-theme reading-mode min-h-screen px-4 pb-16 pt-12 sm:px-6">
                 <div className="max-w-7xl mx-auto">
-                    <section className="mb-8 rounded-lg border border-amber-700/30 bg-amber-100/5 p-4 lg:hidden">
-                        <h3 className="mb-4 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wider text-amber-500">
+                    <section className="mb-8 rounded-lg border border-red-700/30 bg-red-100/5 p-4 lg:hidden">
+                        <h3 className="mb-4 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wider text-red-500">
                             <BookOpen className="w-4 h-4" /> Glossary
                         </h3>
                         <div className="space-y-4 text-sm">
                             {GLOSSARY_ITEMS.map((item) => (
                                 <div key={item.term}>
-                                    <h4 className="font-bold text-amber-600 mb-1">{item.term}</h4>
+                                    <h4 className="font-bold text-red-600 mb-1">{item.term}</h4>
                                     <p className="text-gray-400 leading-relaxed">{item.definition}</p>
                                 </div>
                             ))}
@@ -124,15 +124,15 @@ export default function WhitepaperPage() {
                         {/* Desktop Sidebar - Glossary */}
                         <aside className="hidden lg:block w-72 flex-shrink-0">
                             <div className="sticky top-24">
-                                <div className="bg-amber-100/5 border border-amber-700/30 rounded-lg p-6">
-                                    <h3 className="text-lg font-bold text-amber-500 mb-6 uppercase tracking-wider">
+                                <div className="bg-red-100/5 border border-red-700/30 rounded-lg p-6">
+                                    <h3 className="text-lg font-bold text-red-500 mb-6 uppercase tracking-wider">
                                         Glossary
                                     </h3>
 
                                     <div className="space-y-6 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto pr-2">
                                         {GLOSSARY_ITEMS.map((item) => (
                                             <div key={item.term}>
-                                                <h4 className="font-bold text-amber-600 mb-1">{item.term}</h4>
+                                                <h4 className="font-bold text-red-600 mb-1">{item.term}</h4>
                                                 <p className="text-gray-400 leading-relaxed">{item.definition}</p>
                                             </div>
                                         ))}
@@ -506,7 +506,7 @@ export default function WhitepaperPage() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <Zap className="w-5 h-5 text-amber-400" /> Proof-as-a-Fee
+                                                <Zap className="w-5 h-5 text-red-400" /> Proof-as-a-Fee
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Every ERC-7053 write (new captures, receipt mints) requires GONO as &quot;provenance gas.&quot;</p>
                                         </div>
@@ -550,7 +550,7 @@ export default function WhitepaperPage() {
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border-l-4 border-blue-700/50 rounded-r-xl p-4 sm:p-6">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <Home className="w-6 h-6 text-orange-400" /> Real Estate Rental
+                                                <Home className="w-6 h-6 text-red-400" /> Real Estate Rental
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base mb-3">
                                                 Properties linked to digital-twin NFTs with verifiable condition photos captured via C2PA. GONO-staked witness nodes verify identity and property condition at check-in, uploading signed attestations with C2PA-tagged photos. Revenue splits execute automatically according to the trust schedule, providing investors real-time auditable booking and payout history.

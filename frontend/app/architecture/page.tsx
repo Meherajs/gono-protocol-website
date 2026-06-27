@@ -339,7 +339,7 @@ export default function ArchitecturePage() {
                         x2="0%"
                         y2="100%"
                       >
-                        <stop offset="0%" style={{ stopColor: "#605B51", stopOpacity: 0.3 }} />
+                        <stop offset="0%" style={{ stopColor: "#361717", stopOpacity: 0.3 }} />
                         <stop offset="50%" style={{ stopColor: "#D8D365", stopOpacity: 0.2 }} />
                         <stop offset="100%" style={{ stopColor: "#E6F082", stopOpacity: 0.1 }} />
                       </linearGradient>
@@ -650,8 +650,8 @@ export default function ArchitecturePage() {
                   >
                     <defs>
                       <radialGradient id="privacyGlow1" cx="40%" cy="40%">
-                        <stop offset="0%" style={{ stopColor: "#605B51", stopOpacity: 0.4 }} />
-                        <stop offset="100%" style={{ stopColor: "#605B51", stopOpacity: 0 }} />
+                        <stop offset="0%" style={{ stopColor: "#361717", stopOpacity: 0.4 }} />
+                        <stop offset="100%" style={{ stopColor: "#361717", stopOpacity: 0 }} />
                       </radialGradient>
                       <radialGradient id="privacyGlow2" cx="60%" cy="60%">
                         <stop offset="0%" style={{ stopColor: "#E6F082", stopOpacity: 0.3 }} />

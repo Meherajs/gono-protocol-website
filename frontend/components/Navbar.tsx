@@ -32,7 +32,7 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? "bg-[#454040]/90 backdrop-blur-xl border-b border-white/[0.08]"
+                ? "bg-[#221212]/90 backdrop-blur-xl border-b border-white/[0.08]"
                 : "bg-transparent"
                 }`}
         >
@@ -84,7 +84,7 @@ export default function Navbar() {
                             {toolsDropdownOpen && (
                                 <div
                                     onMouseLeave={() => setToolsDropdownOpen(false)}
-                                    className="absolute top-full left-0 mt-2 w-56 bg-[#454040]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl shadow-2xl p-1.5 overflow-hidden z-50"
+                                    className="absolute top-full left-0 mt-2 w-56 bg-[#221212]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl shadow-2xl p-1.5 overflow-hidden z-50"
                                 >
                                     <Link
                                         href="/coming-soon"
@@ -140,7 +140,7 @@ export default function Navbar() {
                             {gonoDropdownOpen && (
                                 <div
                                     onMouseLeave={() => setGonoDropdownOpen(false)}
-                                    className="absolute top-full left-0 mt-2 w-48 bg-[#454040]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl shadow-2xl p-1.5 overflow-hidden z-50"
+                                    className="absolute top-full left-0 mt-2 w-48 bg-[#221212]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl shadow-2xl p-1.5 overflow-hidden z-50"
                                 >
                                     <Link
                                         href="/whitepaper"
@@ -212,7 +212,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="xl:hidden fixed inset-0 top-0 left-0 w-screen h-screen bg-[#454040] z-40 overflow-y-auto px-6 pt-24 pb-12 flex flex-col gap-6">
+                    <div className="xl:hidden fixed inset-0 top-0 left-0 w-screen h-screen bg-[#221212] z-40 overflow-y-auto px-6 pt-24 pb-12 flex flex-col gap-6">
                         <ul className="flex flex-col gap-5">
                             {[
                                 { name: "HOME", href: "/" },
