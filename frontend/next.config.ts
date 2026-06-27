@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   async redirects() {
     return [
-      { source: "/about", destination: "/", permanent: true },
       { source: "/archive", destination: "/", permanent: true },
       { source: "/build", destination: "/", permanent: true },
       { source: "/careers", destination: "/", permanent: true },

@@ -5,6 +5,7 @@ Minimal Next.js App Router frontend for Gono Protocol.
 ## Scope
 
 Active pages:
+
 - `/`
 - `/whitepaper`
 

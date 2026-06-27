@@ -30,7 +30,7 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.08]"
+                ? "bg-[#454040]/90 backdrop-blur-xl border-b border-white/[0.08]"
                 : "bg-transparent"
                 }`}
         >
@@ -52,7 +52,7 @@ export default function Navbar() {
                     <ul className="hidden md:flex items-center gap-8">
                         {[
                             { name: "HOME", href: "/" },
-                            { name: "WHITEPAPER", href: "/whitepaper" },
+                            { name: "ROADMAP", href: "/roadmap" },
                         ].map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -109,11 +109,11 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 py-4 border-t border-white/[0.08] bg-[#0a0a0a]/95 backdrop-blur-xl rounded-lg px-4">
+                    <div className="md:hidden mt-4 py-4 border-t border-white/[0.08] bg-[#454040]/95 backdrop-blur-xl rounded-lg px-4">
                         <ul className="flex flex-col gap-4">
                             {[
                                 { name: "HOME", href: "/" },
-                                { name: "WHITEPAPER", href: "/whitepaper" },
+                                { name: "ROADMAP", href: "/roadmap" },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
