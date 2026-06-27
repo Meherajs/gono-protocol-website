@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,8 +15,12 @@ import {
   ScanSearch,
   ShieldCheck,
   WalletCards,
+  Camera,
+  Link as LinkIcon,
+  CheckCircle,
 } from "lucide-react";
 import { Footer, HomeBackground, Navbar, Reveal } from "@/components";
+import { api, Stats } from "@/lib/api";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -89,21 +93,25 @@ const USE_CASES = [
     title: "Journalism and Media Verification",
     description: "Anchor capture metadata, editorial handoffs, and publication receipts so audiences and platforms can verify origin with confidence.",
     icon: Newspaper,
+    disabled: false,
   },
   {
     title: "Digital Asset Tracking",
     description: "Maintain auditable histories for content, collectibles, and tokenized records across issuance, custody, and downstream distribution.",
     icon: Box,
+    disabled: false,
   },
   {
     title: "AI Agent Commerce",
     description: "Power machine-native licensing, retrieval, and payment flows where autonomous agents can buy, verify, and settle in one motion.",
     icon: Bot,
+    disabled: false,
   },
   {
     title: "Private Verification Workflows",
     description: "Let institutions prove legitimacy, compliance, or source integrity without exposing the underlying sensitive data.",
     icon: ShieldCheck,
+    disabled: false,
   },
 ];
 
@@ -126,15 +134,20 @@ const ROADMAP_PHASES = [
 ];
 
 const HERO_TAGS = ["Media Provenance", "Programmable Privacy", "Autonomous Settlement"];
-const HERO_CHIPS = [
-  { label: "C2PA", className: "hero-visual__chip--one" },
-  { label: "zk Proofs", className: "hero-visual__chip--two" },
-  { label: "x402", className: "hero-visual__chip--three" },
-  { label: "Receipts", className: "hero-visual__chip--four" },
-];
 
 export default function Home() {
   const container = useRef<HTMLDivElement>(null);
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [statsLoading, setStatsLoading] = useState(true);
+
+  useEffect(() => {
+    api.getStats().then((data) => {
+      if (data) {
+        setStats(data);
+      }
+      setStatsLoading(false);
+    });
+  }, []);
   
   useGSAP(() => {
     // Hero Parallax effect
@@ -211,12 +224,12 @@ export default function Home() {
                 </p>
 
                 <div className="hero-enter mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.32s" }}>
-                  <Link href="/architecture" className="button-primary">
-                    Explore the Protocol
+                  <Link href="/build" className="button-primary">
+                    Start Building
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <Link href="/whitepaper" className="button-secondary">
-                    Read Whitepaper
+                  <Link href="/docs" className="button-secondary">
+                    View Documentation
                   </Link>
                 </div>
 
@@ -226,74 +239,59 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="hero-enter mt-10 grid gap-4 sm:grid-cols-3" style={{ animationDelay: "0.52s" }}>
-                  <div className="metric-card">
-                    <span className="metric-card__label">Trust Rail</span>
-                    <p>Receipts, attestations, and settlement designed for auditable digital systems.</p>
+                <div className="hero-enter mt-10 grid gap-4 grid-cols-3" style={{ animationDelay: "0.52s" }}>
+                  <div className="metric-card flex flex-col items-center justify-center text-center p-4 sm:p-6">
+                    <span className="metric-card__label text-[10px] sm:text-xs tracking-wider text-[var(--accent-cyan)] font-semibold font-mono">Assets Registered</span>
+                    <p className="text-xl sm:text-3xl font-extrabold font-mono text-white mt-1.5 sm:mt-2">
+                      {statsLoading ? "..." : stats?.assets_registered || "0"}
+                    </p>
                   </div>
-                  <div className="metric-card">
-                    <span className="metric-card__label">Composable</span>
-                    <p>Adopt only the protocol modules your workflow needs, without architecture bloat.</p>
+                  <div className="metric-card flex flex-col items-center justify-center text-center p-4 sm:p-6">
+                    <span className="metric-card__label text-[10px] sm:text-xs tracking-wider text-[var(--accent-cyan)] font-semibold font-mono">Active Users</span>
+                    <p className="text-xl sm:text-3xl font-extrabold font-mono text-white mt-1.5 sm:mt-2">
+                      {statsLoading ? "..." : stats?.active_users || "0"}
+                    </p>
                   </div>
-                  <div className="metric-card">
-                    <span className="metric-card__label">AI Ready</span>
-                    <p>Support machine buyers, private verification, and micropayments on the same rail.</p>
+                  <div className="metric-card flex flex-col items-center justify-center text-center p-4 sm:p-6">
+                    <span className="metric-card__label text-[10px] sm:text-xs tracking-wider text-[var(--accent-cyan)] font-semibold font-mono">Partners</span>
+                    <p className="text-xl sm:text-3xl font-extrabold font-mono text-white mt-1.5 sm:mt-2">
+                      {statsLoading ? "..." : `${stats?.partners || "0"}+`}
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="hero-enter relative z-10 lg:justify-self-end" style={{ animationDelay: "0.22s" }}>
-                <div className="hero-visual">
-                  <div className="hero-visual__halo hero-visual__halo--one" aria-hidden="true" />
-                  <div className="hero-visual__halo hero-visual__halo--two" aria-hidden="true" />
-                  <div className="hero-visual__beam hero-visual__beam--one" aria-hidden="true" />
-                  <div className="hero-visual__beam hero-visual__beam--two" aria-hidden="true" />
-                  <div className="hero-visual__beam hero-visual__beam--three" aria-hidden="true" />
-                  <div className="hero-visual__beam hero-visual__beam--four" aria-hidden="true" />
-
-                  <div className="hero-visual__ring hero-visual__ring--outer" aria-hidden="true">
-                    <span className="hero-visual__node hero-visual__node--one" />
-                    <span className="hero-visual__node hero-visual__node--two" />
-                  </div>
-                  <div className="hero-visual__ring hero-visual__ring--middle" aria-hidden="true">
-                    <span className="hero-visual__node hero-visual__node--three" />
-                    <span className="hero-visual__node hero-visual__node--four" />
-                  </div>
-                  <div className="hero-visual__ring hero-visual__ring--inner" aria-hidden="true">
-                    <span className="hero-visual__node hero-visual__node--five" />
-                  </div>
-
-                  {HERO_CHIPS.map((chip) => (
-                    <div key={chip.label} className={`hero-visual__chip ${chip.className}`}>
-                      {chip.label}
-                    </div>
-                  ))}
-
-                  <div className="hero-visual__core">
-                    <div className="hero-visual__core-card" style={{ animation: "pulse-soft 4s ease-in-out infinite" }}>
-                      <div className="hero-visual__eyebrow">
-                        <Orbit className="h-4 w-4" />
-                        Gono Core Rail
+              <div className="hero-enter relative z-10 lg:justify-self-end w-full flex justify-center lg:justify-end" style={{ animationDelay: "0.22s" }}>
+                <div className="hero-visual flex flex-col justify-center items-center p-6 sm:p-10">
+                  <div className="w-full max-w-sm space-y-6">
+                    {[
+                      { icon: <Camera className="w-5 h-5 text-[var(--accent-cyan)]" />, label: "Capture", detail: "2026-06-27 15:45:00" },
+                      { icon: <LinkIcon className="w-5 h-5 text-[var(--accent-cyan)]" />, label: "Register", detail: "0x7f3d...8e2a" },
+                      { icon: <CheckCircle className="w-5 h-5 text-emerald-400" />, label: "Verified", detail: "Authentic & Secured", highlight: true },
+                    ].map((node, i) => (
+                      <div key={i} className="relative">
+                        <div className="flex items-center gap-4 p-4 border border-white/[0.06] bg-black/45 backdrop-blur-md rounded-2xl hover:border-[var(--accent-cyan)] hover:bg-black/60 transition-all duration-300 cursor-pointer group hover:scale-[1.02] shadow-lg">
+                          <div className="w-11 h-11 flex items-center justify-center bg-white/[0.03] border border-white/[0.08] rounded-xl group-hover:scale-105 group-hover:bg-[rgba(var(--accent-cyan-rgb),0.1)] group-hover:border-[var(--accent-cyan)] transition-all duration-300">
+                            {node.icon}
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="font-semibold text-white tracking-wide text-sm sm:text-base">{node.label}</span>
+                            <span className={`text-xs font-mono mt-0.5 ${node.highlight ? "text-emerald-400 font-bold" : "text-[var(--text-muted)]"}`}>
+                              {node.detail}
+                            </span>
+                          </div>
+                        </div>
+                        {i < 2 && (
+                          <div className="w-[2px] h-6 absolute left-[22px] -bottom-[25px] bg-gradient-to-b from-[var(--accent-cyan)] to-emerald-400 opacity-60" />
+                        )}
                       </div>
-                      <h2 className="hero-visual__title">
-                        Verifiable execution for media, privacy, and payments
-                      </h2>
-                      <div className="hero-visual__badges">
-                        <span>Proof</span>
-                        <span>Privacy</span>
-                        <span>Settlement</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="hero-visual__signature">
-                    <CircleDashed className="h-4 w-4" />
-                    Layered, trusted, machine-native
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </section>
+
 
           <section className="px-4 py-20 sm:px-6 sm:py-24 lg:px-8 relative z-10">
             <div className="mx-auto max-w-7xl">
