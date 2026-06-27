@@ -183,7 +183,8 @@ export default function Navbar() {
                         </Link>
                         <Link
                             href="/build"
-                            className="px-5 py-2 bg-white text-black rounded-lg text-xs font-bold hover:bg-gray-200 transition-colors tracking-wider"
+                            className="px-5 py-2 bg-white rounded-lg text-xs font-bold hover:bg-gray-200 transition-colors tracking-wider"
+                            style={{ color: '#000000' }}
                         >
                             BUILD ON GONO
                         </Link>
@@ -303,8 +304,9 @@ export default function Navbar() {
                         <div className="mt-auto pt-6 border-t border-white/[0.08] flex flex-col gap-4">
                             <Link
                                 href="/build"
-                                className="w-full px-6 py-3.5 bg-white text-black rounded-xl text-center text-sm font-bold hover:bg-gray-200 transition-colors tracking-wider block"
+                                className="w-full px-6 py-3.5 bg-white rounded-xl text-center text-sm font-bold hover:bg-gray-200 transition-colors tracking-wider block"
                                 onClick={() => setMobileMenuOpen(false)}
+                                style={{ color: '#000000' }}
                             >
                                 BUILD ON GONO
                             </Link>
