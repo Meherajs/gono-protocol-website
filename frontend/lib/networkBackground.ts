@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
-const ACCENT_BLUE = new THREE.Color("#D8D365");
-const ACCENT_CYAN = new THREE.Color("#E6F082");
+const ACCENT_BLUE = new THREE.Color("#FF6B6B");
+const ACCENT_CYAN = new THREE.Color("#FF3E3E");
 const ACCENT_VIOLET = new THREE.Color("#605B51");
 const NODE_COLORS = [ACCENT_CYAN, ACCENT_BLUE, ACCENT_VIOLET];
 const MAX_NODE_CONNECTIONS = 4;

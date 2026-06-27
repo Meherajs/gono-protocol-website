@@ -47,9 +47,9 @@
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #D8D365, #605B51);
+  background: linear-gradient(90deg, #FF6B6B, #605B51);
   border-radius: 999px;
-  box-shadow: 0 0 12px rgba(91, 140, 255, 0.6);
+  box-shadow: 0 0 12px rgba(255, 62, 62, 0.6);
   /* The width is controlled inline via React state with precise floats,
      so we don't need a CSS transition here. It updates every frame smoothly. */
 }

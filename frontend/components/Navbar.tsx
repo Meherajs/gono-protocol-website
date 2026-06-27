@@ -56,10 +56,7 @@ export default function Navbar() {
                             { name: "HOME", href: "/" },
                             { name: "USE CASES", href: "/use-cases" },
                             { name: "ROADMAP", href: "/roadmap" },
-                            { name: "BLOG", href: "/archive" },
                             { name: "ECOSYSTEM", href: "/coming-soon" },
-                            { name: "ABOUT", href: "/about" },
-                            { name: "CAREERS", href: "/careers" },
                         ].map((item) => (
                             <li key={item.name}>
                                 <Link
@@ -221,10 +218,7 @@ export default function Navbar() {
                                 { name: "HOME", href: "/" },
                                 { name: "USE CASES", href: "/use-cases" },
                                 { name: "ROADMAP", href: "/roadmap" },
-                                { name: "BLOG", href: "/archive" },
                                 { name: "ECOSYSTEM", href: "/coming-soon" },
-                                { name: "ABOUT", href: "/about" },
-                                { name: "CAREERS", href: "/careers" },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
