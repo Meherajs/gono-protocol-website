@@ -106,14 +106,14 @@ export default function WhitepaperPage() {
             <Navbar />
             <main className="whitepaper-theme reading-mode min-h-screen px-4 pb-16 pt-12 sm:px-6">
                 <div className="max-w-7xl mx-auto">
-                    <section className="mb-8 rounded-lg border border-red-700/30 bg-red-100/5 p-4 lg:hidden">
-                        <h3 className="mb-4 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wider text-red-500">
+                    <section className="mb-8 rounded-lg border border-yellow-700/30 bg-yellow-500/5 p-4 lg:hidden">
+                        <h3 className="mb-4 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wider text-yellow-500">
                             <BookOpen className="w-4 h-4" /> Glossary
                         </h3>
                         <div className="space-y-4 text-sm">
                             {GLOSSARY_ITEMS.map((item) => (
                                 <div key={item.term}>
-                                    <h4 className="font-bold text-red-600 mb-1">{item.term}</h4>
+                                    <h4 className="font-bold text-yellow-500 mb-1">{item.term}</h4>
                                     <p className="text-gray-400 leading-relaxed">{item.definition}</p>
                                 </div>
                             ))}
@@ -124,15 +124,15 @@ export default function WhitepaperPage() {
                         {/* Desktop Sidebar - Glossary */}
                         <aside className="hidden lg:block w-72 flex-shrink-0">
                             <div className="sticky top-24">
-                                <div className="bg-red-100/5 border border-red-700/30 rounded-lg p-6">
-                                    <h3 className="text-lg font-bold text-red-500 mb-6 uppercase tracking-wider">
+                                <div className="bg-yellow-500/5 border border-yellow-700/30 rounded-lg p-6">
+                                    <h3 className="text-lg font-bold text-yellow-500 mb-6 uppercase tracking-wider">
                                         Glossary
                                     </h3>
 
                                     <div className="space-y-6 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto pr-2">
                                         {GLOSSARY_ITEMS.map((item) => (
                                             <div key={item.term}>
-                                                <h4 className="font-bold text-red-600 mb-1">{item.term}</h4>
+                                                <h4 className="font-bold text-yellow-500 mb-1">{item.term}</h4>
                                                 <p className="text-gray-400 leading-relaxed">{item.definition}</p>
                                             </div>
                                         ))}
@@ -506,25 +506,25 @@ export default function WhitepaperPage() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <Zap className="w-5 h-5 text-red-400" /> Proof-as-a-Fee
+                                                <Zap className="w-5 h-5 text-yellow-500" /> Proof-as-a-Fee
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Every ERC-7053 write (new captures, receipt mints) requires GONO as &quot;provenance gas.&quot;</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <Save className="w-5 h-5 text-green-400" /> Storage Endowment
+                                                <Save className="w-5 h-5 text-red-400" /> Storage Endowment
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">A one-time upfront fee in GONO secures permanent space on Arweave.</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <Shield className="w-5 h-5 text-blue-400" /> Network Security
+                                                <Shield className="w-5 h-5 text-yellow-500" /> Network Security
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Nodes securing modular pallets must stake GONO and are subject to slashing for poor service.</p>
                                         </div>
                                         <div className="bg-gradient-to-br from-blue-950/30 to-slate-900/30 border border-zinc-600/30 rounded-xl p-4 sm:p-6">
                                             <h4 className="text-lg sm:text-xl font-bold text-blue-100 mb-2 sm:mb-3 flex items-center gap-2">
-                                                <Vote className="w-5 h-5 text-purple-400" /> Governance
+                                                <Vote className="w-5 h-5 text-red-400" /> Governance
                                             </h4>
                                             <p className="text-gray-200 text-justify leading-relaxed text-sm sm:text-base">Staked GONO provides rights to vote on technical upgrades and fee schedules.</p>
                                         </div>

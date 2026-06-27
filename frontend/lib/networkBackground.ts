@@ -214,7 +214,7 @@ export function createNetworkBackground(canvas: HTMLCanvasElement) {
   nodeGeometry.setAttribute("color", new THREE.BufferAttribute(nodeColors, 3));
 
   const nodeMaterial = new THREE.PointsMaterial({
-    size: 0.19,
+    size: 0.35,
     map: glowTexture ?? undefined,
     transparent: true,
     opacity: 0.98,
@@ -242,7 +242,7 @@ export function createNetworkBackground(canvas: HTMLCanvasElement) {
 
   const lineMaterial = new THREE.LineBasicMaterial({
     transparent: true,
-    opacity: 0.34,
+    opacity: 0.85,
     vertexColors: true,
     blending: THREE.AdditiveBlending,
     depthWrite: false,
@@ -265,7 +265,7 @@ export function createNetworkBackground(canvas: HTMLCanvasElement) {
     size: 0.1,
     map: glowTexture ?? undefined,
     transparent: true,
-    opacity: 0.34,
+    opacity: 0.7,
     vertexColors: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
