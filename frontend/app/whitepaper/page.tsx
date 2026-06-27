@@ -124,7 +124,7 @@ export default function WhitepaperPage() {
                         </div>
                     </details>
 
-                    <div className="flex gap-8">
+                    <div className="lg:flex lg:gap-8">
                         {/* Desktop Sidebar - Glossary */}
                         <aside className="hidden lg:block w-72 flex-shrink-0">
                             <div className="sticky top-24">
@@ -146,7 +146,7 @@ export default function WhitepaperPage() {
                         </aside>
 
                         {/* Main Content */}
-                        <div className="flex-grow max-w-3xl mx-auto">
+                        <div className="flex-grow max-w-3xl mx-auto w-full break-words">
                             {/* Header */}
                             <div className="text-center mb-12 sm:mb-16">
                                 <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-zinc-800/30 border border-zinc-600/30 rounded-full text-blue-200 text-xs sm:text-sm font-medium mb-4 sm:mb-6 uppercase tracking-wider">
