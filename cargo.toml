@@ -1,0 +1,38 @@
+[workspace.package]
+version = "0.1.0"
+authors = ["Gono Protocol Core Team"]
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/your-org/gono-protocol"
+
+[workspace]
+resolver = "2"
+members = [
+    # "chain/runtime",  # Excluded until full parachain template deps are configured
+    # "chain/node",     # Excluded until full parachain template deps are configured
+    "pallets/store",
+    "pallets/verify",
+    "pallets/privacy",
+    "pallets/x402",
+]
+
+[workspace.dependencies]
+# Gono Internal Crates
+pallet-gono-store = { path = "pallets/store", default-features = false }
+pallet-gono-verify = { path = "pallets/verify", default-features = false }
+pallet-gono-privacy = { path = "pallets/privacy", default-features = false }
+pallet-gono-x402 = { path = "pallets/x402", default-features = false }
+gono-runtime = { path = "chain/runtime", default-features = false }
+
+# SCALE codecs
+codec = { version = "3.7.5", default-features = false, features = ["derive", "max-encoded-len"], package = "parity-scale-codec" }
+scale-info = { version = "2.11.6", default-features = false, features = ["derive"] }
+
+# FRAME (direct crates — preferred for pallet development)
+frame-support = { version = "45.0.0", default-features = false }
+frame-system = { version = "45.0.0", default-features = false }
+
+# Substrate primitives (versions aligned with frame-support v45)
+sp-core = { version = "39.0.0", default-features = false }
+sp-io = { version = "44.0.0", default-features = false }
+sp-runtime = { version = "45.0.0", default-features = false }
