@@ -18,10 +18,10 @@
 
 Gono Protocol is a modular blockchain infrastructure built on Substrate as a Polkadot Parachain. It provides a universal, content-addressable rail for verifiable media, digital assets, and autonomous AI commerce using a pluggable pallet architecture:
 
-- **ERC-7053 Media Receipts & DAG Provenance** (`pallet-gono-store`)
-- **SANUB Credibility Scoring & Reputation Engine** (`pallet-gono-verify`)
-- **zk-SNARK Anonymous Attestations & Humanity Proofs** (`pallet-gono-privacy`)
-- **HTTP 402 AI-Native Micropayments** (`pallet-gono-x402`)
+- **ERC-7053 Media Receipts & DAG Provenance** (`pallet-gono-store`) — ✅ Complete
+- **SANUB Credibility Scoring & Reputation Engine** (`pallet-gono-verify`) — ✅ Complete
+- **zk-SNARK Anonymous Attestations & Humanity Proofs** (`pallet-gono-privacy`) — 🔲 Scaffold
+- **HTTP 402 AI-Native Micropayments** (`pallet-gono-x402`) — 🔲 Scaffold
 
 ---
 
@@ -30,10 +30,10 @@ Gono Protocol is a modular blockchain infrastructure built on Substrate as a Pol
 ```text
 gono-protocol/
 ├── pallets/                     # Substrate FRAME Pallets
-│   ├── store/                  # ERC-7053 Media Receipts & CID Provenance
-│   ├── verify/                 # SANUB Credibility Scoring & Reputation (Section 8.2)
-│   ├── privacy/                # zk-SNARK Verifiers & Anonymous Attestations
-│   └── x402/                   # HTTP 402 Micropayments & Resource Access
+│   ├── store/                  # ERC-7053 Media Receipts & CID Provenance ✅
+│   ├── verify/                 # SANUB Credibility Scoring & Reputation ✅
+│   ├── privacy/                # zk-SNARK Verifiers & Anonymous Attestations 🔲
+│   └── x402/                   # HTTP 402 Micropayments & Resource Access 🔲
 │
 ├── chain/                       # Polkadot SDK Parachain Runtime & Node
 │   ├── runtime/                # Parachain Runtime Definition
@@ -48,7 +48,7 @@ gono-protocol/
 │   ├── components/             # UI Components
 │   └── public/                 # Static Assets
 │
-├── SANUB_VERIFY_PALLET.md       # Full SANUB Engine & AI Agent Integration Spec
+├── AGENTS.md                    # AI Agent Context & Architecture Reference
 ├── GonoProtocol_whitepaper.txt  # Full Protocol Whitepaper
 └── Cargo.toml                   # Root Cargo Workspace
 ```
@@ -57,22 +57,31 @@ gono-protocol/
 
 ## ⚙️ Substrate Pallets Overview
 
-### 1. `pallet-gono-verify` (SANUB Framework)
+### 1. `pallet-gono-store` (ERC-7053 Provenance) — ✅ Complete
+
+On-chain content-addressed media indexing following the ERC-7053 standard. Full FRAME pallet with storage, extrinsics, events, errors, and comprehensive test suite.
+
+- **`MediaReceipt<T>`**: CID (BoundedVec), ContentHash ([u8; 32]), Author (AccountId), Timestamp (BlockNumber), C2PA Manifest URI, ParentCID (DAG provenance link)
+- **Storage**: `Receipts` (CID → Receipt), `AuthorReceipts` (AccountId × CID → ()), `ProvenanceDAG` (CID → BoundedVec\<CID\>)
+- **Extrinsics**: `commit_receipt` (register asset with optional DAG parent), `transfer_asset_ownership` (author-only transfer)
+- **Events**: `ReceiptCommitted`, `ProvenanceUpdated`, `OwnershipTransferred`
+- **Tests**: 11 passing — happy paths, duplicate CID rejection, DAG linking, parent-not-found, max children overflow, unauthorized transfer, multi-author provenance chains
+
+### 2. `pallet-gono-verify` (SANUB Framework) — ✅ Complete
+
 Implements Section 8.2 of the Gono Protocol Whitepaper for community and AI-driven content credibility scoring.
-- **Fixed-Point Arithmetic (`FixedU128`)**: Deterministic calculations of Public Belief $B_n$, Content Importance $I_n$, Belief Sigmoid $S(B_n)$, Analyst Credit $C_a$, Reporter Credit $C_r$, and Content Credibility $C_n$.
-- **Decoupled Verification Hooks**: Trait-based `ContentInspector` for zero-overhead integration.
-- **Full Guide**: See [`SANUB_VERIFY_PALLET.md`](./SANUB_VERIFY_PALLET.md).
 
-### 2. `pallet-gono-store` (ERC-7053 Provenance)
-On-chain content-addressed media indexing following the ERC-7053 standard.
-- Media receipts with SHA-256 / Keccak-256 digests.
-- Multi-revision Directed Acyclic Graph (DAG) provenance chains.
+- **Fixed-Point Arithmetic (`FixedU128`)**: Deterministic calculations of Public Belief $B_n$, Content Importance $I_n$, Belief Sigmoid $S(B_n)$, Analyst Credit $C_a$, Reporter Credit $C_r$, and Content Credibility $C_n$
+- **Decoupled Verification Hooks**: Trait-based `ContentInspector` for zero-overhead integration with `pallet-gono-store`
+- **Extrinsics**: `register_content`, `vote_as_verifier`, `submit_analyst_review`, `finalize_content_score`
 
-### 3. `pallet-gono-privacy` (zk-SNARK Attestations)
-Handles zero-knowledge proof verification for humanity, press credentials, and anonymous attestations.
+### 3. `pallet-gono-privacy` (zk-SNARK Attestations) — 🔲 Scaffold
 
-### 4. `pallet-gono-x402` (HTTP-Native Micropayments)
-Revives HTTP 402 for automated M2M (Machine-to-Machine) and AI agent micropayments for verifiable data resources.
+Planned: Zero-knowledge proof verification for humanity, press credentials, and anonymous attestations using Groth16.
+
+### 4. `pallet-gono-x402` (HTTP-Native Micropayments) — 🔲 Scaffold
+
+Planned: Revives HTTP 402 for automated M2M (Machine-to-Machine) and AI agent micropayments for verifiable data resources.
 
 ---
 
@@ -88,11 +97,17 @@ Revives HTTP 402 for automated M2M (Machine-to-Machine) and AI agent micropaymen
 
 ### 1. Running Pallet Test Suites
 ```bash
-# Test verify pallet specifically
+# Test store pallet (ERC-7053)
+cargo test -p pallet-gono-store
+
+# Test verify pallet (SANUB)
 cargo test -p pallet-gono-verify
 
 # Test entire Substrate workspace
 cargo test --workspace
+
+# Windows: use CARGO_INCREMENTAL=0 if rust-analyzer locks files
+$env:CARGO_INCREMENTAL="0"; cargo test --workspace --target-dir target-ci
 ```
 
 ### 2. Running Frontend
@@ -108,6 +123,16 @@ Open [http://localhost:3000](http://localhost:3000) to view the web app.
 cd backend
 cargo run
 ```
+
+---
+
+## 🤖 AI Agent Reference
+
+For AI coding agents: read [`AGENTS.md`](./AGENTS.md) before making any changes. It contains:
+- Complete tech stack with exact dependency versions
+- Pallet architecture reference with storage layouts and extrinsic signatures
+- Development conventions and known gotchas
+- Dependency upgrade checklist
 
 ---
 
