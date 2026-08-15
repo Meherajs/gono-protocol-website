@@ -21,13 +21,13 @@ mod mock;
 #[cfg(test)]
 mod tests;
 
-pub use pallet::*;
 pub use types::*;
 pub use verifier::*;
 
 #[frame_support::pallet]
 pub mod pallet {
-    use super::*;
+    use super::types::*;
+    use super::verifier::*;
     use frame_support::pallet_prelude::*;
     use frame_system::pallet_prelude::*;
     use sp_core::H256;
@@ -221,3 +221,6 @@ pub mod pallet {
         }
     }
 }
+
+pub use pallet::*;
+

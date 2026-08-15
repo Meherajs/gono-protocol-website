@@ -3,11 +3,11 @@
 //! Defines the on-chain representation of payment channels, balances,
 //! and voucher verification helpers.
 
-use codec::{Decode, Encode, MaxEncodedLen};
+use codec::{Decode, DecodeWithMemTracking, Encode, MaxEncodedLen};
 use frame_support::pallet_prelude::*;
 use frame_support::traits::fungible;
 use frame_system::pallet_prelude::BlockNumberFor;
-use scale_info::TypeInfo;
+use sp_runtime::Vec;
 
 /// Balance type alias extracted from the NativeBalance fungible configuration.
 pub type BalanceOf<T> = <<T as crate::pallet::Config>::NativeBalance as fungible::Inspect<
@@ -18,7 +18,7 @@ pub type BalanceOf<T> = <<T as crate::pallet::Config>::NativeBalance as fungible
 pub type ChannelIdOf<T> = <T as frame_system::Config>::Hash;
 
 /// Details of an on-chain state payment channel for HTTP 402 machine commerce.
-#[derive(Encode, Decode, Clone, PartialEq, Eq, RuntimeDebug, TypeInfo, MaxEncodedLen)]
+#[derive(Encode, Decode, DecodeWithMemTracking, Clone, PartialEq, Eq, Debug, TypeInfo, MaxEncodedLen)]
 #[scale_info(skip_type_params(T))]
 pub struct ChannelDetails<T: crate::pallet::Config> {
     /// The account funding the channel (AI Agent / Payer 310).
@@ -41,6 +41,6 @@ pub fn construct_voucher_payload<Hash: Encode, Balance: Encode>(
     channel_id: &Hash,
     cumulative_amount: &Balance,
     nonce: u64,
-) -> sp_runtime::sp_std::vec::Vec<u8> {
+) -> Vec<u8> {
     (b"gono-x402-voucher", channel_id, cumulative_amount, nonce).encode()
 }

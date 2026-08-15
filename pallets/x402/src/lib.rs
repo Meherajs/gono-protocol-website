@@ -28,12 +28,11 @@ mod mock;
 #[cfg(test)]
 mod tests;
 
-pub use pallet::*;
 pub use types::*;
 
 #[frame_support::pallet]
 pub mod pallet {
-    use super::*;
+    use super::types::*;
     use frame_support::pallet_prelude::*;
     use frame_support::traits::fungible::{self, hold::Mutate as HoldMutate, Mutate as FungibleMutate};
     use frame_support::traits::tokens::{Precision, Preservation};
@@ -472,3 +471,6 @@ pub mod pallet {
         }
     }
 }
+
+pub use pallet::*;
+

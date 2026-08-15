@@ -60,10 +60,11 @@ use xcm::latest::prelude::{AssetId, BodyId};
 use super::{
 	weights::{BlockExecutionWeight, ExtrinsicBaseWeight, RocksDbWeight},
 	AccountId, Aura, Balance, Balances, Block, BlockNumber, CollatorSelection, ConsensusHook, Hash,
-	MessageQueue, Nonce, PalletInfo, ParachainSystem, Runtime, RuntimeCall, RuntimeEvent,
-	RuntimeFreezeReason, RuntimeHoldReason, RuntimeOrigin, RuntimeTask, Session, SessionKeys,
-	System, WeightToFee, XcmpQueue, AVERAGE_ON_INITIALIZE_RATIO, CENTS, EXISTENTIAL_DEPOSIT, HOURS,
-	MAXIMUM_BLOCK_WEIGHT, MICRO_UNIT, NORMAL_DISPATCH_RATIO, SLOT_DURATION, VERSION,
+	IntegrityCouncil, MessageQueue, Nonce, OriginCaller, PalletInfo, ParachainSystem, Preimage,
+	Runtime, RuntimeCall, RuntimeEvent, RuntimeFreezeReason, RuntimeHoldReason, RuntimeOrigin,
+	RuntimeTask, Scheduler, Session, SessionKeys, Signature, System, WeightToFee, XcmpQueue,
+	AVERAGE_ON_INITIALIZE_RATIO, CENTS, DAYS, EXISTENTIAL_DEPOSIT, HOURS, MAXIMUM_BLOCK_WEIGHT,
+	MICRO_UNIT, NORMAL_DISPATCH_RATIO, SLOT_DURATION, UNIT, VERSION,
 };
 use xcm_config::{RelayLocation, XcmOriginToTransactDispatchOrigin};
 
@@ -217,6 +218,7 @@ impl cumulus_pallet_parachain_system::Config for Runtime {
 	type CheckAssociatedRelayNumber = RelayNumberMonotonicallyIncreases;
 	type ConsensusHook = ConsensusHook;
 	type RelayParentOffset = ConstU32<0>;
+	type SchedulingSignatureVerifier = ();
 }
 
 impl parachain_info::Config for Runtime {}
@@ -341,8 +343,209 @@ impl pallet_collator_selection::Config for Runtime {
 	type WeightInfo = ();
 }
 
-/// Configure the pallet template in pallets/template.
-impl pallet_parachain_template::Config for Runtime {
+// ══════════════════════════════════════════════════════════════════════════════
+// ═══ GONO PROTOCOL CORE PALLETS ═══
+// ══════════════════════════════════════════════════════════════════════════════
+
+parameter_types! {
+	pub const MaxCidLength: u32 = 68;
+	pub const MaxC2paUriLength: u32 = 256;
+	pub const MaxChildRevisions: u32 = 64;
+}
+
+impl pallet_gono_store::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
-	type WeightInfo = pallet_parachain_template::weights::SubstrateWeight<Runtime>;
+	type MaxCidLength = MaxCidLength;
+	type MaxC2paUriLength = MaxC2paUriLength;
+	type MaxChildRevisions = MaxChildRevisions;
+}
+
+/// Adapter wiring pallet-gono-verify's ContentInspector to pallet-gono-store.
+pub struct GonoStoreInspector;
+impl pallet_gono_verify::ContentInspector<pallet_gono_verify::CidOf<Runtime>> for GonoStoreInspector {
+	fn content_exists(cid: &pallet_gono_verify::CidOf<Runtime>) -> bool {
+		pallet_gono_store::Receipts::<Runtime>::contains_key(cid)
+	}
+}
+
+parameter_types! {
+	pub const MinVerifiers: u32 = 3;
+	pub const EvaluationPeriod: BlockNumber = 100;
+}
+
+impl pallet_gono_verify::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type MaxCidLength = MaxCidLength;
+	type MinVerifiers = MinVerifiers;
+	type EvaluationPeriod = EvaluationPeriod;
+	type ContentInspector = GonoStoreInspector;
+}
+
+parameter_types! {
+	pub const MaxProofSize: u32 = 4096;
+	pub const MaxPublicInputsSize: u32 = 2048;
+}
+
+impl pallet_gono_privacy::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type Verifier = pallet_gono_privacy::MockZkVerifier;
+	type MaxProofSize = MaxProofSize;
+	type MaxPublicInputsSize = MaxPublicInputsSize;
+}
+
+parameter_types! {
+	pub const MaxChannelDuration: BlockNumber = 14400; // ~24h at 6s blocks
+	pub const DisputePeriod: BlockNumber = 600;        // ~1h at 6s blocks
+}
+
+impl pallet_gono_x402::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type NativeBalance = Balances;
+	type RuntimeHoldReason = RuntimeHoldReason;
+	type Signature = Signature;
+	type Signer = <Signature as sp_runtime::traits::Verify>::Signer;
+	type MaxChannelDuration = MaxChannelDuration;
+	type DisputePeriod = DisputePeriod;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// ═══ GONO SOVEREIGN GOVERNANCE (Whitepaper §6.1.5 & §7) ═══
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Helper for deposit calculation
+pub const fn deposit(items: u32, bytes: u32) -> Balance {
+	(items as Balance) * 15 * CENTS + (bytes as Balance) * 6 * CENTS
+}
+
+// ─── Tier 1: Preimage & Scheduler & Democracy (Economic Conviction Voting) ───
+
+parameter_types! {
+	pub const PreimageBaseDeposit: Balance = deposit(2, 64);
+	pub const PreimageByteDeposit: Balance = deposit(0, 1);
+	pub const PreimageHoldReason: RuntimeHoldReason =
+		RuntimeHoldReason::Preimage(pallet_preimage::HoldReason::Preimage);
+}
+
+impl pallet_preimage::Config for Runtime {
+	type WeightInfo = ();
+	type RuntimeEvent = RuntimeEvent;
+	type Currency = Balances;
+	type ManagerOrigin = EnsureRoot<AccountId>;
+	type Consideration = frame_support::traits::fungible::HoldConsideration<
+		AccountId,
+		Balances,
+		PreimageHoldReason,
+		frame_support::traits::LinearStoragePrice<PreimageBaseDeposit, PreimageByteDeposit, Balance>,
+	>;
+}
+
+parameter_types! {
+	pub MaximumSchedulerWeight: Weight = Perbill::from_percent(80) * RuntimeBlockWeights::get().max_block;
+}
+
+impl pallet_scheduler::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type RuntimeOrigin = RuntimeOrigin;
+	type PalletsOrigin = OriginCaller;
+	type RuntimeCall = RuntimeCall;
+	type MaximumWeight = MaximumSchedulerWeight;
+	type ScheduleOrigin = EnsureRoot<AccountId>;
+	type MaxScheduledPerBlock = ConstU32<50>;
+	type WeightInfo = ();
+	type OriginPrivilegeCmp = frame_support::traits::EqualPrivilegeOnly;
+	type Preimages = Preimage;
+	type BlockNumberProvider = System;
+}
+
+parameter_types! {
+	pub const LaunchPeriod: BlockNumber = 7 * DAYS;
+	pub const VotingPeriod: BlockNumber = 7 * DAYS;
+	pub const FastTrackVotingPeriod: BlockNumber = 3 * HOURS;
+	pub const MinimumDeposit: Balance = 100 * UNIT;
+	pub const EnactmentPeriod: BlockNumber = 7 * DAYS;
+	pub const CooloffPeriod: BlockNumber = 7 * DAYS;
+	pub const MaxProposals: u32 = 100;
+	pub const MaxVotes: u32 = 100;
+}
+
+impl pallet_democracy::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type Currency = Balances;
+	type EnactmentPeriod = EnactmentPeriod;
+	type LaunchPeriod = LaunchPeriod;
+	type VotingPeriod = VotingPeriod;
+	type VoteLockingPeriod = EnactmentPeriod;
+	type FastTrackVotingPeriod = FastTrackVotingPeriod;
+	type MinimumDeposit = MinimumDeposit;
+	type ExternalOrigin = EnsureRoot<AccountId>;
+	type ExternalMajorityOrigin = EnsureRoot<AccountId>;
+	type ExternalDefaultOrigin = EnsureRoot<AccountId>;
+	type FastTrackOrigin = EnsureRoot<AccountId>;
+	type InstantOrigin = EnsureRoot<AccountId>;
+	type InstantAllowed = frame_support::traits::ConstBool<true>;
+	type CancellationOrigin = EnsureRoot<AccountId>;
+	type BlacklistOrigin = EnsureRoot<AccountId>;
+	type CancelProposalOrigin = EnsureRoot<AccountId>;
+	type VetoOrigin = pallet_collective::EnsureMember<AccountId, IntegrityCouncilCollective>;
+	type CooloffPeriod = CooloffPeriod;
+	type Slash = ();
+	type Scheduler = Scheduler;
+	type PalletsOrigin = OriginCaller;
+	type MaxVotes = MaxVotes;
+	type WeightInfo = ();
+	type MaxProposals = MaxProposals;
+	type Preimages = Preimage;
+	type MaxDeposits = ConstU32<100>;
+	type MaxBlacklisted = ConstU32<100>;
+	type SubmitOrigin = frame_system::EnsureSigned<AccountId>;
+}
+
+// ─── Tier 2: Journalistic Integrity Council (Reputation-Weighted) ───
+
+parameter_types! {
+	pub const IntegrityCouncilMotionDuration: BlockNumber = 3 * DAYS;
+	pub const IntegrityCouncilMaxProposals: u32 = 100;
+	pub const IntegrityCouncilMaxMembers: u32 = 50; // Whitepaper: top 50 analysts by C_a
+	pub IntegrityCouncilMaxProposalWeight: Weight = RuntimeBlockWeights::get().max_block;
+}
+
+pub type IntegrityCouncilCollective = pallet_collective::Instance1;
+impl pallet_collective::Config<IntegrityCouncilCollective> for Runtime {
+	type RuntimeOrigin = RuntimeOrigin;
+	type Proposal = RuntimeCall;
+	type RuntimeEvent = RuntimeEvent;
+	type MotionDuration = IntegrityCouncilMotionDuration;
+	type MaxProposals = IntegrityCouncilMaxProposals;
+	type MaxMembers = IntegrityCouncilMaxMembers;
+	type DefaultVote = pallet_collective::PrimeDefaultVote;
+	type WeightInfo = ();
+	type SetMembersOrigin = EnsureRoot<AccountId>;
+	type MaxProposalWeight = IntegrityCouncilMaxProposalWeight;
+	type DisapproveOrigin = EnsureRoot<AccountId>;
+	type KillOrigin = EnsureRoot<AccountId>;
+	type Consideration = ();
+}
+
+impl pallet_membership::Config<pallet_membership::Instance1> for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type AddOrigin = EnsureRoot<AccountId>;
+	type RemoveOrigin = EnsureRoot<AccountId>;
+	type SwapOrigin = EnsureRoot<AccountId>;
+	type ResetOrigin = EnsureRoot<AccountId>;
+	type PrimeOrigin = EnsureRoot<AccountId>;
+	type MembershipInitialized = IntegrityCouncil;
+	type MembershipChanged = IntegrityCouncil;
+	type MaxMembers = IntegrityCouncilMaxMembers;
+	type WeightInfo = ();
+}
+
+// ─── Tier 3: Kleros Decentralized Arbitration Bridge ───
+
+parameter_types! {
+	pub const MaxRulingLength: u32 = 128;
+}
+
+impl pallet_kleros_bridge::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type MaxRulingLength = MaxRulingLength;
 }

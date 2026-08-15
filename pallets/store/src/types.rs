@@ -3,10 +3,9 @@
 //! Defines the on-chain representation of a Media Receipt following the ERC-7053
 //! standard, adapted for Substrate's bounded-type and SCALE-codec constraints.
 
-use codec::{Decode, Encode, MaxEncodedLen};
+use codec::{Decode, DecodeWithMemTracking, Encode, MaxEncodedLen};
 use frame_support::pallet_prelude::*;
 use frame_system::pallet_prelude::BlockNumberFor;
-use scale_info::TypeInfo;
 
 /// Upper bound for CID byte length (CIDv1 typically ≤ 68 bytes).
 pub type CidOf<T> = BoundedVec<u8, <T as crate::pallet::Config>::MaxCidLength>;
@@ -23,7 +22,7 @@ pub type C2paUriOf<T> = BoundedVec<u8, <T as crate::pallet::Config>::MaxC2paUriL
 /// - `timestamp`: Block number when the receipt was committed
 /// - `c2pa_manifest_uri`: Optional URI pointing to the full C2PA manifest
 /// - `parent_cid`: Optional parent CID linking this receipt into a DAG provenance chain
-#[derive(Encode, Decode, Clone, PartialEq, Eq, RuntimeDebug, TypeInfo, MaxEncodedLen)]
+#[derive(Encode, Decode, DecodeWithMemTracking, Clone, PartialEq, Eq, Debug, TypeInfo, MaxEncodedLen)]
 #[scale_info(skip_type_params(T))]
 pub struct MediaReceipt<T: crate::pallet::Config> {
     pub cid: CidOf<T>,

@@ -161,8 +161,8 @@ impl_opaque_keys! {
 
 #[sp_version::runtime_version]
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: alloc::borrow::Cow::Borrowed("parachain-template-runtime"),
-	impl_name: alloc::borrow::Cow::Borrowed("parachain-template-runtime"),
+	spec_name: alloc::borrow::Cow::Borrowed("gono-runtime"),
+	impl_name: alloc::borrow::Cow::Borrowed("gono-runtime"),
 	authoring_version: 1,
 	spec_version: 1,
 	impl_version: 0,
@@ -279,7 +279,7 @@ mod runtime {
 	#[runtime::pallet_index(11)]
 	pub type TransactionPayment = pallet_transaction_payment;
 
-	// Governance
+	// Governance & Sudo
 	#[runtime::pallet_index(15)]
 	pub type Sudo = pallet_sudo;
 
@@ -305,9 +305,29 @@ mod runtime {
 	#[runtime::pallet_index(33)]
 	pub type MessageQueue = pallet_message_queue;
 
-	// Template
-	#[runtime::pallet_index(50)]
-	pub type TemplatePallet = pallet_parachain_template;
+	// ═══ Gono Protocol Core Pallets ═══
+	#[runtime::pallet_index(142)]
+	pub type GonoStore = pallet_gono_store;
+	#[runtime::pallet_index(144)]
+	pub type GonoVerify = pallet_gono_verify;
+	#[runtime::pallet_index(146)]
+	pub type GonoPrivacy = pallet_gono_privacy;
+	#[runtime::pallet_index(148)]
+	pub type GonoX402 = pallet_gono_x402;
+
+	// ═══ Gono Sovereign Governance (Whitepaper §6.1.5 & §7) ═══
+	#[runtime::pallet_index(150)]
+	pub type Preimage = pallet_preimage;
+	#[runtime::pallet_index(151)]
+	pub type Scheduler = pallet_scheduler;
+	#[runtime::pallet_index(152)]
+	pub type Democracy = pallet_democracy;
+	#[runtime::pallet_index(154)]
+	pub type IntegrityCouncil = pallet_collective<Instance1>;
+	#[runtime::pallet_index(155)]
+	pub type CouncilMembership = pallet_membership<Instance1>;
+	#[runtime::pallet_index(156)]
+	pub type KlerosBridge = pallet_kleros_bridge;
 }
 
 #[docify::export(register_validate_block)]

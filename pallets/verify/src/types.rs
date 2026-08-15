@@ -1,14 +1,11 @@
-//! Types and data structures for pallet-gono-verify (SANUB Framework)
-
 use codec::{Decode, DecodeWithMemTracking, Encode, MaxEncodedLen};
 use frame_support::pallet_prelude::*;
-use scale_info::TypeInfo;
 
 /// Upper bound type alias for CID byte length.
 pub type CidOf<T> = BoundedVec<u8, <T as crate::pallet::Config>::MaxCidLength>;
 
 /// Analyst review verdict on content validity.
-#[derive(Encode, Decode, DecodeWithMemTracking, Clone, Copy, PartialEq, Eq, RuntimeDebug, TypeInfo, MaxEncodedLen)]
+#[derive(Encode, Decode, DecodeWithMemTracking, Clone, Copy, PartialEq, Eq, Debug, TypeInfo, MaxEncodedLen)]
 pub enum Verdict {
     /// Analyst confirms content is genuine / authentic.
     Approve,
@@ -17,7 +14,7 @@ pub enum Verdict {
 }
 
 /// An analyst review record stored on-chain.
-#[derive(Encode, Decode, DecodeWithMemTracking, Clone, PartialEq, Eq, RuntimeDebug, TypeInfo, MaxEncodedLen)]
+#[derive(Encode, Decode, DecodeWithMemTracking, Clone, PartialEq, Eq, Debug, TypeInfo, MaxEncodedLen)]
 pub struct AnalystReview {
     /// The verdict given by the analyst.
     pub verdict: Verdict,
