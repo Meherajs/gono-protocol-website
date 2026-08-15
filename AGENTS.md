@@ -31,7 +31,8 @@
 | **scale-info** | `2.11.6` | Feature: `derive` |
 | **frame-support** | `45.0.0` | Direct dependency (NOT the `polkadot-sdk-frame` umbrella) |
 | **frame-system** | `45.0.0` | Direct dependency |
-| **sp-core** | `39.0.0` | Dev dependency, aligned with frame-support v45 |
+| **pallet-balances** | `46.0.0` | Direct dependency for tests / runtime backing |
+| **sp-core** | `39.0.0` | Direct/dev dependency, aligned with frame-support v45 |
 | **sp-io** | `44.0.0` | Dev dependency, aligned with frame-support v45 |
 | **sp-runtime** | `45.0.0` | Both runtime and dev dependency |
 | **Actix-web** | `4.0` | Backend REST API (`backend/` crate, separate from workspace) |
@@ -76,20 +77,24 @@ gono-protocol/
 │   │       ├── types.rs           # Verdict enum, AnalystReview, CidOf type alias
 │   │       ├── math.rs            # FixedU128 SANUB math (Equations 2-8)
 │   │       ├── mock.rs            # Test runtime with ContentInspector mock
-│   │       └── tests.rs           # Comprehensive test suite
+│   │       └── tests.rs           # Comprehensive test suite (13 tests)
 │   │
-│   ├── privacy/                   # [146] ZK-SNARK Attestation & Proof Verifier
-│   │   ├── Cargo.toml             # Scaffold — basic deps only
+│   ├── x402/                      # [148] HTTP 402 State Channel Micropayments
+│   │   ├── Cargo.toml             # Deps: frame-support, frame-system, sp-runtime, sp-core, pallet-balances
 │   │   └── src/
-│   │       ├── lib.rs             # Stub module declarations
-│   │       ├── verifier.rs        # Stub verify_zk_proof() function
-│   │       └── tests.rs           # Basic stub test
+│   │       ├── lib.rs             # Full FRAME pallet implementation
+│   │       ├── types.rs           # ChannelDetails, BalanceOf, ChannelIdOf, voucher helper
+│   │       ├── mock.rs            # Test mock runtime with Balances backing
+│   │       └── tests.rs           # 26 comprehensive unit tests
 │   │
-│   └── x402/                      # [148] HTTP 402 Micropayment Settlement
-│       ├── Cargo.toml             # Scaffold — basic deps only
+│   └── privacy/                   # [146] ZK-SNARK Attestation & Proof Verifier
+│       ├── Cargo.toml             # Deps: frame-support, frame-system, codec, scale-info, sp-core, sp-runtime
 │       └── src/
-│           ├── lib.rs             # Stub settle_micropayment() function
-│           └── tests.rs           # Basic stub test
+│           ├── lib.rs             # Full FRAME pallet implementation
+│           ├── types.rs           # ProofType enum, Attestation<T> struct, NullifierHash
+│           ├── verifier.rs        # ZkVerifier trait, MockZkVerifier, FailingZkVerifier
+│           ├── mock.rs            # Test mock runtime with TestZkVerifier
+│           └── tests.rs           # 18 comprehensive unit tests
 │
 ├── chain/                         # ═══ Polkadot SDK Parachain ═══
 │   ├── runtime/                   # Parachain Runtime (full template from Polkadot SDK)
@@ -141,9 +146,9 @@ The `backend/` crate uses Actix-web and runs independently. It has its own `Carg
 | Pallet | Crate Name | Status | Files | Tests |
 |--------|-----------|--------|-------|-------|
 | **store** | `pallet-gono-store` | ✅ **COMPLETE** | `lib.rs` (258 lines), `types.rs`, `mock.rs`, `tests.rs` | 11 passing |
-| **verify** | `pallet-gono-verify` | ✅ **COMPLETE** | `lib.rs` (523 lines), `types.rs`, `math.rs`, `mock.rs`, `tests.rs` | Full suite |
-| **privacy** | `pallet-gono-privacy` | 🔲 **SCAFFOLD** | Stub `lib.rs`, `verifier.rs`, `tests.rs` | 1 stub test |
-| **x402** | `pallet-gono-x402` | 🔲 **SCAFFOLD** | Stub `lib.rs`, `tests.rs` | 1 stub test |
+| **verify** | `pallet-gono-verify` | ✅ **COMPLETE** | `lib.rs` (523 lines), `types.rs`, `math.rs`, `mock.rs`, `tests.rs` | 13 passing |
+| **x402** | `pallet-gono-x402` | ✅ **COMPLETE** | `lib.rs`, `types.rs`, `mock.rs`, `tests.rs` | 26 passing |
+| **privacy** | `pallet-gono-privacy` | ✅ **COMPLETE** | `lib.rs`, `types.rs`, `verifier.rs`, `mock.rs`, `tests.rs` | 18 passing |
 
 ---
 
@@ -204,17 +209,80 @@ The `backend/` crate uses Actix-web and runs independently. It has its own `Carg
 
 ---
 
-### 6.3 `pallet-gono-privacy` (ZK-SNARK — SCAFFOLD)
+### 6.3 `pallet-gono-x402` (HTTP 402 State Channel Micropayments)
 
-**Planned**: Groth16 proof verification for humanity proofs, credential attestations, and anonymous verification.
-**Current state**: Stub `verify_zk_proof(proof, public_inputs) -> bool` function.
-**Next steps**: Implement Circom circuit integration, trusted setup verification keys, and a proper FRAME pallet with storage for verification keys and proof records.
+**Standard**: x402 Open Standard (Whitepaper Sections 5.4, 10.2)
 
-### 6.4 `pallet-gono-x402` (Micropayments — SCAFFOLD)
+**Key design decisions**:
+- Uses `frame_support::traits::fungible::hold` for native GONO token deposit locking
+- Off-chain vouchers signed by channel sender over deterministic payload: `(b"gono-x402-voucher", channel_id, cumulative_amount, nonce)`
+- Verified on-chain via `sp_runtime::traits::Verify` (sr25519/ed25519/ecdsa)
+- Cumulative settlement model with replay-protected `NonceRegistry`
+- Dispute grace period (`DisputePeriod`) enables recipients to submit final settlements before senders can claim timeouts
 
-**Planned**: HTTP 402 payment channel settlement, facilitator architecture, stablecoin/GONO token integration.
-**Current state**: Stub `settle_micropayment(amount, resource_id) -> bool` function.
-**Next steps**: Implement proper FRAME pallet with payment channels, escrow storage, and settlement extrinsics.
+**Config trait**:
+| Associated Type / Constant | Type / Bound | Purpose |
+|----------------------------|--------------|---------|
+| `NativeBalance` | `fungible::Inspect + Mutate + hold::Inspect + hold::Mutate` | Native token ledger operations |
+| `RuntimeHoldReason` | `From<HoldReason>` | Composite hold reason for channel deposits |
+| `Signature` | `Parameter + Verify<Signer = Self::Signer>` | Cryptographic signature type |
+| `Signer` | `Parameter + IdentifyAccount<AccountId = Self::AccountId>` | Public key identifying sender AccountId |
+| `MaxChannelDuration` | `Get<BlockNumberFor<Self>>` | Upper bound on channel lifetime |
+| `DisputePeriod` | `Get<BlockNumberFor<Self>>` | Grace period after expiration |
+
+**Storage**:
+| Item | Type | Key → Value | Purpose |
+|------|------|-------------|---------|
+| `Channels` | `StorageMap` | `ChannelIdOf<T>` → `ChannelDetails<T>` | Primary channel state |
+| `NonceRegistry` | `StorageDoubleMap` | `(ChannelIdOf<T>, u64)` → `bool` | Voucher replay protection |
+| `SenderChannelCount` | `StorageMap` | `T::AccountId` → `u64` | Per-sender channel counter for deterministic ID derivation |
+| `ChannelCount` | `StorageValue` | `u32` | Protocol-wide active channel counter |
+
+**Extrinsics**:
+| Call Index | Function | Description |
+|------------|----------|-------------|
+| `0` | `open_channel(recipient, deposit, duration)` | Open payment channel, hold deposit, derive ChannelId |
+| `1` | `top_up_channel(channel_id, additional_deposit)` | Sender locks additional funds into active channel |
+| `2` | `settle_channel(channel_id, cumulative_amount, nonce, signature, close_channel)` | Recipient submits signed voucher, receives payout diff, optionally closes channel |
+| `3` | `claim_channel_timeout(channel_id)` | Sender reclaims unspent deposit after expiration + dispute period |
+
+**Events**: `ChannelOpened`, `ChannelToppedUp`, `ChannelSettled`, `ChannelTimedOut`
+**Errors**: `ChannelNotFound`, `ChannelAlreadyExists`, `NotChannelSender`, `NotChannelRecipient`, `ChannelExpired`, `ChannelNotExpired`, `DisputePeriodActive`, `NonceAlreadyUsed`, `InvalidSignature`, `InvalidSettlementAmount`, `SettlementExceedsDeposit`, `DurationExceedsMax`, `InvalidDuration`, `ChannelAlreadyClosed`, `ZeroDeposit`, `ZeroAmount`
+
+---
+
+### 6.4 `pallet-gono-privacy` (ZK-SNARK Attestation & Proof Verifier)
+
+**Standard**: Whitepaper Section 8.3 (Zero-Knowledge Proof Circuits)
+
+**Key design decisions**:
+- Pluggable `ZkVerifier<ProofType>` trait decouples circuit proving engines (Groth16/BN254, PLONK, STARKs) from the runtime
+- Supports 3 core proof types: `HumanityProof`, `CredentialVerification`, and `JurisdictionProof`
+- Cryptographic `NullifierRegistry` (H256 -> bool) prevents proof replay / double-attestation attacks
+- Attestations mapped by `(AccountId, ProofType)` with self-revocation capability (`revoke_attestation`)
+- Nullifier remains permanently spent even after an attestation is revoked to prevent replaying old proofs
+
+**Config trait**:
+| Associated Type / Constant | Type / Bound | Purpose |
+|----------------------------|--------------|---------|
+| `Verifier` | `ZkVerifier<ProofType>` | Pluggable ZK proof verification engine |
+| `MaxProofSize` | `Get<u32>` | Upper bound on proof bytes payload |
+| `MaxPublicInputsSize` | `Get<u32>` | Upper bound on public inputs payload |
+
+**Storage**:
+| Item | Type | Key → Value | Purpose |
+|------|------|-------------|---------|
+| `NullifierRegistry` | `StorageMap` | `H256` → `bool` | Consumed nullifier registry (replay protection) |
+| `VerifiedAttestations` | `StorageDoubleMap` | `(AccountId, ProofType)` → `Attestation<T>` | Active on-chain verified attestations |
+
+**Extrinsics**:
+| Call Index | Function | Description |
+|------------|----------|-------------|
+| `0` | `verify_and_attest(proof_type, proof_bytes, public_inputs, nullifier_hash)` | Verify ZK proof, spend nullifier, register on-chain attestation |
+| `1` | `revoke_attestation(proof_type, nullifier_hash)` | Revoke caller's active attestation; nullifier remains spent |
+
+**Events**: `AttestationVerified`, `AttestationRevoked`
+**Errors**: `ProofVerificationFailed`, `NullifierAlreadyUsed`, `AttestationNotFound`, `InvalidNullifier`, `ProofTooLarge`, `PublicInputsTooLarge`
 
 ---
 
@@ -244,7 +312,7 @@ pallets/<name>/
 ### Testing
 ```bash
 # Test a specific pallet (use CARGO_INCREMENTAL=0 on Windows to avoid file lock issues)
-$env:CARGO_INCREMENTAL="0"; cargo test -p pallet-gono-store --target-dir target-ci
+$env:CARGO_INCREMENTAL="0"; cargo test -p pallet-gono-privacy --target-dir target-ci
 
 # Test all pallets
 $env:CARGO_INCREMENTAL="0"; cargo test --workspace --target-dir target-ci
@@ -266,7 +334,7 @@ $env:CARGO_INCREMENTAL="0"; cargo test --workspace --target-dir target-ci
 | **`RuntimeEvent` deprecation warning** | `frame-support v45` auto-appends `RuntimeEvent` bound. Having `type RuntimeEvent` in Config is deprecated but still works. | Cosmetic warning only. Will be removed in a future cleanup. |
 | **`chain/runtime` + `chain/node` excluded** | They reference `homepage.workspace`, `[lints] workspace`, and the full `polkadot-sdk` umbrella which aren't configured. | Commented out in workspace `members`. Re-enable after adding full parachain deps. |
 | **Windows `.o` file locks** | rust-analyzer locks incremental compilation artifacts. | `CARGO_INCREMENTAL=0` + separate `--target-dir`. |
-| **Duplicate `sp-storage` versions** | Happens when `sp-io`/`sp-core`/`sp-runtime` versions don't match `frame-support`. | Keep all `sp-*` versions aligned. Use `cargo tree -i sp-storage` to verify. |
+| **Duplicate `sp-storage` / `sp-runtime` versions** | Happens when `sp-io`/`sp-core`/`sp-runtime`/`pallet-balances` versions don't match `frame-support`. | Keep all `sp-*` versions aligned. Use `cargo tree -i sp-storage` and `cargo tree -i sp-runtime` to verify. |
 
 ---
 
@@ -276,7 +344,7 @@ When upgrading Polkadot SDK / FRAME dependencies:
 
 1. Check the [Polkadot SDK releases](https://github.com/nicktesla/polkadot-sdk/releases) for the target version
 2. Update `frame-support` and `frame-system` together (same minor version)
-3. Find matching `sp-core`, `sp-io`, `sp-runtime` versions via `cargo tree`
+3. Find matching `sp-core`, `sp-io`, `sp-runtime`, `pallet-balances` versions via `cargo tree`
 4. Update `codec` and `scale-info` if the new frame requires it
 5. Run `cargo tree -d` to check for duplicate crate versions
 6. Run `cargo test --workspace` to verify
@@ -285,8 +353,8 @@ When upgrading Polkadot SDK / FRAME dependencies:
 
 ## 10. Next Implementation Priorities
 
-1. **`pallet-gono-privacy`** — Convert scaffold to full FRAME pallet with ZK proof verification
-2. **`pallet-gono-x402`** — Convert scaffold to full FRAME pallet with payment channels
-3. **`chain/runtime`** — Integrate all 4 Gono pallets into the parachain runtime
-4. **`chain/node`** — Configure collator with Gono runtime
-5. **Cross-pallet integration** — Wire `ContentInspector` from verify → store pallet
+1. **`chain/runtime`** — Integrate all 4 Gono pallets (`pallet-gono-store`, `pallet-gono-verify`, `pallet-gono-x402`, `pallet-gono-privacy`) into the parachain runtime
+2. **`chain/node`** — Configure collator with Gono runtime
+3. **Cross-pallet integration** — Wire `ContentInspector` from verify → store pallet
+
+

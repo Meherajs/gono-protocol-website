@@ -20,8 +20,8 @@ Gono Protocol is a modular blockchain infrastructure built on Substrate as a Pol
 
 - **ERC-7053 Media Receipts & DAG Provenance** (`pallet-gono-store`) — ✅ Complete
 - **SANUB Credibility Scoring & Reputation Engine** (`pallet-gono-verify`) — ✅ Complete
-- **zk-SNARK Anonymous Attestations & Humanity Proofs** (`pallet-gono-privacy`) — 🔲 Scaffold
-- **HTTP 402 AI-Native Micropayments** (`pallet-gono-x402`) — 🔲 Scaffold
+- **HTTP 402 AI-Native Micropayments** (`pallet-gono-x402`) — ✅ Complete
+- **zk-SNARK Anonymous Attestations & Humanity Proofs** (`pallet-gono-privacy`) — ✅ Complete
 
 ---
 
@@ -32,8 +32,8 @@ gono-protocol/
 ├── pallets/                     # Substrate FRAME Pallets
 │   ├── store/                  # ERC-7053 Media Receipts & CID Provenance ✅
 │   ├── verify/                 # SANUB Credibility Scoring & Reputation ✅
-│   ├── privacy/                # zk-SNARK Verifiers & Anonymous Attestations 🔲
-│   └── x402/                   # HTTP 402 Micropayments & Resource Access 🔲
+│   ├── x402/                   # HTTP 402 State Channel Micropayments ✅
+│   └── privacy/                # zk-SNARK Verifiers & Anonymous Attestations ✅
 │
 ├── chain/                       # Polkadot SDK Parachain Runtime & Node
 │   ├── runtime/                # Parachain Runtime Definition
@@ -74,14 +74,30 @@ Implements Section 8.2 of the Gono Protocol Whitepaper for community and AI-driv
 - **Fixed-Point Arithmetic (`FixedU128`)**: Deterministic calculations of Public Belief $B_n$, Content Importance $I_n$, Belief Sigmoid $S(B_n)$, Analyst Credit $C_a$, Reporter Credit $C_r$, and Content Credibility $C_n$
 - **Decoupled Verification Hooks**: Trait-based `ContentInspector` for zero-overhead integration with `pallet-gono-store`
 - **Extrinsics**: `register_content`, `vote_as_verifier`, `submit_analyst_review`, `finalize_content_score`
+- **Tests**: 13 passing — formula verification (Eqs 2–8), Taylor series expansion, multi-verifier consensus, analyst stake credit, reporter reputation, time-locked finalization
 
-### 3. `pallet-gono-privacy` (zk-SNARK Attestations) — 🔲 Scaffold
+### 3. `pallet-gono-x402` (HTTP 402 State Channel Micropayments) — ✅ Complete
 
-Planned: Zero-knowledge proof verification for humanity, press credentials, and anonymous attestations using Groth16.
+Implements Whitepaper Sections 5.4 and 10.2 — state channel micropayments for AI agent machine commerce via the x402 Open Standard.
 
-### 4. `pallet-gono-x402` (HTTP-Native Micropayments) — 🔲 Scaffold
+- **State Channels**: AI Agents (310) open funded channels to Service Providers (330), streaming micropayments off-chain via signed vouchers without per-request on-chain gas costs
+- **`fungible::hold`**: Channel deposits locked on-chain using FRAME's native hold mechanism (GONO token)
+- **Off-Chain Voucher Verification**: Deterministic voucher hashing and cryptographic signature validation (sr25519/ed25519/ecdsa)
+- **Replay Protection**: Per-channel `NonceRegistry` double-map prevents voucher reuse
+- **Dispute Grace Period**: Configurable grace window (`DisputePeriod`) guarantees recipients can submit final settlements before senders can claim timeouts
+- **Extrinsics**: `open_channel`, `top_up_channel`, `settle_channel`, `claim_channel_timeout`
+- **Tests**: 26 passing — channel opening, top-ups, single/cumulative voucher settlement, invalid signature rejection, nonce replay protection, dispute period enforcement, timeout refund distribution, closed channel safety
 
-Planned: Revives HTTP 402 for automated M2M (Machine-to-Machine) and AI agent micropayments for verifiable data resources.
+### 4. `pallet-gono-privacy` (zk-SNARK Attestations) — ✅ Complete
+
+Implements Whitepaper Section 8.3 — zero-knowledge proof circuits for humanity verification, credential verification, and anonymous jurisdiction proofs.
+
+- **3 Core Proof Types**: `HumanityProof` (Sybil-resistant human registry), `CredentialVerification` (anonymous journalist press pass & whistleblower protection), `JurisdictionProof` (selective attribute disclosure without PII)
+- **Pluggable `ZkVerifier` Trait**: Decouples proving engines (Groth16/BN254, PLONK, STARKs) from the runtime
+- **Replay Protection**: `NullifierRegistry` (H256 -> bool) prevents proof double-spending and front-running
+- **Attestation Lifecycle**: On-chain `VerifiedAttestations` registry with self-revocation support (`revoke_attestation`)
+- **Extrinsics**: `verify_and_attest`, `revoke_attestation`
+- **Tests**: 18 passing — humanity/credential/jurisdiction proof verification, nullifier double-spend prevention, proof/inputs size bound enforcement, self-revocation, persistent nullifier consumption
 
 ---
 
@@ -103,8 +119,15 @@ cargo test -p pallet-gono-store
 # Test verify pallet (SANUB)
 cargo test -p pallet-gono-verify
 
-# Test entire Substrate workspace
+# Test x402 pallet (HTTP 402 State Channels)
+cargo test -p pallet-gono-x402
+
+# Test privacy pallet (zk-SNARK Attestations)
+cargo test -p pallet-gono-privacy
+
+# Test entire Substrate workspace (68 tests total)
 cargo test --workspace
+
 
 # Windows: use CARGO_INCREMENTAL=0 if rust-analyzer locks files
 $env:CARGO_INCREMENTAL="0"; cargo test --workspace --target-dir target-ci

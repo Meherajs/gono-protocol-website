@@ -31,8 +31,10 @@ scale-info = { version = "2.11.6", default-features = false, features = ["derive
 # FRAME (direct crates — preferred for pallet development)
 frame-support = { version = "45.0.0", default-features = false }
 frame-system = { version = "45.0.0", default-features = false }
+pallet-balances = { version = "46.0.0", default-features = false }
 
 # Substrate primitives (versions aligned with frame-support v45)
 sp-core = { version = "39.0.0", default-features = false }
 sp-io = { version = "44.0.0", default-features = false }
 sp-runtime = { version = "45.0.0", default-features = false }
+
