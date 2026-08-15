@@ -45,3 +45,9 @@ backend/target/
 **/*.rs.bk
 Cargo.lock
 *.bak
+
+# Whitepaper source drafts
+GonoProtocol_whitepaper.md
+gono_protocol_whitepaper.tex
+*.tex
+
