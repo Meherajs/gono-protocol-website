@@ -18,11 +18,14 @@ members = [
 
 [workspace.lints.rust]
 suspicious_double_ref_op = { level = "allow", priority = 2 }
+deprecated = { level = "allow", priority = 2 }
 
 [workspace.lints.clippy]
-all = { level = "allow", priority = 0 }
-complexity = { level = "warn", priority = 1 }
-correctness = { level = "warn", priority = 1 }
+all = { level = "warn", priority = 0 }
+too_many_arguments = { level = "allow", priority = 2 }
+type_complexity = { level = "allow", priority = 2 }
+needless_borrows_for_generic_args = { level = "allow", priority = 2 }
+let_unit_value = { level = "allow", priority = 2 }
 
 [workspace.dependencies]
 # Gono Internal Pallets & Runtime

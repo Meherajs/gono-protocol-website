@@ -43,7 +43,6 @@ target-ci/
 target-test/
 backend/target/
 **/*.rs.bk
-Cargo.lock
 *.bak
 
 # Whitepaper source drafts

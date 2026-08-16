@@ -21,7 +21,6 @@ parameter_types! {
 }
 
 impl pallet_kleros_bridge::Config for Test {
-	type RuntimeEvent = RuntimeEvent;
 	type MaxRulingLength = MaxRulingLength;
 }
 

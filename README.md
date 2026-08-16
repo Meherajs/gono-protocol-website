@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/Substrate-FRAME%20v48-blue?style=for-the-badge&logo=polkadot" alt="Substrate FRAME"/>
   <img src="https://img.shields.io/badge/Rust-2021-orange?style=for-the-badge&logo=rust" alt="Rust"/>
   <img src="https://img.shields.io/badge/Tests-81%20Passing-brightgreen?style=for-the-badge" alt="Tests"/>
+  <img src="https://img.shields.io/github/actions/workflow/status/Meherajs/gono-protocol-website/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI Status"/>
   <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js" alt="Next.js"/>
   <img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react" alt="React"/>
   <img src="https://img.shields.io/badge/Tailwind-4.0-38bdf8?style=for-the-badge&logo=tailwindcss" alt="Tailwind"/>
@@ -124,6 +125,21 @@ cargo test -p pallet-kleros-bridge
 # Runtime Integrity & Genesis Tests
 cargo test -p gono-runtime
 ```
+
+---
+
+## 🔄 CI/CD Pipeline
+
+The repository utilizes automated GitHub Actions (`.github/workflows/ci.yml`) triggering on pushes to `main` and all pull requests with parallel execution:
+
+| Job | Check | Command |
+|---|---|---|
+| **Code Formatting** | `check-format` | `cargo fmt --all -- --check` |
+| **Clippy Static Analysis** | `lint-clippy` | `cargo clippy --workspace --all-targets -- -D warnings` |
+| **Unit & Integration Tests** | `unit-tests` | `cargo test --workspace --locked` |
+| **Parachain Runtime Build** | `build-runtime` | `cargo check -p gono-runtime --release` |
+
+Dependency caching is managed via `Swatinem/rust-cache` with isolated cache keys for sub-3-minute workflow execution. Code style is enforced via `.editorconfig` and `rustfmt.toml` adhering to Substrate tab conventions.
 
 ---
 

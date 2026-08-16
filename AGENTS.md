@@ -177,14 +177,22 @@ members = [
 
 ---
 
-## 7. Testing & Build Instructions
+## 7. Testing, Linting & CI/CD Instructions
+
+The repository runs an automated GitHub Actions CI pipeline (`.github/workflows/ci.yml`) on every push to `main` and all pull requests:
 
 ```bash
-# Run cargo check across the entire workspace
-$env:SKIP_WASM_BUILD="1"; $env:CARGO_INCREMENTAL="0"; cargo check --workspace --target-dir target-ci
+# 1. Verify code formatting (Substrate tab convention)
+cargo fmt --all -- --check
 
-# Run all 81 unit & integration tests
-$env:SKIP_WASM_BUILD="1"; $env:CARGO_INCREMENTAL="0"; cargo test --workspace --target-dir target-ci
+# 2. Run Clippy static analysis with zero warnings tolerated
+SKIP_WASM_BUILD=1 cargo clippy --workspace --all-targets --locked -- -D warnings
+
+# 3. Run all 81 unit & integration tests with locked dependencies
+SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo test --workspace --locked --target-dir target-ci
+
+# 4. Verify Parachain Runtime release build
+SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo check -p gono-runtime --release --locked --target-dir target-ci
 ```
 
 ---
