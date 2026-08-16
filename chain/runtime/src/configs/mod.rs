@@ -75,6 +75,7 @@ parameter_types! {
 	//  The `RuntimeBlockLength` and `RuntimeBlockWeights` exist here because the
 	// `DeletionWeightLimit` and `DeletionQueueDepth` depend on those to parameterize
 	// the lazy contract deletion.
+	#[allow(deprecated)]
 	pub RuntimeBlockLength: BlockLength =
 		BlockLength::max_with_normal_ratio(5 * 1024 * 1024, NORMAL_DISPATCH_RATIO);
 	pub RuntimeBlockWeights: BlockWeights = BlockWeights::builder()
@@ -354,7 +355,6 @@ parameter_types! {
 }
 
 impl pallet_gono_store::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
 	type MaxCidLength = MaxCidLength;
 	type MaxC2paUriLength = MaxC2paUriLength;
 	type MaxChildRevisions = MaxChildRevisions;
@@ -362,7 +362,9 @@ impl pallet_gono_store::Config for Runtime {
 
 /// Adapter wiring pallet-gono-verify's ContentInspector to pallet-gono-store.
 pub struct GonoStoreInspector;
-impl pallet_gono_verify::ContentInspector<pallet_gono_verify::CidOf<Runtime>> for GonoStoreInspector {
+impl pallet_gono_verify::ContentInspector<pallet_gono_verify::CidOf<Runtime>>
+	for GonoStoreInspector
+{
 	fn content_exists(cid: &pallet_gono_verify::CidOf<Runtime>) -> bool {
 		pallet_gono_store::Receipts::<Runtime>::contains_key(cid)
 	}
@@ -374,7 +376,6 @@ parameter_types! {
 }
 
 impl pallet_gono_verify::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
 	type MaxCidLength = MaxCidLength;
 	type MinVerifiers = MinVerifiers;
 	type EvaluationPeriod = EvaluationPeriod;
@@ -387,7 +388,6 @@ parameter_types! {
 }
 
 impl pallet_gono_privacy::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
 	type Verifier = pallet_gono_privacy::MockZkVerifier;
 	type MaxProofSize = MaxProofSize;
 	type MaxPublicInputsSize = MaxPublicInputsSize;
@@ -399,7 +399,6 @@ parameter_types! {
 }
 
 impl pallet_gono_x402::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
 	type NativeBalance = Balances;
 	type RuntimeHoldReason = RuntimeHoldReason;
 	type Signature = Signature;
@@ -435,7 +434,11 @@ impl pallet_preimage::Config for Runtime {
 		AccountId,
 		Balances,
 		PreimageHoldReason,
-		frame_support::traits::LinearStoragePrice<PreimageBaseDeposit, PreimageByteDeposit, Balance>,
+		frame_support::traits::LinearStoragePrice<
+			PreimageBaseDeposit,
+			PreimageByteDeposit,
+			Balance,
+		>,
 	>;
 }
 
@@ -546,6 +549,5 @@ parameter_types! {
 }
 
 impl pallet_kleros_bridge::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
 	type MaxRulingLength = MaxRulingLength;
 }

@@ -8,7 +8,10 @@ fn test_escalate_dispute_works() {
 	new_test_ext().execute_with(|| {
 		System::set_block_number(1);
 		let cid: BoundedVec<u8, frame_support::traits::ConstU32<128>> =
-			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx".to_vec().try_into().unwrap();
+			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx"
+				.to_vec()
+				.try_into()
+				.unwrap();
 
 		assert_ok!(KlerosBridge::escalate_dispute(
 			RuntimeOrigin::signed(1),
@@ -33,7 +36,10 @@ fn test_submit_ruling_works() {
 	new_test_ext().execute_with(|| {
 		System::set_block_number(1);
 		let cid: BoundedVec<u8, frame_support::traits::ConstU32<128>> =
-			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx".to_vec().try_into().unwrap();
+			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx"
+				.to_vec()
+				.try_into()
+				.unwrap();
 
 		assert_ok!(KlerosBridge::escalate_dispute(
 			RuntimeOrigin::signed(1),
@@ -62,7 +68,10 @@ fn test_submit_ruling_works() {
 fn test_submit_ruling_fails_non_root() {
 	new_test_ext().execute_with(|| {
 		let cid: BoundedVec<u8, frame_support::traits::ConstU32<128>> =
-			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx".to_vec().try_into().unwrap();
+			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx"
+				.to_vec()
+				.try_into()
+				.unwrap();
 
 		assert_ok!(KlerosBridge::escalate_dispute(
 			RuntimeOrigin::signed(1),
@@ -90,7 +99,10 @@ fn test_submit_ruling_fails_nonexistent_dispute() {
 fn test_submit_ruling_fails_already_resolved() {
 	new_test_ext().execute_with(|| {
 		let cid: BoundedVec<u8, frame_support::traits::ConstU32<128>> =
-			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx".to_vec().try_into().unwrap();
+			b"QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx"
+				.to_vec()
+				.try_into()
+				.unwrap();
 
 		assert_ok!(KlerosBridge::escalate_dispute(
 			RuntimeOrigin::signed(1),

@@ -16,12 +16,13 @@ pub mod pallet {
 
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
-		type RuntimeEvent: From<Event<Self>> + IsType<<Self as frame_system::Config>::RuntimeEvent>;
 		#[pallet::constant]
 		type MaxRulingLength: Get<u32>;
 	}
 
-	#[derive(Clone, Encode, Decode, DecodeWithMemTracking, Eq, PartialEq, Debug, TypeInfo, MaxEncodedLen)]
+	#[derive(
+		Clone, Encode, Decode, DecodeWithMemTracking, Eq, PartialEq, Debug, TypeInfo, MaxEncodedLen,
+	)]
 	pub enum DisputeStatus {
 		Waiting,
 		Appealable,
@@ -43,8 +44,14 @@ pub mod pallet {
 	#[pallet::event]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
 	pub enum Event<T: Config> {
-		DisputeEscalated { dispute_id: u32, plaintiff: T::AccountId },
-		RulingSubmitted { dispute_id: u32, ruling: u8 },
+		DisputeEscalated {
+			dispute_id: u32,
+			plaintiff: T::AccountId,
+		},
+		RulingSubmitted {
+			dispute_id: u32,
+			ruling: u8,
+		},
 	}
 
 	#[pallet::error]
@@ -65,7 +72,10 @@ pub mod pallet {
 			let id = NextDisputeId::<T>::get();
 			NextDisputeId::<T>::put(id.saturating_add(1));
 			Disputes::<T>::insert(id, (who.clone(), DisputeStatus::Waiting, 0));
-			Self::deposit_event(Event::DisputeEscalated { dispute_id: id, plaintiff: who });
+			Self::deposit_event(Event::DisputeEscalated {
+				dispute_id: id,
+				plaintiff: who,
+			});
 			Ok(())
 		}
 
@@ -75,7 +85,10 @@ pub mod pallet {
 			ensure_root(origin)?;
 			Disputes::<T>::try_mutate(dispute_id, |d| -> DispatchResult {
 				let (_, status, r) = d.as_mut().ok_or(Error::<T>::DisputeNotFound)?;
-				ensure!(*status != DisputeStatus::Resolved, Error::<T>::DisputeAlreadyResolved);
+				ensure!(
+					*status != DisputeStatus::Resolved,
+					Error::<T>::DisputeAlreadyResolved
+				);
 				*status = DisputeStatus::Resolved;
 				*r = ruling;
 				Ok(())
@@ -87,4 +100,3 @@ pub mod pallet {
 }
 
 pub use pallet::*;
-

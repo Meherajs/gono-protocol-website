@@ -43,7 +43,11 @@ fn testnet_genesis(
 		},
 		parachain_info: ParachainInfoConfig { parachain_id: id },
 		collator_selection: CollatorSelectionConfig {
-			invulnerables: invulnerables.iter().cloned().map(|(acc, _)| acc).collect::<Vec<_>>(),
+			invulnerables: invulnerables
+				.iter()
+				.cloned()
+				.map(|(acc, _)| acc)
+				.collect::<Vec<_>>(),
 			candidacy_bond: EXISTENTIAL_DEPOSIT * 16,
 		},
 		session: SessionConfig {
@@ -58,7 +62,9 @@ fn testnet_genesis(
 				})
 				.collect::<Vec<_>>(),
 		},
-		polkadot_xcm: PolkadotXcmConfig { safe_xcm_version: Some(SAFE_XCM_VERSION) },
+		polkadot_xcm: PolkadotXcmConfig {
+			safe_xcm_version: Some(SAFE_XCM_VERSION)
+		},
 		sudo: SudoConfig { key: Some(root) },
 	})
 }
@@ -67,10 +73,18 @@ fn local_testnet_genesis() -> Value {
 	testnet_genesis(
 		// initial collators.
 		vec![
-			(Sr25519Keyring::Alice.to_account_id(), Sr25519Keyring::Alice.public().into()),
-			(Sr25519Keyring::Bob.to_account_id(), Sr25519Keyring::Bob.public().into()),
+			(
+				Sr25519Keyring::Alice.to_account_id(),
+				Sr25519Keyring::Alice.public().into(),
+			),
+			(
+				Sr25519Keyring::Bob.to_account_id(),
+				Sr25519Keyring::Bob.public().into(),
+			),
 		],
-		Sr25519Keyring::well_known().map(|k| k.to_account_id()).collect(),
+		Sr25519Keyring::well_known()
+			.map(|k| k.to_account_id())
+			.collect(),
 		Sr25519Keyring::Alice.to_account_id(),
 		PARACHAIN_ID.into(),
 	)
@@ -80,10 +94,18 @@ fn development_config_genesis() -> Value {
 	testnet_genesis(
 		// initial collators.
 		vec![
-			(Sr25519Keyring::Alice.to_account_id(), Sr25519Keyring::Alice.public().into()),
-			(Sr25519Keyring::Bob.to_account_id(), Sr25519Keyring::Bob.public().into()),
+			(
+				Sr25519Keyring::Alice.to_account_id(),
+				Sr25519Keyring::Alice.public().into(),
+			),
+			(
+				Sr25519Keyring::Bob.to_account_id(),
+				Sr25519Keyring::Bob.public().into(),
+			),
 		],
-		Sr25519Keyring::well_known().map(|k| k.to_account_id()).collect(),
+		Sr25519Keyring::well_known()
+			.map(|k| k.to_account_id())
+			.collect(),
 		Sr25519Keyring::Alice.to_account_id(),
 		PARACHAIN_ID.into(),
 	)
