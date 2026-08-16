@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -37,6 +39,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -50,7 +54,7 @@ jobs:
           key: clippy
 
       - name: Run Clippy Linter
-        run: cargo clippy --workspace --all-targets -- -D warnings
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
 
   unit-tests:
     name: Unit & Integration Tests
@@ -58,6 +62,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -78,6 +84,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -91,4 +99,5 @@ jobs:
           key: runtime
 
       - name: Check Gono Runtime Release Build
-        run: cargo check -p gono-runtime --release
+        run: cargo check -p gono-runtime --release --locked
+

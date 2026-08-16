@@ -186,13 +186,13 @@ The repository runs an automated GitHub Actions CI pipeline (`.github/workflows/
 cargo fmt --all -- --check
 
 # 2. Run Clippy static analysis with zero warnings tolerated
-$env:SKIP_WASM_BUILD="1"; cargo clippy --workspace --all-targets -- -D warnings
+SKIP_WASM_BUILD=1 cargo clippy --workspace --all-targets --locked -- -D warnings
 
 # 3. Run all 81 unit & integration tests with locked dependencies
-$env:SKIP_WASM_BUILD="1"; $env:CARGO_INCREMENTAL="0"; cargo test --workspace --locked --target-dir target-ci
+SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo test --workspace --locked --target-dir target-ci
 
 # 4. Verify Parachain Runtime release build
-$env:SKIP_WASM_BUILD="1"; $env:CARGO_INCREMENTAL="0"; cargo check -p gono-runtime --release --target-dir target-ci
+SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo check -p gono-runtime --release --locked --target-dir target-ci
 ```
 
 ---
