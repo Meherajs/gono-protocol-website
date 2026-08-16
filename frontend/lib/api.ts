@@ -82,7 +82,7 @@ export interface UseCase {
 async function fetchApi<T>(endpoint: string): Promise<T | null> {
     // Skip API calls during build if backend is not available
     if (USE_FALLBACK || typeof window === 'undefined') {
-        console.warn(`API call skipped: ${endpoint} (using fallback data)`);
+        console.warn('API call skipped (using fallback data):', endpoint);
         return null;
     }
     
@@ -96,7 +96,7 @@ async function fetchApi<T>(endpoint: string): Promise<T | null> {
         const json: ApiResponse<T> = await response.json();
         return json.data;
     } catch (error) {
-        console.error(`Failed to fetch ${endpoint}:`, error);
+        console.error('Failed to fetch:', endpoint, error);
         return null;
     }
 }
