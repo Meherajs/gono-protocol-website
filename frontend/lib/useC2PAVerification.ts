@@ -44,14 +44,21 @@ const IPFS_GATEWAYS = [
 
 export function resolveIpfsUri(uri: string): string {
 	if (!uri) return "";
-	if (uri.startsWith("ipfs://")) {
-		const cid = uri.replace("ipfs://", "");
+	const trimmed = uri.trim();
+	if (trimmed.startsWith("ipfs://")) {
+		const cid = encodeURIComponent(trimmed.replace(/^ipfs:\/\//, ""));
 		return `${IPFS_GATEWAYS[0]}${cid}`;
 	}
-	if (uri.startsWith("http://") || uri.startsWith("https://")) {
-		return uri;
+	try {
+		const parsed = new URL(trimmed);
+		if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+			return parsed.href;
+		}
+	} catch {
+		// Non-URL format, treat as raw CID
+		return `${IPFS_GATEWAYS[0]}${encodeURIComponent(trimmed)}`;
 	}
-	return `${IPFS_GATEWAYS[0]}${uri}`;
+	return "";
 }
 
 export function useC2PAVerification(

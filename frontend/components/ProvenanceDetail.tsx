@@ -246,15 +246,37 @@ export function ProvenanceDetail({
 											<code className="text-xs font-mono text-zinc-400 break-all">{manifestUri}</code>
 										</div>
 									</div>
-									<a
-										href={manifestUri.startsWith("ipfs://") ? `https://ipfs.io/ipfs/${manifestUri.replace("ipfs://", "")}` : manifestUri}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition-all"
-									>
-										Open Gateway
-										<ExternalLink className="w-3 h-3" />
-									</a>
+									{(() => {
+										const trimmed = manifestUri.trim();
+										let safeUrl: string | null = null;
+										if (trimmed.startsWith("ipfs://")) {
+											const cid = encodeURIComponent(trimmed.replace(/^ipfs:\/\//, ""));
+											safeUrl = `https://ipfs.io/ipfs/${cid}`;
+										} else {
+											try {
+												const parsed = new URL(trimmed);
+												if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+													safeUrl = parsed.href;
+												}
+											} catch {
+												safeUrl = null;
+											}
+										}
+
+										if (!safeUrl) return null;
+
+										return (
+											<a
+												href={safeUrl}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition-all"
+											>
+												Open Gateway
+												<ExternalLink className="w-3 h-3" />
+											</a>
+										);
+									})()}
 								</div>
 							)}
 						</div>
