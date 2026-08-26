@@ -38,7 +38,7 @@ pallet-gono-privacy = { path = "pallets/privacy", default-features = false }
 pallet-gono-x402 = { path = "pallets/x402", default-features = false }
 pallet-kleros-bridge = { path = "pallets/kleros-bridge", default-features = false }
 gono-runtime = { path = "chain/runtime", default-features = false }
-parachain-template-runtime = { path = "chain/runtime", default-features = false }
+
 
 # Polkadot SDK Umbrella & Tooling
 polkadot-sdk = { version = "2606.0.0", default-features = false }
