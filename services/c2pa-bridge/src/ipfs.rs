@@ -4,53 +4,65 @@
 
 use anyhow::{Context, Result};
 use serde::Deserialize;
+use tokio_util::io::ReaderStream;
 
 #[derive(Deserialize)]
 struct IpfsAddResponse {
-    #[serde(rename = "Hash")]
-    hash: String,
+	#[serde(rename = "Hash")]
+	hash: String,
 }
 
-/// Upload a file to a local IPFS node and return the resulting CID.
+/// Upload a file to a local IPFS node via streaming multipart and return the resulting CID.
 ///
 /// # Arguments
 /// * `file_path` - Path to the file to upload
 /// * `ipfs_url` - Base URL of the IPFS API (e.g., "http://127.0.0.1:5001")
 pub async fn upload_to_ipfs(file_path: &str, ipfs_url: &str) -> Result<String> {
-    let file_bytes = std::fs::read(file_path).context("Failed to read file for IPFS upload")?;
+	let file = tokio::fs::File::open(file_path)
+		.await
+		.context("Failed to open file for streaming IPFS upload")?;
 
-    let file_name = std::path::Path::new(file_path)
-        .file_name()
-        .unwrap_or_default()
-        .to_string_lossy()
-        .to_string();
+	let metadata = file
+		.metadata()
+		.await
+		.context("Failed to query file metadata for IPFS upload")?;
+	let file_len = metadata.len();
 
-    let part = reqwest::multipart::Part::bytes(file_bytes)
-        .file_name(file_name)
-        .mime_str("application/octet-stream")?;
+	let file_name = std::path::Path::new(file_path)
+		.file_name()
+		.unwrap_or_default()
+		.to_string_lossy()
+		.to_string();
 
-    let form = reqwest::multipart::Form::new().part("file", part);
+	let stream = ReaderStream::new(file);
+	let body = reqwest::Body::wrap_stream(stream);
 
-    let url = format!("{ipfs_url}/api/v0/add");
+	let part = reqwest::multipart::Part::stream_with_length(body, file_len)
+		.file_name(file_name)
+		.mime_str("application/octet-stream")?;
 
-    let client = reqwest::Client::new();
-    let response = client
-        .post(&url)
-        .multipart(form)
-        .send()
-        .await
-        .context("Failed to connect to IPFS node — is it running?")?;
+	let form = reqwest::multipart::Form::new().part("file", part);
 
-    if !response.status().is_success() {
-        let status = response.status();
-        let body = response.text().await.unwrap_or_default();
-        anyhow::bail!("IPFS upload failed (HTTP {status}): {body}");
-    }
+	let url = format!("{ipfs_url}/api/v0/add");
 
-    let result: IpfsAddResponse = response
-        .json()
-        .await
-        .context("Failed to parse IPFS response")?;
+	let client = reqwest::Client::new();
+	let response = client
+		.post(&url)
+		.multipart(form)
+		.send()
+		.await
+		.context("Failed to connect to IPFS node — is it running?")?;
 
-    Ok(result.hash)
+	if !response.status().is_success() {
+		let status = response.status();
+		let body = response.text().await.unwrap_or_default();
+		anyhow::bail!("IPFS upload failed (HTTP {status}): {body}");
+	}
+
+	let result: IpfsAddResponse = response
+		.json()
+		.await
+		.context("Failed to parse IPFS response")?;
+
+	Ok(result.hash)
 }
