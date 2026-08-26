@@ -1,6 +1,6 @@
 use polkadot_sdk::*;
 
-use parachain_template_runtime as runtime;
+use gono_runtime as runtime;
 use sc_chain_spec::{ChainSpecExtension, ChainSpecGroup};
 use sc_service::ChainType;
 use serde::{Deserialize, Serialize};
@@ -34,7 +34,9 @@ pub fn development_chain_spec() -> ChainSpec {
 
 	ChainSpec::builder(
 		runtime::WASM_BINARY.expect("WASM binary was not built, please build it!"),
-		Extensions { relay_chain: RELAY_CHAIN.into() },
+		Extensions {
+			relay_chain: RELAY_CHAIN.into(),
+		},
 	)
 	.with_name("Development")
 	.with_id("dev")
@@ -53,7 +55,9 @@ pub fn local_chain_spec() -> ChainSpec {
 
 	ChainSpec::builder(
 		runtime::WASM_BINARY.expect("WASM binary was not built, please build it!"),
-		Extensions { relay_chain: RELAY_CHAIN.into() },
+		Extensions {
+			relay_chain: RELAY_CHAIN.into(),
+		},
 	)
 	.with_name("Local Testnet")
 	.with_id("local_testnet")

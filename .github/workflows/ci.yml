@@ -42,6 +42,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends clang libclang-dev protobuf-compiler
+
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -65,6 +70,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends clang libclang-dev protobuf-compiler
+
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -87,6 +97,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends clang libclang-dev protobuf-compiler
+
       - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -100,4 +115,5 @@ jobs:
 
       - name: Check Gono Runtime Release Build
         run: cargo check -p gono-runtime --release --locked
+
 

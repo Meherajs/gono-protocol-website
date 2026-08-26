@@ -22,12 +22,16 @@ parameter_types! {
 	pub const MaxCidLength: u32 = 68;
 	pub const MaxC2paUriLength: u32 = 256;
 	pub const MaxChildRevisions: u32 = 64;
+	pub const MaxSignerFingerprintLength: u32 = 64;
+	pub const MaxManifestLabelLength: u32 = 128;
 }
 
 impl pallet_gono_store::Config for Test {
 	type MaxCidLength = MaxCidLength;
 	type MaxC2paUriLength = MaxC2paUriLength;
 	type MaxChildRevisions = MaxChildRevisions;
+	type MaxSignerFingerprintLength = MaxSignerFingerprintLength;
+	type MaxManifestLabelLength = MaxManifestLabelLength;
 }
 
 // ─── Test externalities builder ─────────────────────────────────────

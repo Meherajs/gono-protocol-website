@@ -1,4 +1,4 @@
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, C2PABadge } from "@/components";
 import Link from "next/link";
 
 export default function TrustLensPage() {
@@ -75,9 +75,18 @@ export default function TrustLensPage() {
                                         <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
                                             <span className="text-emerald-400 text-sm">✓</span>
                                         </div>
-                                        <div>
-                                            <h3 className="font-semibold text-white mb-1">C2PA Metadata Integration</h3>
-                                            <p className="text-sm text-zinc-500">Industry-standard content authenticity</p>
+                                        <div className="flex-1">
+                                            <div className="flex items-center justify-between gap-2 mb-1">
+                                                <h3 className="font-semibold text-white">C2PA Metadata Integration</h3>
+                                                <C2PABadge
+                                                    cid="bafkreihdwdcefgh4dqkjv67uzcmw7ojee6xedzdetoju"
+                                                    manifestUri="ipfs://bafkreic2pamanifestexample001"
+                                                    signerFingerprint="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                                    manifestLabel="urn:c2pa:9958beb9-adb0-43f6-aec7-af417fd3134a"
+                                                    size="sm"
+                                                />
+                                            </div>
+                                            <p className="text-sm text-zinc-500">Industry-standard content authenticity with cryptographic verification badge</p>
                                         </div>
                                     </div>
                                     

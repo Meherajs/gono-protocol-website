@@ -4,7 +4,7 @@
 use std::{sync::Arc, time::Duration};
 
 // Local Runtime Types
-use parachain_template_runtime::{
+use gono_runtime::{
 	apis::RuntimeApi,
 	opaque::{Block, Hash},
 };
@@ -61,7 +61,11 @@ pub type Service = PartialComponents<
 	(),
 	sc_consensus::DefaultImportQueue<Block>,
 	sc_transaction_pool::TransactionPoolHandle<Block, ParachainClient>,
-	(ParachainBlockImport, Option<Telemetry>, Option<TelemetryWorkerHandle>),
+	(
+		ParachainBlockImport,
+		Option<Telemetry>,
+		Option<TelemetryWorkerHandle>,
+	),
 >;
 
 /// Starts a `ServiceBuilder` for a full service.
@@ -84,7 +88,9 @@ pub fn new_partial(config: &Configuration) -> Result<Service, sc_service::Error>
 	let heap_pages = config
 		.executor
 		.default_heap_pages
-		.map_or(DEFAULT_HEAP_ALLOC_STRATEGY, |h| HeapAllocStrategy::Static { extra_pages: h as _ });
+		.map_or(DEFAULT_HEAP_ALLOC_STRATEGY, |h| HeapAllocStrategy::Static {
+			extra_pages: h as _,
+		});
 
 	let executor = ParachainExecutor::builder()
 		.with_execution_method(config.executor.wasm_method)
@@ -106,7 +112,9 @@ pub fn new_partial(config: &Configuration) -> Result<Service, sc_service::Error>
 	let telemetry_worker_handle = telemetry.as_ref().map(|(worker, _)| worker.handle());
 
 	let telemetry = telemetry.map(|(worker, telemetry)| {
-		task_manager.spawn_handle().spawn("telemetry", None, worker.run());
+		task_manager
+			.spawn_handle()
+			.spawn("telemetry", None, worker.run());
 		telemetry
 	});
 
@@ -209,7 +217,10 @@ fn start_consensus(
 		para_backend: backend,
 		relay_client: relay_chain_interface,
 		code_hash_provider: move |block_hash| {
-			client.code_at(block_hash).ok().map(|c| ValidationCode::from(c).hash())
+			client
+				.code_at(block_hash)
+				.ok()
+				.map(|c| ValidationCode::from(c).hash())
 		},
 		keystore,
 		collator_key,
@@ -223,10 +234,22 @@ fn start_consensus(
 		reinitialize: false,
 		max_pov_percentage: None,
 	};
-	let fut = aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _, _, _>(
-		params,
-	);
-	task_manager.spawn_essential_handle().spawn("aura", None, fut);
+	let fut = aura::run::<
+		Block,
+		sp_consensus_aura::sr25519::AuthorityPair,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+	>(params);
+	task_manager
+		.spawn_essential_handle()
+		.spawn("aura", None, fut);
 
 	Ok(())
 }
@@ -255,8 +278,14 @@ pub async fn start_parachain_node(
 	let backend = params.backend.clone();
 	let mut task_manager = params.task_manager;
 
-	let relay_chain_fork_id = polkadot_config.chain_spec.fork_id().map(ToString::to_string);
-	let parachain_fork_id = parachain_config.chain_spec.fork_id().map(ToString::to_string);
+	let relay_chain_fork_id = polkadot_config
+		.chain_spec
+		.fork_id()
+		.map(ToString::to_string);
+	let parachain_fork_id = parachain_config
+		.chain_spec
+		.fork_id()
+		.map(ToString::to_string);
 	let advertise_non_global_ips = parachain_config.network.allow_non_globals_in_dht;
 	let parachain_public_addresses = parachain_config.network.public_addresses.clone();
 
@@ -281,7 +310,7 @@ pub async fn start_parachain_node(
 	let para_id = client
 		.runtime_api()
 		.parachain_id(best_hash)
-		.map_err(|_| "Failed to retrieve parachain id from runtime. Make sure you implement `cumulus_primitives_core::GetParachaiNidentity` runtime API.")?;
+		.map_err(|_| "Failed to retrieve parachain id from runtime. Make sure you implement `cumulus_primitives_core::GetParachainInfo` runtime API.")?;
 
 	// NOTE: because we use Aura here explicitly, we can use `CollatorSybilResistance::Resistant`
 	// when starting the network.
@@ -297,7 +326,10 @@ pub async fn start_parachain_node(
 			import_queue: params.import_queue,
 			sybil_resistance_level: CollatorSybilResistance::Resistant, // because of Aura
 			metrics: sc_network::NetworkWorker::<Block, Hash>::register_notification_metrics(
-				parachain_config.prometheus_config.as_ref().map(|config| &config.registry),
+				parachain_config
+					.prometheus_config
+					.as_ref()
+					.map(|config| &config.registry),
 			),
 		})
 		.await?;
@@ -322,7 +354,9 @@ pub async fn start_parachain_node(
 		task_manager.spawn_handle().spawn(
 			"offchain-workers-runner",
 			"offchain-work",
-			offchain_workers.run(client.clone(), task_manager.spawn_handle()).boxed(),
+			offchain_workers
+				.run(client.clone(), task_manager.spawn_handle())
+				.boxed(),
 		);
 	}
 
@@ -331,8 +365,10 @@ pub async fn start_parachain_node(
 		let transaction_pool = transaction_pool.clone();
 
 		Box::new(move |_| {
-			let deps =
-				crate::rpc::FullDeps { client: client.clone(), pool: transaction_pool.clone() };
+			let deps = crate::rpc::FullDeps {
+				client: client.clone(),
+				pool: transaction_pool.clone(),
+			};
 
 			crate::rpc::create_full(deps).map_err(Into::into)
 		})
@@ -365,8 +401,8 @@ pub async fn start_parachain_node(
 				"⚠️  The hardware does not meet the minimal requirements {} for role 'Authority'.",
 				err
 			);
-			},
-			_ => {},
+			}
+			_ => {}
 		}
 
 		if let Some(ref mut telemetry) = telemetry {

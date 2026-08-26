@@ -50,6 +50,14 @@ pub mod pallet {
 		/// Maximum number of child revisions a single CID can have in the DAG.
 		#[pallet::constant]
 		type MaxChildRevisions: Get<u32>;
+
+		/// Maximum byte length of a C2PA Signer Fingerprint (64 bytes hex SHA-256).
+		#[pallet::constant]
+		type MaxSignerFingerprintLength: Get<u32>;
+
+		/// Maximum byte length of a C2PA Manifest Label (128 bytes URN string).
+		#[pallet::constant]
+		type MaxManifestLabelLength: Get<u32>;
 	}
 
 	#[pallet::pallet]
@@ -77,6 +85,20 @@ pub mod pallet {
 		OptionQuery,
 	>;
 
+	/// Index for querying all assets signed by a specific C2PA signer certificate fingerprint:
+	/// (SignerFingerprint, CID) -> ()
+	#[pallet::storage]
+	#[pallet::getter(fn signer_assets)]
+	pub type SignerAssets<T: Config> = StorageDoubleMap<
+		_,
+		Blake2_128Concat,
+		SignerFingerprintOf<T>,
+		Blake2_128Concat,
+		CidOf<T>,
+		(),
+		OptionQuery,
+	>;
+
 	/// Provenance DAG: parent CID → bounded list of child revision CIDs.
 	#[pallet::storage]
 	#[pallet::getter(fn provenance_dag)]
@@ -98,6 +120,8 @@ pub mod pallet {
 			cid: CidOf<T>,
 			author: T::AccountId,
 			content_hash: [u8; 32],
+			c2pa_signer_fingerprint: Option<SignerFingerprintOf<T>>,
+			c2pa_manifest_label: Option<ManifestLabelOf<T>>,
 		},
 
 		/// A child CID was linked to a parent, updating the provenance DAG.
@@ -144,16 +168,20 @@ pub mod pallet {
 		/// - `content_hash`: 32-byte digest of the raw media.
 		/// - `c2pa_uri`: URI pointing to the C2PA manifest (may be empty).
 		/// - `parent_cid`: Optional parent CID to link into the provenance DAG.
+		/// - `c2pa_signer_fingerprint`: Optional SHA-256 fingerprint of the signing certificate.
+		/// - `c2pa_manifest_label`: Optional URN label of the active C2PA manifest.
 		///
 		/// Emits `ReceiptCommitted` and optionally `ProvenanceUpdated`.
 		#[pallet::call_index(0)]
-		#[pallet::weight(Weight::from_parts(10_000, 0) + T::DbWeight::get().writes(3))]
+		#[pallet::weight(Weight::from_parts(10_000, 0) + T::DbWeight::get().writes(4))]
 		pub fn commit_receipt(
 			origin: OriginFor<T>,
 			cid: CidOf<T>,
 			content_hash: [u8; 32],
 			c2pa_uri: C2paUriOf<T>,
 			parent_cid: Option<CidOf<T>>,
+			c2pa_signer_fingerprint: Option<SignerFingerprintOf<T>>,
+			c2pa_manifest_label: Option<ManifestLabelOf<T>>,
 		) -> DispatchResult {
 			let author = ensure_signed(origin)?;
 
@@ -180,6 +208,8 @@ pub mod pallet {
 				timestamp: now,
 				c2pa_manifest_uri: c2pa_uri,
 				parent_cid: parent_cid.clone(),
+				c2pa_signer_fingerprint: c2pa_signer_fingerprint.clone(),
+				c2pa_manifest_label: c2pa_manifest_label.clone(),
 			};
 
 			// Write primary receipt
@@ -187,6 +217,11 @@ pub mod pallet {
 
 			// Write author index
 			AuthorReceipts::<T>::insert(&author, &cid, ());
+
+			// Write signer index if fingerprint provided
+			if let Some(ref fp) = c2pa_signer_fingerprint {
+				SignerAssets::<T>::insert(fp, &cid, ());
+			}
 
 			// Update provenance DAG if parent exists
 			if let Some(ref parent) = parent_cid {
@@ -206,6 +241,8 @@ pub mod pallet {
 				cid,
 				author,
 				content_hash,
+				c2pa_signer_fingerprint,
+				c2pa_manifest_label,
 			});
 
 			Ok(())
