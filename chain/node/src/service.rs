@@ -234,9 +234,19 @@ fn start_consensus(
 		reinitialize: false,
 		max_pov_percentage: None,
 	};
-	let fut = aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _, _, _>(
-		params,
-	);
+	let fut = aura::run::<
+		Block,
+		sp_consensus_aura::sr25519::AuthorityPair,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+		_,
+	>(params);
 	task_manager
 		.spawn_essential_handle()
 		.spawn("aura", None, fut);
@@ -300,7 +310,7 @@ pub async fn start_parachain_node(
 	let para_id = client
 		.runtime_api()
 		.parachain_id(best_hash)
-		.map_err(|_| "Failed to retrieve parachain id from runtime. Make sure you implement `cumulus_primitives_core::GetParachaiNidentity` runtime API.")?;
+		.map_err(|_| "Failed to retrieve parachain id from runtime. Make sure you implement `cumulus_primitives_core::GetParachainInfo` runtime API.")?;
 
 	// NOTE: because we use Aura here explicitly, we can use `CollatorSybilResistance::Resistant`
 	// when starting the network.

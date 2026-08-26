@@ -10,13 +10,15 @@ repository = "https://github.com/gono-protocol"
 resolver = "2"
 members = [
     "chain/runtime",
-    "chain/node",
     "pallets/store",
     "pallets/verify",
     "pallets/privacy",
     "pallets/x402",
     "pallets/kleros-bridge",
     "services/c2pa-bridge",
+]
+exclude = [
+    "chain/node",
 ]
 
 [workspace.lints.rust]
