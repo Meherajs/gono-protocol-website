@@ -45,6 +45,13 @@ backend/target/
 **/*.rs.bk
 *.bak
 
+# C2PA dev certificates & test artifacts
+certs/dev/
+*.pem
+test_photo.jpg
+signed_photo.jpg
+test_manifest.json
+
 # Whitepaper source drafts
 GonoProtocol_whitepaper.md
 gono_protocol_whitepaper.tex
