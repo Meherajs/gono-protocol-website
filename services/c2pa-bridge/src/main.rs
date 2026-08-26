@@ -95,7 +95,8 @@ async fn main() -> anyhow::Result<()> {
 		}
 		Commands::Upload { file, ipfs_url } => {
 			let cid = ipfs::upload_to_ipfs(&file, &ipfs_url).await?;
-			println!("{{\"cid\": \"{cid}\"}}");
+			let res = serde_json::json!({ "cid": cid });
+			println!("{}", serde_json::to_string_pretty(&res)?);
 		}
 		Commands::Commit {
 			file,

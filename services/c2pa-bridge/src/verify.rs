@@ -67,9 +67,8 @@ pub fn verify_file(file_path: &str, allow_untrusted: bool) -> Result<VerifyResul
 		.and_then(|v| v.as_str())
 		.map(|s| s.to_string());
 
-	// Extract validation status
+	// Extract validation state and status
 	let mut validation_entries = Vec::new();
-	let mut is_tamper_free = true;
 	let mut is_trusted = true;
 
 	if let Some(results) = parsed.get("validation_results") {
@@ -102,8 +101,6 @@ pub fn verify_file(file_path: &str, allow_untrusted: bool) -> Result<VerifyResul
 						.to_string();
 					if code == "signingCredential.untrusted" {
 						is_trusted = false;
-					} else {
-						is_tamper_free = false;
 					}
 					validation_entries.push(ValidationEntry {
 						code,
@@ -119,6 +116,12 @@ pub fn verify_file(file_path: &str, allow_untrusted: bool) -> Result<VerifyResul
 		}
 	}
 
+	// Derive validity from validation_state
+	let validation_state_str = parsed
+		.get("validation_state")
+		.and_then(|v| v.as_str())
+		.unwrap_or("Invalid");
+	let is_tamper_free = validation_state_str.eq_ignore_ascii_case("Valid");
 	let is_valid = is_tamper_free && (is_trusted || allow_untrusted);
 
 	// Extract signer info from the active manifest
