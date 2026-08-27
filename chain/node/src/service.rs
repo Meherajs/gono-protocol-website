@@ -16,8 +16,8 @@ use polkadot_sdk::{cumulus_client_service::ParachainTracingExecuteBlock, *};
 use cumulus_client_bootnodes::{start_bootnode_tasks, StartBootnodeTasksParams};
 use cumulus_client_cli::CollatorOptions;
 use cumulus_client_collator::service::CollatorService;
-#[docify::export(lookahead_collator)]
-use cumulus_client_consensus_aura::collators::lookahead::{self as aura, Params as AuraParams};
+#[docify::export(basic_collator)]
+use cumulus_client_consensus_aura::collators::basic::{self as aura, Params as AuraParams};
 use cumulus_client_consensus_common::ParachainBlockImport as TParachainBlockImport;
 use cumulus_client_service::{
 	build_network, build_relay_chain_interface, prepare_node_config, start_relay_chain_tasks,
@@ -106,6 +106,7 @@ pub fn new_partial(config: &Configuration) -> Result<Service, sc_service::Error>
 			telemetry.as_ref().map(|(_, telemetry)| telemetry.handle()),
 			executor,
 			true,
+			Default::default(),
 		)?;
 	let client = Arc::new(client);
 
@@ -234,19 +235,7 @@ fn start_consensus(
 		reinitialize: false,
 		max_pov_percentage: None,
 	};
-	let fut = aura::run::<
-		Block,
-		sp_consensus_aura::sr25519::AuthorityPair,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-	>(params);
+	let fut = aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _, _, _>(params);
 	task_manager
 		.spawn_essential_handle()
 		.spawn("aura", None, fut);
