@@ -73,7 +73,7 @@ pub fn sign_file(
 	// Compute signer fingerprint (SHA-256 of the raw PEM bytes for consistency)
 	let signer_fingerprint = hex::encode(Sha256::digest(&cert_pem));
 
-	// Build C2PA manifest definition as JSON
+	// Manifest definition adhering to C2PA specification + Gono extensions
 	let manifest_json = serde_json::json!({
 		"claim_generator": "Gono Protocol/0.1.0",
 		"assertions": [
@@ -100,8 +100,15 @@ pub fn sign_file(
 		]
 	});
 
-	// Create builder from manifest JSON
-	let mut builder = Builder::from_context(C2paContext::default())
+	// Create builder with trust anchor context configured for the certificate
+	let cert_pem_str = String::from_utf8_lossy(&cert_pem).to_string();
+	let context = c2pa::settings::Settings::new()
+		.with_value("trust.trust_anchors", cert_pem_str)
+		.ok()
+		.and_then(|s| C2paContext::new().with_settings(s).ok())
+		.unwrap_or_default();
+
+	let mut builder = Builder::from_context(context)
 		.with_definition(manifest_json.to_string())
 		.context("Failed to create C2PA builder")?;
 
@@ -125,10 +132,23 @@ pub fn sign_file(
 		other => anyhow::bail!("Unsupported file format: .{other}"),
 	};
 
-	// Create a signer from the PEM certificate and key
-	let signer =
-		c2pa::create_signer::from_keys(&cert_pem, &key_pem, c2pa::SigningAlg::Ed25519, None)
-			.context("Failed to create C2PA signer from PEM keys")?;
+	// Detect algorithm from key PEM header/content (defaulting to Es256, with Ed25519 fallback)
+	let key_str = String::from_utf8_lossy(&key_pem);
+	let alg = if key_str.contains("ED25519") || key_str.contains("Ed25519") {
+		c2pa::SigningAlg::Ed25519
+	} else {
+		c2pa::SigningAlg::Es256
+	};
+
+	let signer = c2pa::create_signer::from_keys(&cert_pem, &key_pem, alg, None)
+		.or_else(|_| {
+			let fallback_alg = match alg {
+				c2pa::SigningAlg::Es256 => c2pa::SigningAlg::Ed25519,
+				_ => c2pa::SigningAlg::Es256,
+			};
+			c2pa::create_signer::from_keys(&cert_pem, &key_pem, fallback_alg, None)
+		})
+		.context("Failed to create C2PA signer from PEM keys")?;
 
 	// Use a temporary file in the destination directory to ensure atomic writing
 	// and automatic cleanup if signer creation or signing fails.
