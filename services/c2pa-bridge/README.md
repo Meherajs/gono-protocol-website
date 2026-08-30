@@ -47,7 +47,7 @@ cargo run -p gono-c2pa-bridge --bin gono-c2pa -- commit photo.jpg \
 
 ## 🔑 Generating Development Certificates
 
-Generate a self-signed Ed25519 or ECDSA certificate chain:
+Generate a self-signed Ed25519 certificate and private key:
 
 ```bash
 mkdir -p certs/dev

@@ -91,6 +91,11 @@ gono-protocol/
 │       ├── Cargo.toml
 │       └── src/                   # chain_spec.rs, cli.rs, command.rs, rpc.rs, service.rs
 │
+├── services/                      # ═══ Off-Chain Microservices ═══
+│   └── c2pa-bridge/              # C2PA CLI & Bridge Service (`gono-c2pa-bridge`)
+│       ├── Cargo.toml
+│       └── src/                   # main.rs, sign.rs, verify.rs, ipfs.rs, commit.rs
+│
 ├── backend/                       # ═══ REST API Service ═══
 │   ├── Cargo.toml                 # Standalone crate (NOT in workspace)
 │   └── src/main.rs                # Actix-web API server
@@ -108,17 +113,19 @@ gono-protocol/
 ### Active Members (compile & test)
 ```toml
 members = [
+    "chain/node",
     "chain/runtime",
     "pallets/store",
     "pallets/verify",
     "pallets/privacy",
     "pallets/x402",
     "pallets/kleros-bridge",
+    "services/c2pa-bridge",
 ]
 ```
 
 ### Excluded Members
-- `"chain/node"` — to be updated with collator configuration for `gono-runtime`.
+- None.
 
 ---
 
@@ -189,7 +196,7 @@ cargo fmt --all -- --check
 # 2. Run Clippy static analysis with zero warnings tolerated
 SKIP_WASM_BUILD=1 cargo clippy --workspace --all-targets --locked -- -D warnings
 
-# 3. Run all 81 unit & integration tests with locked dependencies
+# 3. Run all 85 unit & integration tests with locked dependencies
 SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo test --workspace --locked --target-dir target-ci
 
 # 4. Verify Parachain Runtime release build

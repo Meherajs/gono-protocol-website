@@ -102,10 +102,10 @@ gono-protocol/
 
 ```bash
 # Run all 85 unit & integration tests across all workspace crates
-$env:SKIP_WASM_BUILD="1"; $env:CARGO_INCREMENTAL="0"; cargo test --workspace --target-dir target-ci
+SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo test --workspace --target-dir target-ci
 
 # Check workspace type alignment
-$env:SKIP_WASM_BUILD="1"; $env:CARGO_INCREMENTAL="0"; cargo check --workspace --target-dir target-ci
+SKIP_WASM_BUILD=1 CARGO_INCREMENTAL=0 cargo check --workspace --target-dir target-ci
 ```
 
 ### Running Individual Pallet and Service Tests
