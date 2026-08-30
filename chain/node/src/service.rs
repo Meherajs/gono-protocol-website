@@ -25,10 +25,7 @@ use cumulus_client_service::{
 	StartRelayChainTasksParams,
 };
 #[docify::export(cumulus_primitives)]
-use cumulus_primitives_core::{
-	relay_chain::CollatorPair,
-	GetParachainInfo, ParaId,
-};
+use cumulus_primitives_core::{relay_chain::CollatorPair, GetParachainInfo, ParaId};
 use cumulus_relay_chain_interface::{OverseerHandle, RelayChainInterface};
 
 // Substrate Imports
@@ -226,7 +223,8 @@ fn start_consensus(
 		authoring_duration: Duration::from_millis(2000),
 		collation_request_receiver: None,
 	};
-	let fut = aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _>(params);
+	let fut =
+		aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _>(params);
 	task_manager
 		.spawn_essential_handle()
 		.spawn("aura", None, fut);
@@ -302,6 +300,7 @@ pub async fn start_parachain_node(
 			transaction_pool: transaction_pool.clone(),
 			para_id,
 			spawn_handle: task_manager.spawn_handle(),
+			spawn_essential_handle: task_manager.spawn_essential_handle(),
 			relay_chain_interface: relay_chain_interface.clone(),
 			import_queue: params.import_queue,
 			sybil_resistance_level: CollatorSybilResistance::Resistant, // because of Aura
