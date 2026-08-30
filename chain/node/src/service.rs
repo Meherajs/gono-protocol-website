@@ -26,7 +26,7 @@ use cumulus_client_service::{
 };
 #[docify::export(cumulus_primitives)]
 use cumulus_primitives_core::{
-	relay_chain::{CollatorPair, ValidationCode},
+	relay_chain::CollatorPair,
 	GetParachainInfo, ParaId,
 };
 use cumulus_relay_chain_interface::{OverseerHandle, RelayChainInterface};
@@ -182,7 +182,6 @@ fn build_import_queue(
 #[allow(clippy::too_many_arguments)]
 fn start_consensus(
 	client: Arc<ParachainClient>,
-	backend: Arc<ParachainBackend>,
 	block_import: ParachainBlockImport,
 	prometheus_registry: Option<&Registry>,
 	telemetry: Option<TelemetryHandle>,
@@ -215,14 +214,7 @@ fn start_consensus(
 		create_inherent_data_providers: move |_, ()| async move { Ok(()) },
 		block_import,
 		para_client: client.clone(),
-		para_backend: backend,
 		relay_client: relay_chain_interface,
-		code_hash_provider: move |block_hash| {
-			client
-				.code_at(block_hash)
-				.ok()
-				.map(|c| ValidationCode::from(c).hash())
-		},
 		keystore,
 		collator_key,
 		collator_peer_id,
@@ -232,10 +224,9 @@ fn start_consensus(
 		proposer,
 		collator_service,
 		authoring_duration: Duration::from_millis(2000),
-		reinitialize: false,
-		max_pov_percentage: None,
+		collation_request_receiver: None,
 	};
-	let fut = aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _, _, _>(params);
+	let fut = aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _>(params);
 	task_manager
 		.spawn_essential_handle()
 		.spawn("aura", None, fut);
@@ -452,7 +443,6 @@ pub async fn start_parachain_node(
 	if validator {
 		start_consensus(
 			client.clone(),
-			backend,
 			block_import,
 			prometheus_registry.as_ref(),
 			telemetry.as_ref().map(|t| t.handle()),
