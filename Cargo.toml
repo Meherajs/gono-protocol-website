@@ -9,6 +9,7 @@ repository = "https://github.com/gono-protocol"
 [workspace]
 resolver = "2"
 members = [
+    "chain/node",
     "chain/runtime",
     "pallets/store",
     "pallets/verify",
@@ -17,9 +18,7 @@ members = [
     "pallets/kleros-bridge",
     "services/c2pa-bridge",
 ]
-exclude = [
-    "chain/node",
-]
+# exclude = ["chain/node"]
 
 [workspace.lints.rust]
 suspicious_double_ref_op = { level = "allow", priority = 2 }

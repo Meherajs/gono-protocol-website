@@ -16,8 +16,8 @@ use polkadot_sdk::{cumulus_client_service::ParachainTracingExecuteBlock, *};
 use cumulus_client_bootnodes::{start_bootnode_tasks, StartBootnodeTasksParams};
 use cumulus_client_cli::CollatorOptions;
 use cumulus_client_collator::service::CollatorService;
-#[docify::export(lookahead_collator)]
-use cumulus_client_consensus_aura::collators::lookahead::{self as aura, Params as AuraParams};
+#[docify::export(basic_collator)]
+use cumulus_client_consensus_aura::collators::basic::{self as aura, Params as AuraParams};
 use cumulus_client_consensus_common::ParachainBlockImport as TParachainBlockImport;
 use cumulus_client_service::{
 	build_network, build_relay_chain_interface, prepare_node_config, start_relay_chain_tasks,
@@ -25,10 +25,7 @@ use cumulus_client_service::{
 	StartRelayChainTasksParams,
 };
 #[docify::export(cumulus_primitives)]
-use cumulus_primitives_core::{
-	relay_chain::{CollatorPair, ValidationCode},
-	GetParachainInfo, ParaId,
-};
+use cumulus_primitives_core::{relay_chain::CollatorPair, GetParachainInfo, ParaId};
 use cumulus_relay_chain_interface::{OverseerHandle, RelayChainInterface};
 
 // Substrate Imports
@@ -106,6 +103,7 @@ pub fn new_partial(config: &Configuration) -> Result<Service, sc_service::Error>
 			telemetry.as_ref().map(|(_, telemetry)| telemetry.handle()),
 			executor,
 			true,
+			Default::default(),
 		)?;
 	let client = Arc::new(client);
 
@@ -181,7 +179,6 @@ fn build_import_queue(
 #[allow(clippy::too_many_arguments)]
 fn start_consensus(
 	client: Arc<ParachainClient>,
-	backend: Arc<ParachainBackend>,
 	block_import: ParachainBlockImport,
 	prometheus_registry: Option<&Registry>,
 	telemetry: Option<TelemetryHandle>,
@@ -214,14 +211,7 @@ fn start_consensus(
 		create_inherent_data_providers: move |_, ()| async move { Ok(()) },
 		block_import,
 		para_client: client.clone(),
-		para_backend: backend,
 		relay_client: relay_chain_interface,
-		code_hash_provider: move |block_hash| {
-			client
-				.code_at(block_hash)
-				.ok()
-				.map(|c| ValidationCode::from(c).hash())
-		},
 		keystore,
 		collator_key,
 		collator_peer_id,
@@ -231,22 +221,10 @@ fn start_consensus(
 		proposer,
 		collator_service,
 		authoring_duration: Duration::from_millis(2000),
-		reinitialize: false,
-		max_pov_percentage: None,
+		collation_request_receiver: None,
 	};
-	let fut = aura::run::<
-		Block,
-		sp_consensus_aura::sr25519::AuthorityPair,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-		_,
-	>(params);
+	let fut =
+		aura::run::<Block, sp_consensus_aura::sr25519::AuthorityPair, _, _, _, _, _, _>(params);
 	task_manager
 		.spawn_essential_handle()
 		.spawn("aura", None, fut);
@@ -322,6 +300,7 @@ pub async fn start_parachain_node(
 			transaction_pool: transaction_pool.clone(),
 			para_id,
 			spawn_handle: task_manager.spawn_handle(),
+			spawn_essential_handle: task_manager.spawn_essential_handle(),
 			relay_chain_interface: relay_chain_interface.clone(),
 			import_queue: params.import_queue,
 			sybil_resistance_level: CollatorSybilResistance::Resistant, // because of Aura
@@ -463,7 +442,6 @@ pub async fn start_parachain_node(
 	if validator {
 		start_consensus(
 			client.clone(),
-			backend,
 			block_import,
 			prometheus_registry.as_ref(),
 			telemetry.as_ref().map(|t| t.handle()),
